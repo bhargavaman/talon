@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import subprocess
 import threading
@@ -20,7 +20,6 @@ def run_powershell_script(
     allow_continue_on_fail: bool = False,
 ) -> int:
     if not os.path.isabs(script):
-        # Prefer embedded scripts bundled with the app, fallback to temp download location
         if getattr(sys, 'frozen', False):
             base_path = os.path.dirname(sys.executable)
         else:

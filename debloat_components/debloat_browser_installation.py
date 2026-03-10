@@ -1,25 +1,9 @@
-import os
+﻿import os
 import sys
-import json
-import tempfile
 import subprocess
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
 from utilities.util_powershell_handler import run_powershell_command
-
-
-
-def load_choice() -> str:
-	temp_dir = os.environ.get('TEMP', tempfile.gettempdir())
-	choice_file = os.path.join(temp_dir, 'talon', 'browser_choice.json')
-	if not os.path.exists(choice_file):
-		raise FileNotFoundError(f"Browser choice file not found: {choice_file}")
-	with open(choice_file, 'r') as f:
-		data = json.load(f)
-	browser = data.get('browser')
-	if not browser:
-		raise ValueError(f"No 'browser' key in {choice_file}")
-	return browser
 
 
 
@@ -112,12 +96,7 @@ def _install_choco_package(pkg_id: str, display_name: str):
 
 
 def install_vcredist():
-	# Some people may say see this and say "why is a DEBLOATER installing BLOAT!?"
-	# This step is necessary to install dependencies that a very, very large amount of
-	# modern programs rely on. For example, Waterfox. These dependencies cannot reasonably
-	# be considered "bloat" as bloat is unnecessary, while these dependencies, a very large
-	# amount of the time, are necessary.
-	_install_choco_package("vcredist140", "Microsoft Visual C++ 2015–2022 Redistributable")
+	_install_choco_package("vcredist140", "Microsoft Visual C++ 2015â€“2022 Redistributable")
 
 
 
@@ -126,13 +105,15 @@ def install_browser(pkg_id: str):
 
 
 
-def main():
+def main(selected_browser_package=None):
 	try:
-		pkg_id = load_choice()
+		pkg_id = str(selected_browser_package or "").strip()
+		if not pkg_id:
+			raise ValueError("No browser package was provided by the runner metadata.")
 		logger.info(f"Browser selected: {pkg_id}")
 	except Exception as e:
-		logger.error(f"Error reading browser choice: {e}")
-		show_error_popup(f"Internal error reading browser choice:\n{e}", allow_continue=False)
+		logger.error(f"Error reading browser choice metadata: {e}")
+		show_error_popup(f"Internal error reading browser choice metadata:\n{e}", allow_continue=False)
 		sys.exit(1)
 	ensure_chocolatey()
 	install_vcredist()

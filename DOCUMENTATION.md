@@ -88,7 +88,7 @@ This section delves further in-depth into how Talon / Talon Lite work and what e
 | `--skip-registry-tweaks`          |   X   |     X      | Skips the Registry Tweaks step. |
 | `--skip-configure-updates`        |   X   |     X      | Skips the Configure Updates step. |
 | `--skip-apply-background`         |   X   |     X      | Skips the Apply Background step. |
-| `--developer-mode`                |   X   |     X      | Run without the installing overlay (still shows the browser selection and donation consideration screens). |
+| `--developer-mode`                |   X   |     X      | Run without the installing overlay. |
 | `--headless`                      |   X   |            | Run unattended (no UI, no prompts, skip browser install, runs offline, no restart). |
 | `--config [path\|url]`            |   X   |            | Pass a custom config file to use instead of the default Talon configuration. If you pass a URL, an internet connection will be required. |
 

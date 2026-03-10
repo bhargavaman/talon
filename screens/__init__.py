@@ -1,4 +1,4 @@
-# So, I have a confession to make, I was working on Talon and
+﻿# So, I have a confession to make, I was working on Talon and
 # kept coming across a "failed to import module 'screens'". I
 # ran out of ideas so I made this __init__.py file and it for
 # some reason worked.

@@ -4,14 +4,16 @@ import ctypes
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
 
-def main():
+
+def main(applied_background_path=None):
     if getattr(sys, 'frozen', False):
         base_path = os.path.dirname(sys.executable)
     else:
         components_dir = os.path.dirname(os.path.abspath(__file__))
         base_path = os.path.dirname(components_dir)
     media_dir = os.path.join(base_path, 'media')
-    wallpaper_path = os.path.join(media_dir, 'desktop_background.png')
+    custom_path = str(applied_background_path or "").strip()
+    wallpaper_path = os.path.abspath(custom_path) if custom_path else os.path.join(media_dir, 'desktop_background.png')
     logger.info(f"Setting desktop background: {wallpaper_path}")
     if not os.path.exists(wallpaper_path):
         msg = f"Wallpaper file not found: {wallpaper_path}"

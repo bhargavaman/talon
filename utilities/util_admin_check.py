@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import ctypes
 from utilities.util_logger import logger
@@ -25,15 +25,14 @@ def run_as_admin():
         params = ' '.join([f'"{script}"'] + [f'"{arg}"' for arg in sys.argv[1:]])
     cwd = os.getcwd()
     logger.info(f"Elevating: {executable} {params}")
-    # SW_SHOWNORMAL = 1
     try:
         ctypes.windll.shell32.ShellExecuteW(
-            None,                       # hwnd
-            "runas",                    # verb
-            executable,                 # file
-            params,                     # parameters
-            cwd,                        # directory
-            1                           # show cmd window normally
+            None,
+            "runas",
+            executable,
+            params,
+            cwd,
+            1
         )
     except Exception as e:
         logger.exception("Failed to relaunch with admin privileges")

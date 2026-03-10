@@ -8,7 +8,7 @@ from utilities.util_load_font import load_font
 
 class UIBaseFull:
     def __init__(self):
-        load_font("chakra_petch_regular.ttf")
+        load_font("inter_regular.ttf")
         self._create_overlays()
 
     def _create_overlays(self):

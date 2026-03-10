@@ -7,7 +7,7 @@ from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
 
 
-def ensure_internet(max_attempts: int = 3, url: str = "https://ravendevteam.org", timeout: int = 5, allow_continue: bool = False,) -> bool:
+def has_internet(max_attempts: int = 3, url: str = "https://raventechnologiesgroup.com", timeout: int = 5) -> bool:
     ssl_ctx = ssl.create_default_context(cafile=certifi.where())
     for attempt in range(1, max_attempts + 1):
         try:
@@ -23,6 +23,12 @@ def ensure_internet(max_attempts: int = 3, url: str = "https://ravendevteam.org"
             logger.warning(f"Internet check failed: {e}")
             if attempt < max_attempts:
                 time.sleep(1)
+    return False
+
+
+def ensure_internet(max_attempts: int = 3, url: str = "https://raventechnologiesgroup.com", timeout: int = 5, allow_continue: bool = False,) -> bool:
+    if has_internet(max_attempts=max_attempts, url=url, timeout=timeout):
+        return True
     if allow_continue:
         show_error_popup(
             "No internet connection detected.\n\n"

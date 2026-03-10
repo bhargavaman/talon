@@ -8,7 +8,7 @@ from utilities.util_load_font import load_font
 class UIHeaderText(QLabel):
 
     def __init__(self, text: str, parent=None, top_margin: int = 180, font_size: int = 24, follow_parent_resize: bool = True):
-        base_font = load_font("chakra_petch_regular.ttf")
+        base_font = load_font("inter_regular.ttf")
         super().__init__(text, parent)
         family = base_font.family()
         font = QFont(family, font_size, QFont.Normal)
