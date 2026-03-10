@@ -2,6 +2,9 @@
 # Talon Documentation
 This documentation aims to explain exactly what Talon and Talon Lite do, and how, for both non-tech savvy users and tech savvy users to understand the utility.
 
+> [!NOTE]
+> This documentation is for **version 2.1.0**. This documentation typically takes a few days to update when a new release comes out.
+
 Talon is our flagship software utility which makes the process of 'debloating' Windows as easy as 2 clicks on new, freshly installed Windows 11 Home or Professional systems only. Completely disables and removes AI, spying and telemetry, disables pointless processes running in the background and other useless Microsoft nonsense, and optimizes your system for better performance. Talon Lite is a variant which works on Windows 10, already in-use systems, or versions of Windows 11 that are not Home or Professional by skipping some changes made by the full version of Talon that are tailored for Windows 11 Home and Professional.
 
 ## Table of Contents
