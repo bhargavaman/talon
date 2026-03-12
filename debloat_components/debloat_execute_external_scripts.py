@@ -3,6 +3,7 @@ import sys
 import json
 import ssl
 import tempfile
+import glob
 import urllib.request
 import urllib.parse
 from utilities.util_logger import logger
@@ -297,9 +298,12 @@ def run_win11debloat(config_path=None):
     if win11debloat_args is None:
         win11debloat_args = list(_DEFAULT_WIN11DEBLOAT_ARGS)
 
-    win11debloat_path = os.path.join(
-        base_path, "external_scripts", "Raphire-Win11Debloat-c523386", "Win11Debloat.ps1"
+    win11debloat_path = ""
+    candidates = sorted(
+        glob.glob(os.path.join(base_path, "external_scripts", "Raphire-Win11Debloat-*", "Win11Debloat.ps1"))
     )
+    if candidates:
+        win11debloat_path = candidates[-1]
     if not os.path.exists(win11debloat_path):
         logger.error(f"Bundled Win11Debloat script not found: {win11debloat_path}")
         try:

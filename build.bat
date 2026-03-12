@@ -1,13 +1,9 @@
 @echo off
 set FileVersion=1.0.0.4
 set ProductVersion=3.0.0.0
-
-:: Talon relies on ChrisTitusTech's WinUtil and Raphi's Win11Debloat scripts for a heavy chunk of the
-:: debloating process. Before, Talon would download then execute these during the debloating process,
-:: but to make Talon fully offline-capable, it now downloads them at build time then bundles them
-:: inside the produced executable.
 set "ROOT=%~dp0"
 set "SCRIPT_BUNDLE_DIR=%ROOT%external_scripts"
+
 if exist "%SCRIPT_BUNDLE_DIR%" rd /s /q "%SCRIPT_BUNDLE_DIR%"
 mkdir "%SCRIPT_BUNDLE_DIR%"
 
