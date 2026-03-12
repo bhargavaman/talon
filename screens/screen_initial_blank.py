@@ -119,7 +119,6 @@ _DEFAULT_WINUTIL_CONFIG = {
         "WPFTweaksWPBT",
         "WPFTweaksWidget",
         "WPFTweaksServices",
-        "WPFTweaksDeleteTempFiles",
         "WPFTweaksDisableExplorerAutoDiscovery",
         "WPFTweaksDisplay",
         "WPFTweaksRightClickMenu",
@@ -156,7 +155,16 @@ _DEFAULT_WIN11DEBLOAT_ARGS = [
     "-DisableSettingsHome",
     "-DisablePaintAI",
     "-DisableNotepadAI",
+    "-DisableEdgeAI",
     "-DisableStickyKeys",
+    "-DisableEdgeAds",
+    "-DisableBraveBloat",
+    "-DisableRecall",
+    "-DisableAISvcAutoStart",
+    "-DisableClickToDo",
+    "-DisableSnapLayouts",
+    "-DisableSearchHistory",
+    "-DisableDeliveryOptimization",
 ]
 
 _INSTALL_PLAN_VERSION = 1

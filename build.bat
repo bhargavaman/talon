@@ -1,6 +1,6 @@
 @echo off
-set FileVersion=1.0.0.19
-set ProductVersion=2.1.0.0
+set FileVersion=1.0.0.4
+set ProductVersion=3.0.0.0
 
 :: Talon relies on ChrisTitusTech's WinUtil and Raphi's Win11Debloat scripts for a heavy chunk of the
 :: debloating process. Before, Talon would download then execute these during the debloating process,
@@ -14,7 +14,7 @@ mkdir "%SCRIPT_BUNDLE_DIR%"
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
 	"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; " ^
 	"$u1 = 'https://christitus.com/win'; " ^
-	"$u2 = 'https://api.github.com/repos/Raphire/Win11Debloat/zipball/2025.09.27'; " ^
+	"$u2 = 'https://api.github.com/repos/Raphire/Win11Debloat/zipball/2026.03.09'; " ^
 	"$o1 = Join-Path '%SCRIPT_BUNDLE_DIR%' 'winutil.ps1'; " ^
 	"$zip2 = Join-Path '%SCRIPT_BUNDLE_DIR%' 'win11debloat.zip'; " ^
 	"Invoke-WebRequest -Uri $u1 -OutFile $o1 -UseBasicParsing; " ^
@@ -25,4 +25,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command ^
 	"$patched = [regex]::Replace($c,'(?ms)^\s*Write-Host ""Installing features\.\.\.""\s*.*?Write-Host ""Done\.""','Write-Host ""Features installation skipped""' + [Environment]::NewLine); " ^
 	"Set-Content -LiteralPath $o1 -Value $patched -Encoding UTF8;"
 
-python -m nuitka --onefile --standalone --enable-plugins=pyqt5 --remove-output --windows-console-mode=disable --windows-uac-admin --output-dir=dist --output-filename=Talon.exe --follow-imports --windows-icon-from-ico=media\ICON.ico --include-data-dir=configs=configs --include-data-dir=media=media --include-data-dir=debloat_raven_scripts=debloat_raven_scripts --include-data-dir=external_scripts=external_scripts --include-package=screens --product-name="Talon" --company-name="Raven Development Team" --file-description="Simple utility to debloat Windows in 2 clicks." --file-version=%FileVersion% --product-version=%ProductVersion% --copyright="Copyright (c) 2025 Raven Development Team" --onefile-tempdir-spec="{CACHE_DIR}\RavenDevelopmentTeam\Talon\{VERSION}" talon.py
+python -m nuitka --standalone --enable-plugins=pyqt5 --include-qt-plugins=qml --remove-output --windows-disable-console --windows-uac-admin --output-dir=dist --output-filename=Talon.exe --follow-imports --windows-icon-from-ico=media\ICON.ico --include-data-dir=media=media --include-data-dir=ui=ui --include-data-dir=debloat_raven_scripts=debloat_raven_scripts --include-data-dir=external_scripts=external_scripts --include-package=screens --product-name="Talon" --company-name="Raven Technologies Group" --file-description="Simple utility to debloat Windows in 2 clicks." --file-version=%FileVersion% --product-version=%ProductVersion% --copyright="Copyright (c) 2026 Raven Technologies Group LLC" talon.py
+pause

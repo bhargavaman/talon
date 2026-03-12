@@ -9,29 +9,26 @@ from utilities.util_logger import logger
 from utilities.util_powershell_handler import run_powershell_command
 from utilities.util_error_popup import show_error_popup
 
-_DEFAULT_WINUTIL_CONFIG = {
-    "WPFTweaks": [
-        "WPFTweaksActivity",
-        "WPFTweaksConsumerFeatures",
-        "WPFTweaksDisableBGapps",
-        "WPFTweaksLocation",
-        "WPFTweaksTelemetry",
-        "WPFTweaksWPBT",
-        "WPFTweaksWidget",
-        "WPFTweaksServices",
-        "WPFTweaksDeleteTempFiles",
-        "WPFTweaksDisableExplorerAutoDiscovery",
-        "WPFTweaksDisplay",
-        "WPFTweaksRightClickMenu",
-        "WPFTweaksRevertStartMenu",
-        "WPFTweaksRemoveOneDrive",
-        "WPFTweaksXboxRemoval",
-        "WPFTweaksRemoveHome",
-        "WPFTweaksRemoveGallery",
-        "WPFTweaksDeBloat",
-        "WPFTweaksRemoveCopilot",
-    ]
-}
+_DEFAULT_WINUTIL_CONFIG = [
+    "WPFTweaksActivity",
+    "WPFTweaksConsumerFeatures",
+    "WPFTweaksDisableBGapps",
+    "WPFTweaksLocation",
+    "WPFTweaksTelemetry",
+    "WPFTweaksWPBT",
+    "WPFTweaksWidget",
+    "WPFTweaksServices",
+    "WPFTweaksDisableExplorerAutoDiscovery",
+    "WPFTweaksDisplay",
+    "WPFTweaksRightClickMenu",
+    "WPFTweaksRevertStartMenu",
+    "WPFTweaksRemoveOneDrive",
+    "WPFTweaksXboxRemoval",
+    "WPFTweaksRemoveHome",
+    "WPFTweaksRemoveGallery",
+    "WPFTweaksDeBloat",
+    "WPFTweaksRemoveCopilot",
+]
 
 _DEFAULT_WIN11DEBLOAT_ARGS = [
     "-Silent",
@@ -107,7 +104,7 @@ def _load_json_config(path: str, label: str):
         sys.exit(1)
 
 
-def _write_temp_config(data: dict, prefix: str) -> str:
+def _write_temp_config(data, prefix: str) -> str:
     fd, tmp_path = tempfile.mkstemp(prefix=prefix, suffix=".json")
     with os.fdopen(fd, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
@@ -115,30 +112,49 @@ def _write_temp_config(data: dict, prefix: str) -> str:
     return tmp_path
 
 
+def _normalize_winutil_tweaks(value):
+    if isinstance(value, list):
+        cleaned = []
+        seen = set()
+        for item in value:
+            if not isinstance(item, str):
+                continue
+            name = item.strip()
+            if not name or name in seen:
+                continue
+            seen.add(name)
+            cleaned.append(name)
+        return cleaned if cleaned else None
+    if isinstance(value, dict):
+        if "WinUtil" in value:
+            return _normalize_winutil_tweaks(value.get("WinUtil"))
+        if isinstance(value.get("WPFTweaks"), list):
+            return _normalize_winutil_tweaks(value.get("WPFTweaks"))
+    return None
+
+
 def _extract_winutil_config(data):
+    if isinstance(data, list):
+        return _normalize_winutil_tweaks(data)
     if not isinstance(data, dict):
         return None
     if "winutil_config" in data:
         value = data.get("winutil_config")
         if isinstance(value, dict) and "payload" in value:
             value = value.get("payload")
-        if isinstance(value, dict) and "WinUtil" in value and isinstance(value["WinUtil"], dict):
-            return value["WinUtil"]
-        if isinstance(value, dict):
-            return value
-        logger.warning("install_plan winutil_config is not an object; ignoring.")
-        return None
+        normalized = _normalize_winutil_tweaks(value)
+        if normalized is None:
+            logger.warning("install_plan winutil_config is not in a supported format; ignoring.")
+        return normalized
     if "WinUtil" in data:
-        if isinstance(data["WinUtil"], dict):
-            return data["WinUtil"]
-        logger.warning("WinUtil config is not an object; ignoring.")
-        return None
+        normalized = _normalize_winutil_tweaks(data.get("WinUtil"))
+        if normalized is None:
+            logger.warning("WinUtil config is not in a supported format; ignoring.")
+        return normalized
     if "Win11Debloat" in data:
         winutil_data = {key: value for key, value in data.items() if key != "Win11Debloat"}
-        if winutil_data:
-            return winutil_data
-        return None
-    return data
+        return _normalize_winutil_tweaks(winutil_data)
+    return _normalize_winutil_tweaks(data)
 
 
 def _extract_win11debloat_args(data):

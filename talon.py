@@ -219,7 +219,7 @@ def _execution_config_path(args, plan: dict):
 		return args.config, False
 	try:
 		winutil_cfg = plan.get("winutil_config")
-		if not isinstance(winutil_cfg, dict):
+		if not isinstance(winutil_cfg, (dict, list)):
 			return None, False
 		raw_args = str(plan.get("win11debloat_args", "")).strip()
 		win11_args = [part for part in raw_args.split() if part]
