@@ -1,5 +1,5 @@
 @echo off
-set FileVersion=1.0.0.6
+set FileVersion=1.0.0.7
 set ProductVersion=3.0.0.0
 set "ROOT=%~dp0"
 set "SCRIPT_BUNDLE_DIR=%ROOT%external_scripts"
