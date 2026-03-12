@@ -3,6 +3,9 @@
 
 Simple but powerful tool to debloat Windows in 2 clicks, removing embedded AI, decreasing resource usage, and making your system feel snappier.
 
+Documentation is available [here](https://github.com/ravendevteam/talon/blob/main/DOCUMENTATION.md).
+
+
 ## Installation
 You can download the latest version of Talon from [here](https://raventechnologiesgroup.com/explore#talon). If you run into issues with Windows Defender while running Talon, like Talon suddenly disappearing as you're running it, try disabling Real Time Protection in Windows Defender.
 
