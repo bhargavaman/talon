@@ -1,5 +1,4 @@
 import os
-import ctypes
 import subprocess
 import sys
 import threading
@@ -291,34 +290,15 @@ def _update_status(bus, label: UIHeaderText, message: str):
 	bus.set_msg.emit(message)
 	bus.raiseit.emit()
 
-def _enable_shutdown_privilege():
-	advapi32 = ctypes.windll.advapi32
-	kernel32 = ctypes.windll.kernel32
-	token = ctypes.c_void_p()
-	if not advapi32.OpenProcessToken(kernel32.GetCurrentProcess(), 0x0020 | 0x0008, ctypes.byref(token)):
-		raise ctypes.WinError()
-	try:
-		luid = ctypes.c_longlong()
-		if not advapi32.LookupPrivilegeValueW(None, "SeShutdownPrivilege", ctypes.byref(luid)):
-			raise ctypes.WinError()
-		class LUID_AND_ATTRIBUTES(ctypes.Structure):
-			_fields_ = [("Luid", ctypes.c_longlong), ("Attributes", ctypes.c_ulong)]
-		class TOKEN_PRIVILEGES(ctypes.Structure):
-			_fields_ = [("PrivilegeCount", ctypes.c_ulong), ("Privileges", LUID_AND_ATTRIBUTES * 1)]
-		tp = TOKEN_PRIVILEGES()
-		tp.PrivilegeCount = 1
-		tp.Privileges[0].Luid = luid.value
-		tp.Privileges[0].Attributes = 0x00000002
-		if not advapi32.AdjustTokenPrivileges(token, False, ctypes.byref(tp), 0, None, None):
-			raise ctypes.WinError()
-	finally:
-		kernel32.CloseHandle(token)
-
 def _restart_windows():
-	_enable_shutdown_privilege()
-	user32 = ctypes.windll.user32
-	if not user32.ExitWindowsEx(0x00000002, 0x80000000):
-		raise ctypes.WinError()
+	result = subprocess.run(
+		["shutdown", "/r", "/t", "0", "/f"],
+		check=False,
+		stdout=subprocess.DEVNULL,
+		stderr=subprocess.DEVNULL,
+	)
+	if result.returncode != 0:
+		raise RuntimeError(f"shutdown.exe failed with exit code {result.returncode}")
 
 def main(argv=None):
 	raw_args = sys.argv[1:] if argv is None else list(argv)
