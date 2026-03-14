@@ -17,7 +17,7 @@ This repository is maintained as a read-only source mirror. We do not accept Git
 
 Well-documented submissions help us review requests more quickly. Due to the volume of submissions, we cannot guarantee individual responses. All submissions are reviewed by the maintainers. If a request is accepted, it will be implemented internally and included in a future update to the repository.
 
-## Contributors
+## Contributors (Legacy)
 
 > [!NOTE]
 > This list of contributors is for historical and archival purposes and will not be updated going forward, as we no longer use GitHub Issues or Pull Requests.
