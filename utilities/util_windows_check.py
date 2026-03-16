@@ -24,7 +24,7 @@ def check_windows_11_home_or_pro() -> str:
     if sys.platform != "win32":
         show_error_popup(
             "Unsupported OS detected.\n"
-            "This tool requires Windows 11 Home or Professional.",
+            "This tool requires Windows 11.",
             allow_continue=False
         )
     try:
@@ -34,7 +34,7 @@ def check_windows_11_home_or_pro() -> str:
     except Exception:
         show_error_popup(
             "Failed to determine Windows version.\n"
-            "This tool requires Windows 11 Home or Professional.",
+            "This tool requires Windows 11.",
             allow_continue=False
         )
     is_win11 = (
@@ -45,22 +45,11 @@ def check_windows_11_home_or_pro() -> str:
         show_error_popup(
             f"Incompatible Windows version detected:\n"
             f"  {product_name} (build {build_num})\n"
-            "This tool requires Windows 11 Home or Professional.",
+            "This tool requires Windows 11.",
             allow_continue=False
         )
-    if "Home" in product_name:
-        edition = "Home"
-    elif "Professional" in product_name or "Pro" in product_name or "Enterprise" in product_name:
-        edition = "Professional"
-    else:
-        show_error_popup(
-            f"Unsupported Windows 11 edition detected:\n"
-            f"  {product_name}\n"
-            "Only Home or Professional editions are supported.",
-            allow_continue=False
-        )
-    logger.info(f"Detected OS: {product_name} (build {build_num}); edition: {edition}")
-    return edition
+    logger.info(f"Detected OS: {product_name} (build {build_num})")
+    return product_name
 
 
 
