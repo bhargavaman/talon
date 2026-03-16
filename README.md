@@ -10,13 +10,17 @@ Documentation is available [here](https://github.com/ravendevteam/talon/blob/mai
 You can download the latest version of Talon from [here](https://raventechnologiesgroup.com/explore#talon). If you run into issues with Windows Defender while running Talon, like Talon suddenly disappearing as you're running it, try disabling Real Time Protection in Windows Defender.
 
 ## Compile From Source
-
 To compile from source, make sure you have Python 3.12.4, install the necessary libraries from `requirements.txt`, then run `build.bat`. **Please note that, when building from source, you are building the absolute latest version of the code (even newer than the most recent release)**!
 
-# Documentation
-Documentation is available [here](https://github.com/ravendevteam/talon/blob/main/DOCUMENTATION.md).
+## Contributing
+This repository is maintained as a read-only source mirror. We do not accept GitHub Issues or Pull Requests. If you would like to report a bug, request a feature or change, provide feedback, or suggest improvements, please submit your feedback through our [feedback form](https://raventechnologiesgroup.com/softwarefeedback).
 
-## Authors & Contributors
+Well-documented submissions help us review requests more quickly. Due to the volume of submissions, we cannot guarantee individual responses. All submissions are reviewed by the maintainers. If a request is accepted, it will be implemented internally and included in a future update to the repository.
+
+## Contributors (Legacy)
+
+> [!NOTE]
+> This list of contributors is for historical and archival purposes and will not be updated going forward, as we no longer use GitHub Issues or Pull Requests.
 
 - [Raven Development Team](https://ravendevteam.org/)
 - [Icons by Icons8](https://icons8.com/)
