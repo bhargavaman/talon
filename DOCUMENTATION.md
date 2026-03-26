@@ -1,5 +1,9 @@
 
 # Talon Documentation
+
+> [!WARNING]
+> **This documentation is outdated!** A paid bounty is available for helping us update this documentation for the newly released version of Talon. <a href="https://discord.com/invite/H7gdjZjVeH" target="_blank">Join the Discord server</a> for more information. 
+
 This documentation aims to explain exactly what Talon and Talon Lite do, and how, for both non-tech savvy users and tech savvy users to understand the utility.
 
 > [!NOTE]
