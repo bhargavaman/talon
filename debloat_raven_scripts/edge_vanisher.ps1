@@ -11,6 +11,49 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 	exit 1
 }
 
+$administratorsSid = "*S-1-5-32-544"
+
+function Remove-ShortcutByTarget {
+	param(
+		[string[]]$SearchRoots,
+		[string[]]$TargetPatterns
+	)
+
+	$wshShell = $null
+	try {
+		$wshShell = New-Object -ComObject WScript.Shell
+	}
+	catch {
+		return
+	}
+
+	foreach ($root in $SearchRoots) {
+		if (-not (Test-Path $root)) {
+			continue
+		}
+
+		Get-ChildItem -Path $root -Filter *.lnk -File -Recurse -ErrorAction SilentlyContinue | ForEach-Object {
+			try {
+				$shortcut = $wshShell.CreateShortcut($_.FullName)
+				$targetData = @(
+					$shortcut.TargetPath,
+					$shortcut.Arguments,
+					$shortcut.IconLocation,
+					$_.BaseName
+				) -join ' '
+
+				foreach ($pattern in $TargetPatterns) {
+					if ($targetData -like $pattern) {
+						Remove-Item -Path $_.FullName -Force -ErrorAction SilentlyContinue
+						break
+					}
+				}
+			}
+			catch {}
+		}
+	}
+}
+
 $edgeInstaller = Get-ChildItem -Path "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\*\Installer\setup.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
 if ($edgeInstaller) {
 	Start-Process $edgeInstaller.FullName -ArgumentList "--uninstall --system-level --force-uninstall --verbose-logging" -Wait
@@ -21,18 +64,26 @@ Get-Process | Where-Object { $_.Name -like "*edge*" } | Stop-Process -Force -Err
 $pathsToRemove = @(
 	"$env:LOCALAPPDATA\Microsoft\Edge",
 	"${env:ProgramFiles(x86)}\Microsoft\Edge",
-	"${env:ProgramFiles(x86)}\Microsoft\EdgeCore",
-	"$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk",
-	"$env:PUBLIC\Desktop\Microsoft Edge.lnk"
+	"${env:ProgramFiles(x86)}\Microsoft\EdgeCore"
 )
 
 foreach ($path in $pathsToRemove) {
 	if (Test-Path $path) {
 		takeown /F $path /R /D Y | Out-Null
-		icacls $path /grant Administrators:F /T | Out-Null
+		icacls $path /grant "${administratorsSid}:F" /T /C | Out-Null
 		Remove-Item -Path $path -Recurse -Force -ErrorAction SilentlyContinue
 	}
 }
+
+Remove-ShortcutByTarget -SearchRoots @(
+	"$env:ProgramData\Microsoft\Windows\Start Menu\Programs",
+	"$env:APPDATA\Microsoft\Windows\Start Menu\Programs",
+	"$env:PUBLIC\Desktop",
+	[Environment]::GetFolderPath('Desktop')
+) -TargetPatterns @(
+	"*msedge.exe*",
+	"*Microsoft Edge*"
+)
 
 $regKeys = @(
 	"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe",

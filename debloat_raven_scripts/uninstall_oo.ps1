@@ -18,6 +18,48 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 try {
     Set-ExecutionPolicy Bypass -Scope Process -Force
     $ErrorActionPreference = 'SilentlyContinue'
+    $administratorsSid = "*S-1-5-32-544"
+
+    function Remove-ShortcutByTarget {
+        param(
+            [string[]]$SearchRoots,
+            [string[]]$TargetPatterns
+        )
+
+        $wshShell = $null
+        try {
+            $wshShell = New-Object -ComObject WScript.Shell
+        }
+        catch {
+            return
+        }
+
+        foreach ($root in $SearchRoots) {
+            if (-not (Test-Path $root)) {
+                continue
+            }
+
+            Get-ChildItem -Path $root -Filter *.lnk -File -Recurse -ErrorAction SilentlyContinue | ForEach-Object {
+                try {
+                    $shortcut = $wshShell.CreateShortcut($_.FullName)
+                    $targetData = @(
+                        $shortcut.TargetPath,
+                        $shortcut.Arguments,
+                        $shortcut.IconLocation,
+                        $_.BaseName
+                    ) -join ' '
+
+                    foreach ($pattern in $TargetPatterns) {
+                        if ($targetData -like $pattern) {
+                            Remove-Item -Path $_.FullName -Force -ErrorAction SilentlyContinue
+                            break
+                        }
+                    }
+                }
+                catch {}
+            }
+        }
+    }
 
     # Close Outlook processes
     Get-Process | Where-Object { $_.ProcessName -like "*outlook*" } | Stop-Process -Force
@@ -35,26 +77,24 @@ try {
     foreach ($folder in $outlookFolders) {
         $folderPath = Join-Path $windowsAppsPath $folder.Name
         takeown /f $folderPath /r /d Y | Out-Null
-        icacls $folderPath /grant administrators:F /t | Out-Null
+        icacls $folderPath /grant "${administratorsSid}:F" /t /c | Out-Null
         Remove-Item -Path $folderPath -Recurse -Force
     }
 
     # Remove shortcuts
-    $shortcutPaths = @(
-        "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Outlook.lnk",
-        "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Outlook.lnk",
-        "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Outlook.lnk",
-        "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Outlook.lnk",
-        "$env:PUBLIC\Desktop\Outlook.lnk",
-        "$env:USERPROFILE\Desktop\Outlook.lnk",
-        "$env:PUBLIC\Desktop\Microsoft Outlook.lnk",
-        "$env:USERPROFILE\Desktop\Microsoft Outlook.lnk",
-        "$env:PUBLIC\Desktop\Outlook (New).lnk",
-        "$env:USERPROFILE\Desktop\Outlook (New).lnk",
-        "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Outlook (New).lnk",
-        "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Outlook (New).lnk"
+    $shortcutRoots = @(
+        "$env:ProgramData\Microsoft\Windows\Start Menu\Programs",
+        "$env:APPDATA\Microsoft\Windows\Start Menu\Programs",
+        "$env:PUBLIC\Desktop",
+        [Environment]::GetFolderPath('Desktop')
     )
-    $shortcutPaths | ForEach-Object { Remove-Item $_ -Force }
+
+    Remove-ShortcutByTarget -SearchRoots $shortcutRoots -TargetPatterns @(
+        "*OUTLOOK.EXE*",
+        "*Microsoft.Office.Outlook*",
+        "*Microsoft.OutlookForWindows*",
+        "*Outlook*"
+    )
 
     # Taskbar cleanup
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Value 0 -Type DWord -Force
@@ -84,11 +124,12 @@ try {
         & "$env:SystemRoot\System32\OneDriveSetup.exe" /uninstall
     }
 
+    Remove-ShortcutByTarget -SearchRoots $shortcutRoots -TargetPatterns @(
+        "*OneDrive.exe*",
+        "*OneDrive*"
+    )
+
     @(
-        "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk",
-        "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk",
-        "$env:PUBLIC\Desktop\OneDrive.lnk",
-        "$env:USERPROFILE\Desktop\OneDrive.lnk",
         "$env:USERPROFILE\OneDrive",
         "$env:LOCALAPPDATA\Microsoft\OneDrive",
         "$env:ProgramData\Microsoft\OneDrive",

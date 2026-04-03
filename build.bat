@@ -1,6 +1,6 @@
 @echo off
-set FileVersion=1.0.0.7
-set ProductVersion=3.0.0.0
+set FileVersion=1.0.0.0
+set ProductVersion=2026.4.2.16
 set "ROOT=%~dp0"
 set "SCRIPT_BUNDLE_DIR=%ROOT%external_scripts"
 
@@ -10,7 +10,7 @@ mkdir "%SCRIPT_BUNDLE_DIR%"
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
 	"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; " ^
 	"$u1 = 'https://christitus.com/win'; " ^
-	"$u2 = 'https://api.github.com/repos/Raphire/Win11Debloat/zipball/2026.03.09'; " ^
+	"$u2 = 'https://api.github.com/repos/Raphire/Win11Debloat/zipball/2026.03.15'; " ^
 	"$o1 = Join-Path '%SCRIPT_BUNDLE_DIR%' 'winutil.ps1'; " ^
 	"$zip2 = Join-Path '%SCRIPT_BUNDLE_DIR%' 'win11debloat.zip'; " ^
 	"Invoke-WebRequest -Uri $u1 -OutFile $o1 -UseBasicParsing; " ^
