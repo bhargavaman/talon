@@ -22,4 +22,3 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command ^
 	"Set-Content -LiteralPath $o1 -Value $patched -Encoding UTF8;"
 
 python -m nuitka --onefile --standalone --enable-plugins=pyqt5 --remove-output --windows-console-mode=disable --windows-uac-admin --output-dir=dist --output-filename=Talon.exe --follow-imports --windows-icon-from-ico=media\ICON.ico --include-data-dir=configs=configs --include-data-dir=media=media --include-data-dir=debloat_raven_scripts=debloat_raven_scripts --include-data-dir=external_scripts=external_scripts --include-package=screens --product-name="Talon" --company-name="Raven Technologies Group LLC" --file-description="Simple utility to debloat Windows in 2 clicks." --file-version=%FileVersion% --product-version=%ProductVersion% --copyright="Copyright (c) 2026 Raven Technologies Group LLC" --onefile-tempdir-spec="{CACHE_DIR}\RavenTechnologiesGroup\Talon\{VERSION}" talon.py
-pause
