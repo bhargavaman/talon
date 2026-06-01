@@ -190,6 +190,14 @@ def default_winutil_config():
     return copy.deepcopy(DEFAULT_WINUTIL_CONFIG)
 
 
+def default_winutil_tweaks():
+    return list(DEFAULT_WINUTIL_CONFIG["WPFTweaks"])
+
+
+def default_win11debloat_args():
+    return list(DEFAULT_WIN11DEBLOAT_ARGS)
+
+
 def default_win11debloat_args_text() -> str:
     return " ".join(DEFAULT_WIN11DEBLOAT_ARGS)
 
@@ -205,4 +213,3 @@ def browser_step_text(browser_name: str) -> str:
 def to_title_label(key: str) -> str:
     parts = str(key).replace("-", " ").split()
     return " ".join(p[:1].upper() + p[1:] for p in parts)
-

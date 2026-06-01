@@ -6,56 +6,10 @@ import tempfile
 import glob
 import urllib.request
 import urllib.parse
+from configuration_components import step_catalog
 from utilities.util_logger import logger
 from utilities.util_powershell_handler import run_powershell_command
 from utilities.util_error_popup import show_error_popup
-
-_DEFAULT_WINUTIL_CONFIG = [
-    "WPFTweaksActivity",
-    "WPFTweaksConsumerFeatures",
-    "WPFTweaksDisableBGapps",
-    "WPFTweaksLocation",
-    "WPFTweaksTelemetry",
-    "WPFTweaksWPBT",
-    "WPFTweaksWidget",
-    "WPFTweaksServices",
-    "WPFTweaksDisableExplorerAutoDiscovery",
-    "WPFTweaksDisplay",
-    "WPFTweaksRightClickMenu",
-    "WPFTweaksRevertStartMenu",
-    "WPFTweaksRemoveOneDrive",
-    "WPFTweaksXboxRemoval",
-    "WPFTweaksRemoveHome",
-    "WPFTweaksRemoveGallery",
-    "WPFTweaksDeBloat",
-    "WPFTweaksRemoveCopilot",
-]
-
-_DEFAULT_WIN11DEBLOAT_ARGS = [
-    "-Silent",
-    "-RemoveApps",
-    "-RemoveGamingApps",
-    "-DisableTelemetry",
-    "-DisableBing",
-    "-DisableSuggestions",
-    "-DisableLockscreenTips",
-    "-RevertContextMenu",
-    "-TaskbarAlignLeft",
-    "-HideSearchTb",
-    "-DisableWidgets",
-    "-DisableCopilot",
-    "-ClearStartAllUsers",
-    "-DisableDVR",
-    "-DisableStartRecommended",
-    "-ExplorerToThisPC",
-    "-DisableMouseAcceleration",
-    "-DisableDesktopSpotlight",
-    "-DisableSettings365Ads",
-    "-DisableSettingsHome",
-    "-DisablePaintAI",
-    "-DisableNotepadAI",
-    "-DisableStickyKeys",
-]
 
 
 def _is_url(value: str) -> bool:
@@ -250,7 +204,7 @@ def run_winutil(config_path=None):
         if winutil_config is None:
             logger.info("Custom config has no WinUtil config; using embedded default WinUtil config.")
     if winutil_config is None:
-        winutil_config = _DEFAULT_WINUTIL_CONFIG
+        winutil_config = step_catalog.default_winutil_tweaks()
 
     winutil_config_path = _write_temp_config(winutil_config, "talon_winutil_")
     logger.info(f"Using WinUtil config: {winutil_config_path}")
@@ -296,7 +250,7 @@ def run_win11debloat(config_path=None):
         if win11debloat_args is None:
             logger.info("Custom config has no Win11Debloat args; using embedded default Win11Debloat args.")
     if win11debloat_args is None:
-        win11debloat_args = list(_DEFAULT_WIN11DEBLOAT_ARGS)
+        win11debloat_args = step_catalog.default_win11debloat_args()
 
     win11debloat_path = ""
     candidates = sorted(
