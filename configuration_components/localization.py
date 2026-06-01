@@ -6,7 +6,7 @@ from copy import deepcopy
 from PyQt5.QtCore import QObject, pyqtProperty, pyqtSlot
 
 
-DEFAULT_LANGUAGE = "en-US"
+DEFAULT_LANGUAGE = "en"
 
 _current_language = DEFAULT_LANGUAGE
 _catalog_cache = {}

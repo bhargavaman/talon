@@ -32,7 +32,7 @@ Item {
 		Image { source: "../../media/icon_warning.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 		Text {
 			anchors.verticalCenter: parent.verticalCenter
-			width: Math.min(520, root.width - 120)
+			width: Math.min(implicitWidth, root.width - 120)
 			text: i18n.t("configuration.advanced.warning")
 			color: "#FF0000"
 			font.family: root.interFontFamily
