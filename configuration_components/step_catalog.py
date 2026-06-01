@@ -132,7 +132,6 @@ DEFAULT_WINUTIL_CONFIG = {
         "WPFTweaksActivity",
         "WPFTweaksConsumerFeatures",
         "WPFTweaksDisableBGapps",
-        "WPFTweaksLocation",
         "WPFTweaksTelemetry",
         "WPFTweaksWPBT",
         "WPFTweaksWidget",
@@ -144,9 +143,9 @@ DEFAULT_WINUTIL_CONFIG = {
         "WPFTweaksRemoveOneDrive",
         "WPFTweaksXboxRemoval",
         "WPFTweaksRemoveHome",
-        "WPFTweaksRemoveGallery",
         "WPFTweaksDeBloat",
-        "WPFTweaksRemoveCopilot",
+        "WPFTweaksWindowsAI",
+        "WPFTweaksDisableStoreSearch",
     ]
 }
 
