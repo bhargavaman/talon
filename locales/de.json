@@ -1,0 +1,186 @@
+{
+    "meta": {
+        "code": "de",
+        "native_name": "Deutsch",
+        "english_name": "German",
+        "direction": "ltr"
+    },
+    "app": {
+        "install_overlay": {
+            "title": "Talon wird installiert",
+            "guidance": "Bitte verwende weder Tastatur noch Maus. Du kannst zusehen, während Talon arbeitet.",
+            "remove_edge": "Microsoft Edge wird dauerhaft entfernt...",
+            "uninstall_outlook_onedrive": "Outlook und OneDrive werden deinstalliert...",
+            "browser_installation": "Der ausgewählte Browser wird installiert...",
+            "debloat_windows_phase_one": "Windows-Bloat wird entfernt - Phase eins (WinUtil)...",
+            "debloat_windows_phase_two": "Windows-Bloat wird entfernt - Phase zwei (Win11Debloat)...",
+            "registry_tweaks": "Visuelle Anpassungen werden vorgenommen...",
+            "configure_updates": "Windows-Update-Richtlinien werden konfiguriert...",
+            "apply_background": "Desktop-Hintergrund wird festgelegt...",
+            "dry_run_complete": "Testlauf abgeschlossen. Es wurden keine Systemänderungen vorgenommen.",
+            "suppress_restart_headless": "Systemneustart wird aufgrund des Headless-Modus unterdrückt.",
+            "suppress_restart_developer": "Systemneustart wird aufgrund des Entwicklermodus unterdrückt.",
+            "restarting": "System wird neu gestartet..."
+        }
+    },
+    "configuration": {
+        "browser": {
+            "title": "Willkommen. Bitte wähle deinen Webbrowser aus.",
+            "skip": "Keinen Browser installieren"
+        },
+        "review": {
+            "title": "Das System ist bereit zur Entfernung von Bloat. Bitte überprüfen.",
+            "empty": "Keine Elemente.",
+            "guidance": "Die Liste auf der linken Seite zeigt alles, was Talon auf deinem System ausführen wird. Falls du etwas nicht möchtest, kannst du Elemente aus der Liste entfernen.\n\nWenn alles korrekt aussieht, wähle „Start“ aus.",
+            "no_browser_warning": "Es wird kein Browser installiert.",
+            "no_internet_info": "Keine Internetverbindung erkannt. Talon wird keinen Browser installieren.",
+            "no_updates_warning": "Die Update-Richtlinie wird nicht konfiguriert. Updates könnten Bloat wiederherstellen und einige Einstellungen von Talon rückgängig machen.",
+            "nothing_to_do": "Der Debloat-Prozess kann nicht gestartet werden. Nichts zu tun.",
+            "reset_defaults": "Auf Standardwerte zurücksetzen",
+            "advanced": "Erweitert",
+            "start_button": "START"
+        },
+        "advanced": {
+            "title": "Erweiterte Einstellungen",
+            "warning": "Nicht ändern, wenn du nicht weißt, was du tust!",
+            "import_plan": "Talon-Installationsplan importieren",
+            "import_winutil": "WinUtil-Konfiguration importieren",
+            "set_win11_args": "Win11Debloat-Argumente festlegen",
+            "edit_registry_changes": "Registrierungsänderungen bearbeiten",
+            "export_plan": "Als Installationsplan exportieren",
+            "set_background": "Angewendeten Hintergrund festlegen",
+            "true": "wahr",
+            "false": "falsch",
+            "see_documentation": "Dokumentation anzeigen",
+            "confirm": "Bestätigen"
+        },
+        "dialogs": {
+            "cancel": "Abbrechen",
+            "save_changes": "Änderungen speichern",
+            "win11_args_title": "Win11Debloat-Argumente festlegen",
+            "registry_changes_title": "Registrierungsänderungen bearbeiten",
+            "import_plan_title": "Talon-Installationsplan importieren",
+            "import_winutil_title": "WinUtil-Konfiguration importieren",
+            "export_plan_title": "Als Installationsplan exportieren",
+            "set_background_title": "Angewendeten Hintergrund festlegen",
+            "json_files_filter": "JSON-Dateien (*.json);;Alle Dateien (*)",
+            "image_files_filter": "Bilder (*.png *.jpg *.jpeg *.bmp *.webp);;Alle Dateien (*)"
+        }
+    },
+    "steps": {
+        "remove_edge_permanently": {
+            "text": "Microsoft Edge dauerhaft entfernen",
+            "tooltip": "Deinstalliert Microsoft Edge und stellt sicher, dass es nicht zurückkehrt. Du kannst es jederzeit selbst neu installieren. Anwendungen, die davon abhängen (msedgewebview2), funktionieren weiterhin."
+        },
+        "uninstall_outlook_onedrive": {
+            "text": "Outlook und OneDrive deinstallieren",
+            "tooltip": "Deinstalliert die Outlook-App und OneDrive, da viele Nutzer sie nicht verwenden. Du kannst sie jederzeit selbst neu installieren."
+        },
+        "browser_installation": {
+            "text": "Webbrowser installieren",
+            "text_with_browser": "Webbrowser installieren: {browser_name}",
+            "tooltip": "Noch kein Browser ausgewählt."
+        },
+        "debloat_windows_phase_one": {
+            "text": "Windows-Bloat entfernen - Phase eins (WinUtil)",
+            "tooltip": "Talon verwendet das bekannte und etablierte Tool WinUtil von ChrisTitusTech als Teil des Debloat-Prozesses. Der gesamte Vorgang ist automatisiert, daher musst du nichts tun. Es wird nicht empfohlen, diesen Schritt zu entfernen."
+        },
+        "debloat_windows_phase_two": {
+            "text": "Windows-Bloat entfernen - Phase zwei (Win11Debloat)",
+            "tooltip": "Talon verwendet das bekannte und etablierte Tool Win11Debloat von Raphire als Teil des Debloat-Prozesses. Der gesamte Vorgang ist automatisiert, daher musst du nichts tun. Es wird nicht empfohlen, diesen Schritt zu entfernen."
+        },
+        "registry_tweaks": {
+            "text": "Visuelle Desktop-Anpassungen vornehmen",
+            "tooltip": "Ändert die Windows-Registrierung, um das Erscheinungsbild und Verhalten des Desktops zu verbessern, einschließlich, aber nicht beschränkt auf das Linksbündig-Ausrichten der Taskleiste, das Aktivieren des dunklen Designs, das Entfernen von Menüverzögerungen und das Anzeigen von Dateierweiterungen."
+        },
+        "configure_updates": {
+            "text": "Nur-Sicherheitsupdate-Richtlinie festlegen",
+            "tooltip": "Um zu verhindern, dass Windows-Updates erneut Bloat hinzufügen und Änderungen rückgängig machen, setzt Talon eine Update-Richtlinie, die nur Sicherheitsupdates zulässt und nicht sicherheitsrelevante „Funktions“-Updates ausschließt. Unter Windows Pro bleibt dies dauerhaft bestehen, unter Windows Home jedoch nur 365 Tage."
+        },
+        "apply_background": {
+            "text": "Desktop-Hintergrund anwenden",
+            "tooltip": "Um das Erscheinungsbild eines frisch bereinigten Systems abzurunden, setzt Talon einen benutzerdefinierten Hintergrund im Raven-Design. Der genaue Hintergrund kann in den erweiterten Einstellungen konfiguriert werden."
+        },
+        "developer_mode": {
+            "text": "Entwicklermodus (Installations-Overlay ausblenden)",
+            "tooltip": "Wenn aktiviert, wird Talon ohne das Vollbild-Installations-Overlay ausgeführt."
+        }
+    },
+    "browsers": {
+        "edge": {
+            "tooltip": "Edge wird nicht empfohlen, außer wenn es für deine Zwecke erforderlich ist, da es stark in die Privatsphäre eingreift und Werbung einbettet."
+        },
+        "waterfox": {
+            "tooltip": "Waterfox wird gegenüber Firefox empfohlen, jedoch nicht gegenüber Brave. Es basiert auf Firefox, entfernt jedoch Tracking und Telemetrie."
+        },
+        "brave": {
+            "tooltip": "Brave ist der empfohlene Browser, da er Chrome am ähnlichsten ist und gleichzeitig deine Privatsphäre respektiert."
+        },
+        "librewolf": {
+            "tooltip": "LibreWolf wird nur für technisch versierte Nutzer empfohlen. Es wurde für maximale Privatsphäre und Sicherheit entwickelt, kann jedoch schwieriger zu verwenden sein."
+        },
+        "firefox": {
+            "tooltip": "Firefox wird nicht empfohlen, außer wenn es für deine Zwecke erforderlich ist, da es standardmäßig Telemetrie und gesponserte Inhalte enthält."
+        }
+    },
+    "errors": {
+        "dialog_title": "Fehler",
+        "stop_installation": "Installation stoppen",
+        "continue_anyways": "Trotzdem fortfahren",
+        "developer_console_failed": "Das Konsolenfenster des Entwicklermodus konnte nicht gestartet werden.\n{error}",
+        "screen_launch_failed": "Der Bildschirm '{module_name}' konnte nicht gestartet werden.\n{error}",
+        "screen_unexpected": "Im Bildschirm '{module_name}' ist ein unerwarteter Fehler aufgetreten.\n{error}",
+        "config_not_found": "Konfigurationsdatei nicht gefunden: {path}",
+        "empty_execution_plan": "Der Installationsplan enthält keine ausführbaren Schritte. Öffne die Talon-Oberfläche und konfiguriere mindestens einen Schritt.",
+        "installation_unexpected": "Während der Installation ist ein unerwarteter Fehler aufgetreten.\nSiehe Protokoll für Details.",
+        "restart_failed": "Das System konnte nicht neu gestartet werden.\nSiehe Protokoll für Details.",
+        "import_plan_failed": "Der Installationsplan konnte nicht importiert werden:\n{error}",
+        "import_winutil_failed": "Die WinUtil-Konfiguration konnte nicht importiert werden:\n{error}",
+        "winutil_config_invalid": "Die WinUtil-Konfiguration muss ein JSON-Objekt oder -Array sein.",
+        "export_plan_failed": "Der Installationsplan konnte nicht exportiert werden:\n{error}",
+        "background_file_missing": "Die ausgewählte Bilddatei existiert nicht.",
+        "set_background_failed": "Der angewendete Hintergrund konnte nicht festgelegt werden:\n{error}",
+        "save_win11_args_failed": "Die Win11Debloat-Argumente konnten nicht gespeichert werden:\n{error}",
+        "registry_changes_invalid": "Registrierungsänderungen müssen ein JSON-Objekt oder -Array sein.",
+        "save_registry_changes_failed": "Die Registrierungsänderungen konnten nicht gespeichert werden:\n{error}",
+        "unsupported_os": "Nicht unterstütztes Betriebssystem erkannt.\nDieses Tool erfordert Windows 11.",
+        "windows_version_failed": "Die Windows-Version konnte nicht ermittelt werden.\nDieses Tool erfordert Windows 11.",
+        "incompatible_windows_version": "Inkompatible Windows-Version erkannt:\n        {product_name} (Build {build_num})\nDieses Tool erfordert Windows 11.",
+        "temp_unwritable": "Talon konnte keine Dateien nach {talon_dir} schreiben.\nBitte gib Speicherplatz frei oder überprüfe die Berechtigungen.",
+        "admin_elevation_failed": "Administratorrechte konnten nicht angefordert werden:\n{error}",
+        "no_internet_continue": "Keine Internetverbindung erkannt.\n\nTalon kann ohne Internet fortfahren. Wenn du jetzt fortfährst, wird die Browserinstallation übersprungen.\n\nOptionen:\n- Stelle eine Internetverbindung her und führe Talon erneut aus, um deinen Browser automatisch zu installieren.\n- Oder klicke auf „Fortfahren“, um ohne Browserinstallation fortzufahren (du kannst später einen Browser installieren).",
+        "no_internet_required": "Keine Internetverbindung erkannt.\nFür die Ausführung von Talon im Nicht-Headless-Modus ist eine aktive Internetverbindung erforderlich.\n",
+        "powershell_script_launch_failed": "Fehler beim Starten des PowerShell-Skripts:\n{error}",
+        "powershell_script_failed": "Das PowerShell-Skript '{script_name}' ist fehlgeschlagen (Exit-Code {exit_code})",
+        "powershell_launch_failed": "Fehler beim Starten von PowerShell:\n{error}",
+        "powershell_command_failed": "Der PowerShell-Befehl ist fehlgeschlagen (Exit-Code {exit_code})",
+        "registry_set_failed": "Registrierungswert konnte nicht gesetzt werden:\n{target}\n\n{error}",
+        "registry_read_failed": "Registrierungswert konnte nicht gelesen werden:\n{target}\n\n{error}",
+        "registry_delete_value_failed": "Registrierungswert konnte nicht gelöscht werden:\n{target}\n\n{error}",
+        "registry_create_key_failed": "Registrierungsschlüssel konnte nicht erstellt werden:\n{target}\n\n{error}",
+        "registry_delete_key_failed": "Registrierungsschlüssel konnte nicht gelöscht werden:\n{target}\n\n{error}",
+        "wallpaper_not_found": "Hintergrundbilddatei nicht gefunden: {path}",
+        "desktop_background_failed": "Desktop-Hintergrund konnte nicht festgelegt werden:\n{error}",
+        "chocolatey_install_failed": "Chocolatey konnte nicht installiert oder überprüft werden:\n{error}",
+        "chocolatey_browser_failed": "Während der Installation ist ein Problem mit Chocolatey aufgetreten. '{display_name}' konnte nicht erfolgreich installiert werden.\nChocolatey-Exit-Code: {exit_code}",
+        "chocolatey_browser_error": "Während der Installation ist ein Problem mit Chocolatey aufgetreten. '{display_name}' konnte nicht erfolgreich installiert werden.\nFehler: {error}",
+        "browser_metadata_missing": "Es wurde kein Browserpaket durch die Runner-Metadaten bereitgestellt.",
+        "browser_metadata_error": "Interner Fehler beim Lesen der Browserauswahl-Metadaten:\n{error}",
+        "script_failed": "Das Skript '{script_path}' ist mit Exit-Code {exit_code} fehlgeschlagen",
+        "font_not_found": "Schriftdatei nicht gefunden:\n{font_path}",
+        "font_load_failed": "Schriftdatei konnte nicht geladen werden:\n{font_path}",
+        "font_family_missing": "Keine Schriftfamilien in der Schriftdatei gefunden:\n{font_path}",
+        "windows_edition_failed": "Die Windows-Edition konnte nicht ermittelt werden:\n{error}",
+        "powershell_named_script_failed": "Das PowerShell-Skript konnte nicht ausgeführt werden:\n{script_name}\n\n{error}",
+        "registry_changes_payload_invalid": "Ungültige Nutzlast für Registrierungsänderungen.\n\n{error}",
+        "registry_tweak_failed": "Registrierungsanpassung konnte nicht angewendet werden:\n{target}\n\n{error}",
+        "downloaded_config_invalid": "Die heruntergeladene Konfiguration ist kein gültiges JSON: {error}",
+        "config_load_failed": "Die Konfiguration für {label} konnte nicht geladen werden.\n{error}",
+        "config_download_failed": "Die Konfiguration konnte nicht von der URL heruntergeladen werden.\n{error}",
+        "config_missing": "Konfiguration nicht gefunden:\n{path}",
+        "bundled_winutil_missing": "Das eingebundene WinUtil-Skript wurde nicht gefunden:\n{path}",
+        "winutil_failed": "ChrisTitusTech WinUtil konnte nicht ausgeführt werden:\n{error}",
+        "bundled_win11debloat_missing": "Das eingebundene Win11Debloat-Skript wurde nicht gefunden:\n{path}",
+        "win11debloat_failed": "Raphi Win11Debloat konnte nicht ausgeführt werden:\n{error}"
+    }
+}

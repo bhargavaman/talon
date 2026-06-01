@@ -1,0 +1,186 @@
+{
+    "meta": {
+        "code": "pt",
+        "native_name": "Português",
+        "english_name": "Portuguese",
+        "direction": "ltr"
+    },
+    "app": {
+        "install_overlay": {
+            "title": "Talon está instalando",
+            "guidance": "Por favor, não use o teclado nem o mouse. Você pode observar enquanto o Talon trabalha.",
+            "remove_edge": "Removendo o Microsoft Edge permanentemente...",
+            "uninstall_outlook_onedrive": "Desinstalando Outlook e OneDrive...",
+            "browser_installation": "Instalando o navegador escolhido...",
+            "debloat_windows_phase_one": "Removendo bloat do Windows fase um (WinUtil)...",
+            "debloat_windows_phase_two": "Removendo bloat do Windows fase dois (Win11Debloat)...",
+            "registry_tweaks": "Aplicando alguns ajustes visuais...",
+            "configure_updates": "Configurando políticas do Windows Update...",
+            "apply_background": "Definindo seu plano de fundo da área de trabalho...",
+            "dry_run_complete": "Execução de teste concluída. Nenhuma alteração foi feita no sistema.",
+            "suppress_restart_headless": "Suprimindo reinicialização do sistema devido ao modo headless.",
+            "suppress_restart_developer": "Suprimindo reinicialização do sistema devido ao modo desenvolvedor.",
+            "restarting": "Reiniciando o sistema..."
+        }
+    },
+    "configuration": {
+        "browser": {
+            "title": "Bem-vindo. Por favor, selecione seu navegador.",
+            "skip": "Não instalar um navegador"
+        },
+        "review": {
+            "title": "O sistema está pronto para remover bloat. Por favor, revise.",
+            "empty": "Nenhum item.",
+            "guidance": "A lista à esquerda mostra tudo o que o Talon fará no seu sistema. Se houver algo que você não queira que ele faça, você pode remover itens da lista.\n\nSe tudo estiver correto, selecione \"START\".",
+            "no_browser_warning": "Nenhum navegador será instalado.",
+            "no_internet_info": "Você não está conectado à internet. O Talon não instalará um navegador.",
+            "no_updates_warning": "A política de atualização não será configurada. Atualizações podem restaurar bloat e desfazer algumas configurações do Talon.",
+            "nothing_to_do": "Não é possível iniciar o processo de debloat. Nada a fazer.",
+            "reset_defaults": "Restaurar padrões",
+            "advanced": "Avançado",
+            "start_button": "START"
+        },
+        "advanced": {
+            "title": "Configurações avançadas",
+            "warning": "Não altere isso a menos que saiba o que está fazendo!",
+            "import_plan": "Importar plano de instalação do Talon",
+            "import_winutil": "Importar configuração do WinUtil",
+            "set_win11_args": "Definir argumentos do Win11Debloat",
+            "edit_registry_changes": "Editar alterações do Registro",
+            "export_plan": "Exportar como plano de instalação",
+            "set_background": "Definir plano de fundo aplicado",
+            "true": "verdadeiro",
+            "false": "falso",
+            "see_documentation": "Ver documentação",
+            "confirm": "Confirmar"
+        },
+        "dialogs": {
+            "cancel": "Cancelar",
+            "save_changes": "Salvar alterações",
+            "win11_args_title": "Definir argumentos do Win11Debloat",
+            "registry_changes_title": "Editar alterações do Registro",
+            "import_plan_title": "Importar plano de instalação do Talon",
+            "import_winutil_title": "Importar configuração do WinUtil",
+            "export_plan_title": "Exportar como plano de instalação",
+            "set_background_title": "Definir plano de fundo aplicado",
+            "json_files_filter": "Arquivos JSON (*.json);;Todos os arquivos (*)",
+            "image_files_filter": "Imagens (*.png *.jpg *.jpeg *.bmp *.webp);;Todos os arquivos (*)"
+        }
+    },
+    "steps": {
+        "remove_edge_permanently": {
+            "text": "Remover o Microsoft Edge permanentemente",
+            "tooltip": "Desinstala o Microsoft Edge e garante que ele não volte. Você sempre pode reinstalá-lo manualmente se quiser. Aplicativos que dependem dele (msedgewebview2) continuarão funcionando."
+        },
+        "uninstall_outlook_onedrive": {
+            "text": "Desinstalar Outlook e OneDrive",
+            "tooltip": "Desinstala o aplicativo Outlook e o OneDrive, já que muitas pessoas não os utilizam. Você sempre pode reinstalá-los manualmente se quiser."
+        },
+        "browser_installation": {
+            "text": "Instalar navegador",
+            "text_with_browser": "Instalar navegador: {browser_name}",
+            "tooltip": "Nenhum navegador selecionado ainda."
+        },
+        "debloat_windows_phase_one": {
+            "text": "Remover bloat do Windows fase um (WinUtil)",
+            "tooltip": "O Talon utiliza uma ferramenta popular e bem estabelecida, o WinUtil de ChrisTitusTech, como parte do processo de remoção de bloat. Todo o processo é automatizado, então você não precisa fazer nada. Não é recomendado remover esta etapa."
+        },
+        "debloat_windows_phase_two": {
+            "text": "Remover bloat do Windows fase dois (Win11Debloat)",
+            "tooltip": "O Talon utiliza uma ferramenta popular e bem estabelecida, o Win11Debloat de Raphire, como parte do processo de remoção de bloat. Todo o processo é automatizado, então você não precisa fazer nada. Não é recomendado remover esta etapa."
+        },
+        "registry_tweaks": {
+            "text": "Fazer ajustes visuais na área de trabalho",
+            "tooltip": "Modifica o Registro do Windows para melhorar a aparência e a experiência da área de trabalho, incluindo, mas não se limitando a, alinhar a barra de tarefas à esquerda, definir o tema escuro, remover atrasos em menus e mostrar extensões de arquivos."
+        },
+        "configure_updates": {
+            "text": "Definir política de atualizações somente de segurança",
+            "tooltip": "Para evitar que atualizações do Windows reintroduzam bloat e desfaçam as alterações feitas, o Talon define uma política de atualização no sistema que permite receber apenas atualizações de segurança, excluindo atualizações de \"recursos\" não relacionadas à segurança. Isso permanece permanentemente no Windows Pro, mas apenas por 365 dias no Windows Home."
+        },
+        "apply_background": {
+            "text": "Aplicar plano de fundo da área de trabalho",
+            "tooltip": "Para completar a aparência de um sistema recém-limpo, o Talon define o plano de fundo da área de trabalho para um personalizado com a marca Raven. O plano de fundo exato pode ser configurado nas Configurações avançadas."
+        },
+        "developer_mode": {
+            "text": "Modo desenvolvedor (ocultar sobreposição de instalação)",
+            "tooltip": "Quando ativado, o Talon é executado sem mostrar a sobreposição de instalação em tela cheia."
+        }
+    },
+    "browsers": {
+        "edge": {
+            "tooltip": "O Edge não é recomendado, a menos que seja necessário para seus propósitos, pois é muito invasivo em relação à sua privacidade e incorpora anúncios."
+        },
+        "waterfox": {
+            "tooltip": "O Waterfox é recomendado em vez do Firefox, mas não do Brave. Ele é baseado no Firefox, mas remove rastreamento e telemetria."
+        },
+        "brave": {
+            "tooltip": "O Brave é o navegador recomendado, pois é o mais próximo do Chrome respeitando sua privacidade."
+        },
+        "librewolf": {
+            "tooltip": "O LibreWolf é recomendado apenas para usuários avançados. Ele foi projetado para máxima privacidade e segurança, mas pode ser mais difícil de usar."
+        },
+        "firefox": {
+            "tooltip": "O Firefox não é recomendado, a menos que seja necessário para seus propósitos, pois inclui telemetria e conteúdo patrocinado por padrão."
+        }
+    },
+    "errors": {
+        "dialog_title": "Erro",
+        "stop_installation": "Parar instalação",
+        "continue_anyways": "Continuar mesmo assim",
+        "developer_console_failed": "Falha ao iniciar a janela do console do Modo Desenvolvedor.\n{error}",
+        "screen_launch_failed": "Falha ao iniciar a tela '{module_name}'.\n{error}",
+        "screen_unexpected": "Ocorreu um erro inesperado na tela '{module_name}'.\n{error}",
+        "config_not_found": "Arquivo de configuração não encontrado: {path}",
+        "empty_execution_plan": "O plano de instalação não possui etapas executáveis. Abra a interface do Talon e configure pelo menos uma etapa.",
+        "installation_unexpected": "Ocorreu um erro inesperado durante a instalação.\nVerifique o log para mais detalhes.",
+        "restart_failed": "Falha ao reiniciar o sistema.\nVerifique o log para mais detalhes.",
+        "import_plan_failed": "Falha ao importar o plano de instalação:\n{error}",
+        "import_winutil_failed": "Falha ao importar a configuração do WinUtil:\n{error}",
+        "winutil_config_invalid": "A configuração do WinUtil deve ser um objeto ou array JSON.",
+        "export_plan_failed": "Falha ao exportar o plano de instalação:\n{error}",
+        "background_file_missing": "O arquivo de imagem selecionado não existe.",
+        "set_background_failed": "Falha ao definir o plano de fundo aplicado:\n{error}",
+        "save_win11_args_failed": "Falha ao salvar os argumentos do Win11Debloat:\n{error}",
+        "registry_changes_invalid": "As alterações do Registro devem ser um objeto ou array JSON.",
+        "save_registry_changes_failed": "Falha ao salvar as alterações do Registro:\n{error}",
+        "unsupported_os": "Sistema operacional não suportado detectado.\nEsta ferramenta requer o Windows 11.",
+        "windows_version_failed": "Falha ao determinar a versão do Windows.\nEsta ferramenta requer o Windows 11.",
+        "incompatible_windows_version": "Versão incompatível do Windows detectada:\n    {product_name} (build {build_num})\nEsta ferramenta requer o Windows 11.",
+        "temp_unwritable": "O Talon não conseguiu gravar arquivos em {talon_dir}.\nLibere espaço em disco ou verifique as permissões.",
+        "admin_elevation_failed": "Não foi possível obter privilégios de Administrador:\n{error}",
+        "no_internet_continue": "Nenhuma conexão com a internet detectada.\n\nO Talon pode continuar sem internet. Se você prosseguir agora, a etapa de instalação do navegador será ignorada.\n\nOpções:\n- Conecte-se à internet e execute o Talon novamente para instalar seu navegador automaticamente.\n- Ou clique em Continuar para prosseguir sem instalar um navegador (você poderá instalar um navegador depois).",
+        "no_internet_required": "Nenhuma conexão com a internet detectada.\nUma conexão ativa com a internet é necessária para executar o Talon no modo não headless.\n",
+        "powershell_script_launch_failed": "Erro ao iniciar o script PowerShell:\n{error}",
+        "powershell_script_failed": "O script PowerShell '{script_name}' falhou (código de saída {exit_code})",
+        "powershell_launch_failed": "Erro ao iniciar o PowerShell:\n{error}",
+        "powershell_command_failed": "O comando PowerShell falhou (código de saída {exit_code})",
+        "registry_set_failed": "Falha ao definir valor do Registro:\n{target}\n\n{error}",
+        "registry_read_failed": "Falha ao ler valor do Registro:\n{target}\n\n{error}",
+        "registry_delete_value_failed": "Falha ao excluir valor do Registro:\n{target}\n\n{error}",
+        "registry_create_key_failed": "Falha ao criar chave do Registro:\n{target}\n\n{error}",
+        "registry_delete_key_failed": "Falha ao excluir chave do Registro:\n{target}\n\n{error}",
+        "wallpaper_not_found": "Arquivo de papel de parede não encontrado: {path}",
+        "desktop_background_failed": "Falha ao definir o plano de fundo da área de trabalho:\n{error}",
+        "chocolatey_install_failed": "Falha ao instalar ou verificar o Chocolatey:\n{error}",
+        "chocolatey_browser_failed": "Ocorreu um problema com o Chocolatey durante a instalação. '{display_name}' não pôde ser instalado com sucesso.\nCódigo de saída do Chocolatey: {exit_code}",
+        "chocolatey_browser_error": "Ocorreu um problema com o Chocolatey durante a instalação. '{display_name}' não pôde ser instalado com sucesso.\nErro: {error}",
+        "browser_metadata_missing": "Nenhum pacote de navegador foi fornecido pelos metadados do executor.",
+        "browser_metadata_error": "Erro interno ao ler os metadados da escolha do navegador:\n{error}",
+        "script_failed": "O script '{script_path}' falhou com código de saída {exit_code}",
+        "font_not_found": "Arquivo de fonte não encontrado:\n{font_path}",
+        "font_load_failed": "Falha ao carregar o arquivo de fonte:\n{font_path}",
+        "font_family_missing": "Nenhuma família de fontes encontrada no arquivo de fonte:\n{font_path}",
+        "windows_edition_failed": "Falha ao determinar a edição do Windows:\n{error}",
+        "powershell_named_script_failed": "Falha ao executar o script PowerShell:\n{script_name}\n\n{error}",
+        "registry_changes_payload_invalid": "Carga de alterações do Registro inválida.\n\n{error}",
+        "registry_tweak_failed": "Falha ao aplicar ajuste do Registro:\n{target}\n\n{error}",
+        "downloaded_config_invalid": "A configuração baixada não é um JSON válido: {error}",
+        "config_load_failed": "Falha ao carregar a configuração de {label}.\n{error}",
+        "config_download_failed": "Falha ao baixar a configuração da URL.\n{error}",
+        "config_missing": "Configuração não encontrada:\n{path}",
+        "bundled_winutil_missing": "Script WinUtil incluído não encontrado:\n{path}",
+        "winutil_failed": "Falha ao executar o WinUtil de ChrisTitusTech:\n{error}",
+        "bundled_win11debloat_missing": "Script Win11Debloat incluído não encontrado:\n{path}",
+        "win11debloat_failed": "Falha ao executar o Win11Debloat de Raphi:\n{error}"
+    }
+}

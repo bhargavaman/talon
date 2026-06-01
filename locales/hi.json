@@ -1,0 +1,186 @@
+{
+    "meta": {
+        "code": "hi",
+        "native_name": "हिन्दी",
+        "english_name": "Hindi",
+        "direction": "ltr"
+    },
+    "app": {
+        "install_overlay": {
+            "title": "Talon इंस्टॉल हो रहा है",
+            "guidance": "कृपया अपना कीबोर्ड या माउस उपयोग न करें। Talon काम कर रहा है, आप उसे देख सकते हैं।",
+            "remove_edge": "Microsoft Edge को स्थायी रूप से हटाया जा रहा है...",
+            "uninstall_outlook_onedrive": "Outlook और OneDrive को अनइंस्टॉल किया जा रहा है...",
+            "browser_installation": "आपका चुना हुआ ब्राउज़र इंस्टॉल किया जा रहा है...",
+            "debloat_windows_phase_one": "Windows से अनावश्यक सॉफ़्टवेयर हटाया जा रहा है, चरण एक (WinUtil)...",
+            "debloat_windows_phase_two": "Windows से अनावश्यक सॉफ़्टवेयर हटाया जा रहा है, चरण दो (Win11Debloat)...",
+            "registry_tweaks": "कुछ दृश्य समायोजन किए जा रहे हैं...",
+            "configure_updates": "Windows Update नीतियाँ कॉन्फ़िगर की जा रही हैं...",
+            "apply_background": "आपका डेस्कटॉप बैकग्राउंड सेट किया जा रहा है...",
+            "dry_run_complete": "ड्राई रन पूरा हुआ। सिस्टम में कोई बदलाव नहीं किए गए।",
+            "suppress_restart_headless": "हेडलेस मोड के कारण सिस्टम रीस्टार्ट रोका जा रहा है।",
+            "suppress_restart_developer": "डेवलपर मोड के कारण सिस्टम रीस्टार्ट रोका जा रहा है।",
+            "restarting": "सिस्टम रीस्टार्ट किया जा रहा है..."
+        }
+    },
+    "configuration": {
+        "browser": {
+            "title": "स्वागत है। कृपया अपना वेब ब्राउज़र चुनें।",
+            "skip": "कोई ब्राउज़र इंस्टॉल न करें"
+        },
+        "review": {
+            "title": "सिस्टम अनावश्यक सॉफ़्टवेयर हटाने के लिए तैयार है। कृपया समीक्षा करें।",
+            "empty": "कोई आइटम नहीं।",
+            "guidance": "बाईं ओर की सूची में वह सब कुछ दिखाया गया है जो Talon आपके सिस्टम पर करेगा। यदि कोई चीज़ है जो आप नहीं चाहते कि Talon करे, तो आप सूची से आइटम हटा सकते हैं।\n\nयदि सब कुछ सही लगता है, तो \"शुरू करें\" चुनें।",
+            "no_browser_warning": "कोई ब्राउज़र इंस्टॉल नहीं किया जाएगा।",
+            "no_internet_info": "आप इंटरनेट से जुड़े नहीं हैं। Talon कोई ब्राउज़र इंस्टॉल नहीं करेगा।",
+            "no_updates_warning": "अपडेट नीति कॉन्फ़िगर नहीं की जाएगी। अपडेट फिर से अनावश्यक सॉफ़्टवेयर जोड़ सकते हैं और Talon की कुछ सेटिंग्स को वापस बदल सकते हैं।",
+            "nothing_to_do": "अनावश्यक सॉफ़्टवेयर हटाने की प्रक्रिया शुरू नहीं की जा सकती। करने के लिए कुछ नहीं है।",
+            "reset_defaults": "डिफ़ॉल्ट पर रीसेट करें",
+            "advanced": "उन्नत",
+            "start_button": "शुरू करें"
+        },
+        "advanced": {
+            "title": "उन्नत सेटिंग्स",
+            "warning": "जब तक आप नहीं जानते कि आप क्या कर रहे हैं, इसे न छुएँ!",
+            "import_plan": "Talon इंस्टॉल योजना आयात करें",
+            "import_winutil": "WinUtil कॉन्फ़िग आयात करें",
+            "set_win11_args": "Win11Debloat आर्ग्युमेंट सेट करें",
+            "edit_registry_changes": "रजिस्ट्री परिवर्तन संपादित करें",
+            "export_plan": "इंस्टॉल योजना के रूप में निर्यात करें",
+            "set_background": "लागू बैकग्राउंड सेट करें",
+            "true": "सत्य",
+            "false": "असत्य",
+            "see_documentation": "दस्तावेज़ देखें",
+            "confirm": "पुष्टि करें"
+        },
+        "dialogs": {
+            "cancel": "रद्द करें",
+            "save_changes": "परिवर्तन सहेजें",
+            "win11_args_title": "Win11Debloat आर्ग्युमेंट सेट करें",
+            "registry_changes_title": "रजिस्ट्री परिवर्तन संपादित करें",
+            "import_plan_title": "Talon इंस्टॉल योजना आयात करें",
+            "import_winutil_title": "WinUtil कॉन्फ़िग आयात करें",
+            "export_plan_title": "इंस्टॉल योजना के रूप में निर्यात करें",
+            "set_background_title": "लागू बैकग्राउंड सेट करें",
+            "json_files_filter": "JSON फ़ाइलें (*.json);;सभी फ़ाइलें (*)",
+            "image_files_filter": "चित्र (*.png *.jpg *.jpeg *.bmp *.webp);;सभी फ़ाइलें (*)"
+        }
+    },
+    "steps": {
+        "remove_edge_permanently": {
+            "text": "Microsoft Edge को स्थायी रूप से हटाएँ",
+            "tooltip": "Microsoft Edge को अनइंस्टॉल करता है और सुनिश्चित करता है कि यह वापस न आए। यदि आप चाहें तो इसे बाद में स्वयं फिर से इंस्टॉल कर सकते हैं। जो ऐप्स इस पर निर्भर हैं (msedgewebview2), वे फिर भी काम करेंगे।"
+        },
+        "uninstall_outlook_onedrive": {
+            "text": "Outlook और OneDrive अनइंस्टॉल करें",
+            "tooltip": "Outlook ऐप और OneDrive को अनइंस्टॉल करता है, क्योंकि बहुत से लोग उनका उपयोग नहीं करते। यदि आप चाहें तो उन्हें बाद में स्वयं फिर से इंस्टॉल कर सकते हैं।"
+        },
+        "browser_installation": {
+            "text": "वेब ब्राउज़र इंस्टॉल करें",
+            "text_with_browser": "वेब ब्राउज़र इंस्टॉल करें: {browser_name}",
+            "tooltip": "अभी तक कोई ब्राउज़र चयनित नहीं है।"
+        },
+        "debloat_windows_phase_one": {
+            "text": "Windows से अनावश्यक सॉफ़्टवेयर हटाएँ, चरण एक (WinUtil)",
+            "tooltip": "Talon अपनी अनावश्यक सॉफ़्टवेयर हटाने की प्रक्रिया के हिस्से के रूप में ChrisTitusTech के लोकप्रिय और सुस्थापित टूल WinUtil का उपयोग करता है। पूरी प्रक्रिया स्वचालित है, इसलिए आपको कुछ करने की आवश्यकता नहीं है। इस चरण को हटाने की अनुशंसा नहीं की जाती।"
+        },
+        "debloat_windows_phase_two": {
+            "text": "Windows से अनावश्यक सॉफ़्टवेयर हटाएँ, चरण दो (Win11Debloat)",
+            "tooltip": "Talon अपनी अनावश्यक सॉफ़्टवेयर हटाने की प्रक्रिया के हिस्से के रूप में Raphire के लोकप्रिय और सुस्थापित टूल Win11Debloat का उपयोग करता है। पूरी प्रक्रिया स्वचालित है, इसलिए आपको कुछ करने की आवश्यकता नहीं है। इस चरण को हटाने की अनुशंसा नहीं की जाती।"
+        },
+        "registry_tweaks": {
+            "text": "डेस्कटॉप के दृश्य समायोजन करें",
+            "tooltip": "Windows रजिस्ट्री में परिवर्तन करता है ताकि आपका डेस्कटॉप बेहतर दिखे और बेहतर महसूस हो। इसमें टास्कबार को बाईं ओर संरेखित करना, डार्क थीम सेट करना, मेनू की देरी हटाना और फ़ाइल एक्सटेंशन दिखाना शामिल है, लेकिन यह इन्हीं तक सीमित नहीं है।"
+        },
+        "configure_updates": {
+            "text": "केवल सुरक्षा अपडेट नीति सेट करें",
+            "tooltip": "Windows अपडेट द्वारा फिर से अनावश्यक सॉफ़्टवेयर जोड़ने और किए गए परिवर्तनों को वापस लेने से रोकने के लिए, Talon आपके सिस्टम पर ऐसी अपडेट नीति सेट करता है जिससे केवल सुरक्षा अपडेट मिलते हैं और गैर-सुरक्षा \"फ़ीचर\" अपडेट छोड़ दिए जाते हैं। यह Windows Pro पर स्थायी रहती है, लेकिन Windows Home पर केवल 365 दिनों तक।"
+        },
+        "apply_background": {
+            "text": "डेस्कटॉप बैकग्राउंड लागू करें",
+            "tooltip": "नए साफ़ किए गए सिस्टम का रूप पूरा करने के लिए, Talon आपके डेस्कटॉप बैकग्राउंड को एक कस्टम Raven-ब्रांडेड बैकग्राउंड पर सेट करता है। कौन-सा बैकग्राउंड उपयोग होगा, इसे उन्नत सेटिंग्स में कॉन्फ़िगर किया जा सकता है।"
+        },
+        "developer_mode": {
+            "text": "डेवलपर मोड (इंस्टॉलेशन ओवरले छुपाएँ)",
+            "tooltip": "सक्षम होने पर, Talon पूर्ण-स्क्रीन इंस्टॉलेशन ओवरले दिखाए बिना चलता है।"
+        }
+    },
+    "browsers": {
+        "edge": {
+            "tooltip": "जब तक आपकी आवश्यकताओं के लिए Edge ज़रूरी न हो, इसकी अनुशंसा नहीं की जाती, क्योंकि यह आपकी गोपनीयता में अत्यधिक हस्तक्षेप करता है और विज्ञापन शामिल करता है।"
+        },
+        "waterfox": {
+            "tooltip": "Waterfox को Firefox पर प्राथमिकता दी जाती है, लेकिन Brave पर नहीं। यह Firefox पर आधारित है, लेकिन ट्रैकिंग और टेलीमेट्री हटाता है।"
+        },
+        "brave": {
+            "tooltip": "Brave अनुशंसित ब्राउज़र है, क्योंकि यह Chrome के सबसे करीब है और साथ ही आपकी गोपनीयता का सम्मान करता है।"
+        },
+        "librewolf": {
+            "tooltip": "LibreWolf केवल तकनीकी रूप से अनुभवी उपयोगकर्ताओं के लिए अनुशंसित है। इसे अधिकतम गोपनीयता और सुरक्षा के लिए डिज़ाइन किया गया है, लेकिन इसका उपयोग करना कठिन हो सकता है।"
+        },
+        "firefox": {
+            "tooltip": "जब तक आपकी आवश्यकताओं के लिए Firefox ज़रूरी न हो, इसकी अनुशंसा नहीं की जाती, क्योंकि इसमें डिफ़ॉल्ट रूप से टेलीमेट्री और प्रायोजित सामग्री शामिल होती है।"
+        }
+    },
+    "errors": {
+        "dialog_title": "त्रुटि",
+        "stop_installation": "इंस्टॉलेशन रोकें",
+        "continue_anyways": "फिर भी जारी रखें",
+        "developer_console_failed": "डेवलपर मोड कंसोल विंडो शुरू करने में विफल।\n{error}",
+        "screen_launch_failed": "स्क्रीन '{module_name}' शुरू करने में विफल।\n{error}",
+        "screen_unexpected": "स्क्रीन '{module_name}' में एक अप्रत्याशित त्रुटि हुई।\n{error}",
+        "config_not_found": "कॉन्फ़िग फ़ाइल नहीं मिली: {path}",
+        "empty_execution_plan": "इंस्टॉल योजना में कोई निष्पादन योग्य चरण नहीं हैं। Talon UI खोलें और कम से कम एक चरण कॉन्फ़िगर करें।",
+        "installation_unexpected": "इंस्टॉलेशन के दौरान एक अप्रत्याशित त्रुटि हुई।\nविवरण के लिए लॉग देखें।",
+        "restart_failed": "सिस्टम रीस्टार्ट करने में विफल।\nविवरण के लिए लॉग देखें।",
+        "import_plan_failed": "इंस्टॉल योजना आयात करने में विफल:\n{error}",
+        "import_winutil_failed": "WinUtil कॉन्फ़िग आयात करने में विफल:\n{error}",
+        "winutil_config_invalid": "WinUtil कॉन्फ़िग एक JSON ऑब्जेक्ट या ऐरे होना चाहिए।",
+        "export_plan_failed": "इंस्टॉल योजना निर्यात करने में विफल:\n{error}",
+        "background_file_missing": "चयनित चित्र फ़ाइल मौजूद नहीं है।",
+        "set_background_failed": "लागू बैकग्राउंड सेट करने में विफल:\n{error}",
+        "save_win11_args_failed": "Win11Debloat आर्ग्युमेंट सहेजने में विफल:\n{error}",
+        "registry_changes_invalid": "रजिस्ट्री परिवर्तन JSON ऑब्जेक्ट या ऐरे होने चाहिए।",
+        "save_registry_changes_failed": "रजिस्ट्री परिवर्तन सहेजने में विफल:\n{error}",
+        "unsupported_os": "असमर्थित ऑपरेटिंग सिस्टम मिला।\nइस टूल के लिए Windows 11 आवश्यक है।",
+        "windows_version_failed": "Windows संस्करण निर्धारित करने में विफल।\nइस टूल के लिए Windows 11 आवश्यक है।",
+        "incompatible_windows_version": "असंगत Windows संस्करण मिला:\n    {product_name} (बिल्ड {build_num})\nइस टूल के लिए Windows 11 आवश्यक है।",
+        "temp_unwritable": "Talon {talon_dir} में फ़ाइलें नहीं लिख सका।\nकृपया डिस्क स्थान खाली करें या अनुमतियाँ जाँचें।",
+        "admin_elevation_failed": "Administrator अधिकार प्राप्त करने में विफल:\n{error}",
+        "no_internet_continue": "कोई इंटरनेट कनेक्शन नहीं मिला।\n\nTalon इंटरनेट के बिना जारी रख सकता है। यदि आप अभी आगे बढ़ते हैं, तो ब्राउज़र इंस्टॉलेशन चरण छोड़ दिया जाएगा।\n\nविकल्प:\n- इंटरनेट से कनेक्ट करें और अपना ब्राउज़र स्वचालित रूप से इंस्टॉल करने के लिए Talon फिर से चलाएँ।\n- या ब्राउज़र इंस्टॉल किए बिना आगे बढ़ने के लिए \"फिर भी जारी रखें\" पर क्लिक करें (आप बाद में ब्राउज़र इंस्टॉल कर सकते हैं)।",
+        "no_internet_required": "कोई इंटरनेट कनेक्शन नहीं मिला।\nTalon को गैर-हेडलेस मोड में चलाने के लिए सक्रिय इंटरनेट कनेक्शन आवश्यक है।\n",
+        "powershell_script_launch_failed": "PowerShell स्क्रिप्ट शुरू करने में त्रुटि:\n{error}",
+        "powershell_script_failed": "PowerShell स्क्रिप्ट '{script_name}' विफल हुई (निकास कोड {exit_code})",
+        "powershell_launch_failed": "PowerShell शुरू करने में त्रुटि:\n{error}",
+        "powershell_command_failed": "PowerShell कमांड विफल हुआ (निकास कोड {exit_code})",
+        "registry_set_failed": "रजिस्ट्री मान सेट करने में विफल:\n{target}\n\n{error}",
+        "registry_read_failed": "रजिस्ट्री मान पढ़ने में विफल:\n{target}\n\n{error}",
+        "registry_delete_value_failed": "रजिस्ट्री मान हटाने में विफल:\n{target}\n\n{error}",
+        "registry_create_key_failed": "रजिस्ट्री कुंजी बनाने में विफल:\n{target}\n\n{error}",
+        "registry_delete_key_failed": "रजिस्ट्री कुंजी हटाने में विफल:\n{target}\n\n{error}",
+        "wallpaper_not_found": "वॉलपेपर फ़ाइल नहीं मिली: {path}",
+        "desktop_background_failed": "डेस्कटॉप बैकग्राउंड सेट करने में विफल:\n{error}",
+        "chocolatey_install_failed": "Chocolatey इंस्टॉल या सत्यापित करने में विफल:\n{error}",
+        "chocolatey_browser_failed": "इंस्टॉलेशन के दौरान Chocolatey में समस्या हुई। '{display_name}' सफलतापूर्वक इंस्टॉल नहीं हो सका।\nChocolatey निकास कोड: {exit_code}",
+        "chocolatey_browser_error": "इंस्टॉलेशन के दौरान Chocolatey में समस्या हुई। '{display_name}' सफलतापूर्वक इंस्टॉल नहीं हो सका।\nत्रुटि: {error}",
+        "browser_metadata_missing": "रनर मेटाडेटा में कोई ब्राउज़र पैकेज नहीं दिया गया।",
+        "browser_metadata_error": "ब्राउज़र चयन मेटाडेटा पढ़ते समय आंतरिक त्रुटि:\n{error}",
+        "script_failed": "स्क्रिप्ट '{script_path}' निकास कोड {exit_code} के साथ विफल हुई",
+        "font_not_found": "फ़ॉन्ट फ़ाइल नहीं मिली:\n{font_path}",
+        "font_load_failed": "फ़ॉन्ट फ़ाइल लोड करने में विफल:\n{font_path}",
+        "font_family_missing": "फ़ॉन्ट फ़ाइल में कोई फ़ॉन्ट परिवार नहीं मिला:\n{font_path}",
+        "windows_edition_failed": "Windows एडिशन निर्धारित करने में विफल:\n{error}",
+        "powershell_named_script_failed": "PowerShell स्क्रिप्ट निष्पादित करने में विफल:\n{script_name}\n\n{error}",
+        "registry_changes_payload_invalid": "अमान्य रजिस्ट्री परिवर्तन पेलोड।\n\n{error}",
+        "registry_tweak_failed": "रजिस्ट्री समायोजन लागू करने में विफल:\n{target}\n\n{error}",
+        "downloaded_config_invalid": "डाउनलोड किया गया कॉन्फ़िग मान्य JSON नहीं है: {error}",
+        "config_load_failed": "{label} कॉन्फ़िग लोड करने में विफल।\n{error}",
+        "config_download_failed": "URL से कॉन्फ़िग डाउनलोड करने में विफल।\n{error}",
+        "config_missing": "कॉन्फ़िग नहीं मिला:\n{path}",
+        "bundled_winutil_missing": "बंडल की गई WinUtil स्क्रिप्ट नहीं मिली:\n{path}",
+        "winutil_failed": "ChrisTitusTech WinUtil निष्पादित करने में विफल:\n{error}",
+        "bundled_win11debloat_missing": "बंडल की गई Win11Debloat स्क्रिप्ट नहीं मिली:\n{path}",
+        "win11debloat_failed": "Raphi Win11Debloat निष्पादित करने में विफल:\n{error}"
+    }
+}

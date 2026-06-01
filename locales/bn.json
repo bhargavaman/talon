@@ -1,0 +1,186 @@
+{
+	"meta": {
+		"code": "bn",
+		"native_name": "বাংলা",
+		"english_name": "Bengali",
+		"direction": "ltr"
+	},
+	"app": {
+		"install_overlay": {
+			"title": "Talon ইনস্টল হচ্ছে",
+			"guidance": "অনুগ্রহ করে কীবোর্ড বা মাউস ব্যবহার করবেন না। Talon কাজ করার সময় আপনি প্রক্রিয়াটি দেখতে পারবেন।",
+			"remove_edge": "Microsoft Edge স্থায়ীভাবে অপসারণ করা হচ্ছে...",
+			"uninstall_outlook_onedrive": "Outlook এবং OneDrive আনইনস্টল করা হচ্ছে...",
+			"browser_installation": "আপনার নির্বাচিত ব্রাউজার ইনস্টল করা হচ্ছে...",
+			"debloat_windows_phase_one": "Windows পরিষ্কারকরণের ধাপ এক চলছে (WinUtil)...",
+			"debloat_windows_phase_two": "Windows পরিষ্কারকরণের ধাপ দুই চলছে (Win11Debloat)...",
+			"registry_tweaks": "কিছু ভিজ্যুয়াল সমন্বয় করা হচ্ছে...",
+			"configure_updates": "Windows Update নীতিমালা কনফিগার করা হচ্ছে...",
+			"apply_background": "আপনার ডেস্কটপ ব্যাকগ্রাউন্ড সেট করা হচ্ছে...",
+			"dry_run_complete": "ড্রাই রান সম্পন্ন হয়েছে। সিস্টেমে কোনো পরিবর্তন করা হয়নি।",
+			"suppress_restart_headless": "হেডলেস মোডের কারণে সিস্টেম রিস্টার্ট করা হচ্ছে না।",
+			"suppress_restart_developer": "ডেভেলপার মোডের কারণে সিস্টেম রিস্টার্ট করা হচ্ছে না।",
+			"restarting": "সিস্টেম রিস্টার্ট করা হচ্ছে..."
+		}
+	},
+	"configuration": {
+		"browser": {
+			"title": "স্বাগতম। অনুগ্রহ করে আপনার ওয়েব ব্রাউজার নির্বাচন করুন।",
+			"skip": "ব্রাউজার ইনস্টল করবেন না"
+		},
+		"review": {
+			"title": "সিস্টেম পরিষ্কারকরণের জন্য প্রস্তুত। অনুগ্রহ করে পর্যালোচনা করুন।",
+			"empty": "কোনো আইটেম নেই।",
+			"guidance": "বাম পাশের তালিকায় Talon আপনার সিস্টেমে যা যা করবে তা দেখানো হয়েছে। কোনো কাজ না চাইলে আপনি তালিকা থেকে সেটি সরিয়ে দিতে পারেন।\n\nসবকিছু ঠিক মনে হলে “শুরু করুন” নির্বাচন করুন।",
+			"no_browser_warning": "কোনো ব্রাউজার ইনস্টল করা হবে না।",
+			"no_internet_info": "আপনি ইন্টারনেটের সাথে সংযুক্ত নন। Talon কোনো ব্রাউজার ইনস্টল করবে না।",
+			"no_updates_warning": "আপডেট নীতিমালা কনফিগার করা হবে না। আপডেটের মাধ্যমে অপ্রয়োজনীয় অ্যাপ বা সেটিংস ফিরে আসতে পারে এবং Talon-এর কিছু পরিবর্তন পূর্বাবস্থায় ফিরে যেতে পারে।",
+			"nothing_to_do": "সিস্টেম পরিষ্কারকরণ প্রক্রিয়া শুরু করা যাচ্ছে না। করার মতো কিছু নেই।",
+			"reset_defaults": "ডিফল্টে ফিরিয়ে নিন",
+			"advanced": "উন্নত",
+			"start_button": "শুরু করুন"
+		},
+		"advanced": {
+			"title": "উন্নত সেটিংস",
+			"warning": "আপনি কী করছেন তা নিশ্চিত না হলে এখানে পরিবর্তন করবেন না!",
+			"import_plan": "Talon ইনস্টল পরিকল্পনা আমদানি করুন",
+			"import_winutil": "WinUtil কনফিগ আমদানি করুন",
+			"set_win11_args": "Win11Debloat আর্গুমেন্ট সেট করুন",
+			"edit_registry_changes": "রেজিস্ট্রি পরিবর্তন সম্পাদনা করুন",
+			"export_plan": "ইনস্টল পরিকল্পনা হিসেবে রপ্তানি করুন",
+			"set_background": "প্রয়োগ করা ব্যাকগ্রাউন্ড সেট করুন",
+			"true": "সত্য",
+			"false": "মিথ্যা",
+			"see_documentation": "ডকুমেন্টেশন দেখুন",
+			"confirm": "নিশ্চিত করুন"
+		},
+		"dialogs": {
+			"cancel": "বাতিল",
+			"save_changes": "পরিবর্তন সংরক্ষণ করুন",
+			"win11_args_title": "Win11Debloat আর্গুমেন্ট সেট করুন",
+			"registry_changes_title": "রেজিস্ট্রি পরিবর্তন সম্পাদনা করুন",
+			"import_plan_title": "Talon ইনস্টল পরিকল্পনা আমদানি করুন",
+			"import_winutil_title": "WinUtil কনফিগ আমদানি করুন",
+			"export_plan_title": "ইনস্টল পরিকল্পনা হিসেবে রপ্তানি করুন",
+			"set_background_title": "প্রয়োগ করা ব্যাকগ্রাউন্ড সেট করুন",
+			"json_files_filter": "JSON ফাইল (*.json);;সব ফাইল (*)",
+			"image_files_filter": "ছবি (*.png *.jpg *.jpeg *.bmp *.webp);;সব ফাইল (*)"
+		}
+	},
+	"steps": {
+		"remove_edge_permanently": {
+			"text": "Microsoft Edge স্থায়ীভাবে অপসারণ করুন",
+			"tooltip": "Microsoft Edge আনইনস্টল করে এবং এটি যেন আবার ফিরে না আসে তা নিশ্চিত করে। চাইলে পরে নিজে এটি পুনরায় ইনস্টল করতে পারবেন। যেসব অ্যাপ এটি ব্যবহার করে (msedgewebview2), সেগুলো কাজ করতে থাকবে।"
+		},
+		"uninstall_outlook_onedrive": {
+			"text": "Outlook ও OneDrive আনইনস্টল করুন",
+			"tooltip": "Outlook অ্যাপ এবং OneDrive আনইনস্টল করে, কারণ অনেক ব্যবহারকারী এগুলো ব্যবহার করেন না। চাইলে পরে নিজে এগুলো পুনরায় ইনস্টল করতে পারবেন।"
+		},
+		"browser_installation": {
+			"text": "ওয়েব ব্রাউজার ইনস্টল করুন",
+			"text_with_browser": "ওয়েব ব্রাউজার ইনস্টল করুন: {browser_name}",
+			"tooltip": "এখনও কোনো ব্রাউজার নির্বাচন করা হয়নি।"
+		},
+		"debloat_windows_phase_one": {
+			"text": "Windows পরিষ্কারকরণ ধাপ এক (WinUtil)",
+			"tooltip": "Talon তার সিস্টেম পরিষ্কারকরণ প্রক্রিয়ার অংশ হিসেবে ChrisTitusTech-এর জনপ্রিয় এবং সুপ্রতিষ্ঠিত টুল WinUtil ব্যবহার করে। পুরো প্রক্রিয়াটি স্বয়ংক্রিয়, তাই আপনাকে কিছু করতে হবে না। এই ধাপটি সরিয়ে ফেলার পরামর্শ দেওয়া হয় না।"
+		},
+		"debloat_windows_phase_two": {
+			"text": "Windows পরিষ্কারকরণ ধাপ দুই (Win11Debloat)",
+			"tooltip": "Talon তার সিস্টেম পরিষ্কারকরণ প্রক্রিয়ার অংশ হিসেবে Raphire-এর জনপ্রিয় এবং সুপ্রতিষ্ঠিত টুল Win11Debloat ব্যবহার করে। পুরো প্রক্রিয়াটি স্বয়ংক্রিয়, তাই আপনাকে কিছু করতে হবে না। এই ধাপটি সরিয়ে ফেলার পরামর্শ দেওয়া হয় না।"
+		},
+		"registry_tweaks": {
+			"text": "ডেস্কটপের ভিজ্যুয়াল সমন্বয় করুন",
+			"tooltip": "Windows Registry পরিবর্তন করে আপনার ডেস্কটপকে দেখতে ও ব্যবহার করতে আরও ভালো করে। এর মধ্যে টাস্কবার বাম দিকে সরানো, ডার্ক থিম সেট করা, মেনুর বিলম্ব অপসারণ এবং ফাইল এক্সটেনশন দেখানো অন্তর্ভুক্ত।"
+		},
+		"configure_updates": {
+			"text": "শুধু নিরাপত্তা আপডেটের নীতিমালা সেট করুন",
+			"tooltip": "Windows আপডেটের মাধ্যমে অপ্রয়োজনীয় অ্যাপ বা সেটিংস ফিরে আসা এবং করা পরিবর্তনগুলো বাতিল হওয়া ঠেকাতে Talon আপনার সিস্টেমে এমন একটি আপডেট নীতিমালা সেট করে, যাতে শুধু নিরাপত্তা আপডেট পাওয়া যায় এবং অ-নিরাপত্তা “ফিচার” আপডেট বাদ থাকে। এটি Windows Pro-তে স্থায়ী থাকে, কিন্তু Windows Home-এ শুধু ৩৬৫ দিন কার্যকর থাকে।"
+		},
+		"apply_background": {
+			"text": "ডেস্কটপ ব্যাকগ্রাউন্ড প্রয়োগ করুন",
+			"tooltip": "নতুন পরিষ্কার করা সিস্টেমের চেহারা সম্পূর্ণ করতে Talon আপনার ডেস্কটপ ব্যাকগ্রাউন্ড একটি কাস্টম Raven-ব্র্যান্ডেড ব্যাকগ্রাউন্ডে সেট করে। কোন ব্যাকগ্রাউন্ড ব্যবহার হবে তা উন্নত সেটিংসে কনফিগার করা যায়।"
+		},
+		"developer_mode": {
+			"text": "ডেভেলপার মোড (ইনস্টলেশন ওভারলে লুকান)",
+			"tooltip": "সক্রিয় থাকলে Talon পূর্ণ-স্ক্রিন ইনস্টলেশন ওভারলে না দেখিয়ে চলবে।"
+		}
+	},
+	"browsers": {
+		"edge": {
+			"tooltip": "প্রয়োজন না হলে Edge ব্যবহার করার পরামর্শ দেওয়া হয় না, কারণ এটি গোপনীয়তার জন্য অত্যন্ত অনুপ্রবেশকারী এবং এতে বিজ্ঞাপন থাকে।"
+		},
+		"waterfox": {
+			"tooltip": "Waterfox Firefox-এর তুলনায় বেশি সুপারিশযোগ্য, তবে Brave-এর তুলনায় নয়। এটি Firefox-এর উপর ভিত্তি করে তৈরি, কিন্তু ট্র্যাকিং ও টেলিমেট্রি সরিয়ে দেয়।"
+		},
+		"brave": {
+			"tooltip": "Brave সুপারিশকৃত ব্রাউজার, কারণ এটি Chrome-এর কাছাকাছি অভিজ্ঞতা দেয় এবং একই সঙ্গে আপনার গোপনীয়তাকে সম্মান করে।"
+		},
+		"librewolf": {
+			"tooltip": "LibreWolf শুধু প্রযুক্তি-জ্ঞানসম্পন্ন ব্যবহারকারীদের জন্য সুপারিশকৃত। এটি সর্বোচ্চ গোপনীয়তা ও নিরাপত্তার জন্য তৈরি, তবে ব্যবহার করা কিছুটা কঠিন হতে পারে।"
+		},
+		"firefox": {
+			"tooltip": "প্রয়োজন না হলে Firefox ব্যবহার করার পরামর্শ দেওয়া হয় না, কারণ এতে ডিফল্টভাবে টেলিমেট্রি ও স্পনসর করা কনটেন্ট থাকে।"
+		}
+	},
+	"errors": {
+		"dialog_title": "ত্রুটি",
+		"stop_installation": "ইনস্টলেশন বন্ধ করুন",
+		"continue_anyways": "তবুও চালিয়ে যান",
+		"developer_console_failed": "ডেভেলপার মোড কনসোল উইন্ডো চালু করা যায়নি।\n{error}",
+		"screen_launch_failed": "'{module_name}' স্ক্রিন চালু করা যায়নি।\n{error}",
+		"screen_unexpected": "'{module_name}' স্ক্রিনে একটি অপ্রত্যাশিত ত্রুটি ঘটেছে।\n{error}",
+		"config_not_found": "কনফিগ ফাইল পাওয়া যায়নি: {path}",
+		"empty_execution_plan": "ইনস্টল পরিকল্পনায় কোনো চালানোর মতো ধাপ নেই। Talon UI খুলুন এবং অন্তত একটি ধাপ কনফিগার করুন।",
+		"installation_unexpected": "ইনস্টলেশনের সময় একটি অপ্রত্যাশিত ত্রুটি ঘটেছে।\nবিস্তারিত জানতে লগ দেখুন।",
+		"restart_failed": "সিস্টেম রিস্টার্ট করা যায়নি।\nবিস্তারিত জানতে লগ দেখুন।",
+		"import_plan_failed": "ইনস্টল পরিকল্পনা আমদানি করা যায়নি:\n{error}",
+		"import_winutil_failed": "WinUtil কনফিগ আমদানি করা যায়নি:\n{error}",
+		"winutil_config_invalid": "WinUtil কনফিগ অবশ্যই একটি JSON অবজেক্ট বা অ্যারে হতে হবে।",
+		"export_plan_failed": "ইনস্টল পরিকল্পনা রপ্তানি করা যায়নি:\n{error}",
+		"background_file_missing": "নির্বাচিত ছবি ফাইলটি বিদ্যমান নেই।",
+		"set_background_failed": "প্রয়োগ করা ব্যাকগ্রাউন্ড সেট করা যায়নি:\n{error}",
+		"save_win11_args_failed": "Win11Debloat আর্গুমেন্ট সংরক্ষণ করা যায়নি:\n{error}",
+		"registry_changes_invalid": "রেজিস্ট্রি পরিবর্তন অবশ্যই একটি JSON অবজেক্ট বা অ্যারে হতে হবে।",
+		"save_registry_changes_failed": "রেজিস্ট্রি পরিবর্তন সংরক্ষণ করা যায়নি:\n{error}",
+		"unsupported_os": "অসমর্থিত অপারেটিং সিস্টেম সনাক্ত হয়েছে।\nএই টুলটির জন্য Windows 11 প্রয়োজন।",
+		"windows_version_failed": "Windows সংস্করণ নির্ধারণ করা যায়নি।\nএই টুলটির জন্য Windows 11 প্রয়োজন।",
+		"incompatible_windows_version": "অসামঞ্জস্যপূর্ণ Windows সংস্করণ সনাক্ত হয়েছে:\n    {product_name} (build {build_num})\nএই টুলটির জন্য Windows 11 প্রয়োজন।",
+		"temp_unwritable": "Talon {talon_dir}-এ ফাইল লিখতে পারেনি।\nঅনুগ্রহ করে ডিস্কে জায়গা খালি করুন অথবা অনুমতি পরীক্ষা করুন।",
+		"admin_elevation_failed": "Administrator অনুমতিতে উন্নীত করা যায়নি:\n{error}",
+		"no_internet_continue": "কোনো ইন্টারনেট সংযোগ সনাক্ত হয়নি।\n\nTalon ইন্টারনেট ছাড়াই চালিয়ে যেতে পারে। আপনি এখন এগোলে ব্রাউজার ইনস্টলেশন ধাপটি এড়িয়ে যাওয়া হবে।\n\nবিকল্পসমূহ:\n- ইন্টারনেটে সংযুক্ত হয়ে Talon আবার চালান, যাতে আপনার ব্রাউজার স্বয়ংক্রিয়ভাবে ইনস্টল হয়।\n- অথবা “তবুও চালিয়ে যান” নির্বাচন করে ব্রাউজার ইনস্টল ছাড়াই এগিয়ে যান। আপনি পরে ব্রাউজার ইনস্টল করতে পারবেন।",
+		"no_internet_required": "কোনো ইন্টারনেট সংযোগ সনাক্ত হয়নি।\nনন-হেডলেস মোডে Talon চালাতে সক্রিয় ইন্টারনেট সংযোগ প্রয়োজন।\n",
+		"powershell_script_launch_failed": "PowerShell স্ক্রিপ্ট চালু করতে ত্রুটি হয়েছে:\n{error}",
+		"powershell_script_failed": "PowerShell স্ক্রিপ্ট '{script_name}' ব্যর্থ হয়েছে (এক্সিট কোড {exit_code})",
+		"powershell_launch_failed": "PowerShell চালু করতে ত্রুটি হয়েছে:\n{error}",
+		"powershell_command_failed": "PowerShell কমান্ড ব্যর্থ হয়েছে (এক্সিট কোড {exit_code})",
+		"registry_set_failed": "রেজিস্ট্রি মান সেট করা যায়নি:\n{target}\n\n{error}",
+		"registry_read_failed": "রেজিস্ট্রি মান পড়া যায়নি:\n{target}\n\n{error}",
+		"registry_delete_value_failed": "রেজিস্ট্রি মান মুছে ফেলা যায়নি:\n{target}\n\n{error}",
+		"registry_create_key_failed": "রেজিস্ট্রি কী তৈরি করা যায়নি:\n{target}\n\n{error}",
+		"registry_delete_key_failed": "রেজিস্ট্রি কী মুছে ফেলা যায়নি:\n{target}\n\n{error}",
+		"wallpaper_not_found": "ওয়ালপেপার ফাইল পাওয়া যায়নি: {path}",
+		"desktop_background_failed": "ডেস্কটপ ব্যাকগ্রাউন্ড সেট করা যায়নি:\n{error}",
+		"chocolatey_install_failed": "Chocolatey ইনস্টল বা যাচাই করা যায়নি:\n{error}",
+		"chocolatey_browser_failed": "ইনস্টলেশনের সময় Chocolatey-তে একটি সমস্যা হয়েছে। '{display_name}' সফলভাবে ইনস্টল করা যায়নি।\nChocolatey এক্সিট কোড: {exit_code}",
+		"chocolatey_browser_error": "ইনস্টলেশনের সময় Chocolatey-তে একটি সমস্যা হয়েছে। '{display_name}' সফলভাবে ইনস্টল করা যায়নি।\nত্রুটি: {error}",
+		"browser_metadata_missing": "রানার মেটাডেটা থেকে কোনো ব্রাউজার প্যাকেজ দেওয়া হয়নি।",
+		"browser_metadata_error": "ব্রাউজার নির্বাচন মেটাডেটা পড়ার সময় অভ্যন্তরীণ ত্রুটি হয়েছে:\n{error}",
+		"script_failed": "স্ক্রিপ্ট '{script_path}' এক্সিট কোড {exit_code} সহ ব্যর্থ হয়েছে",
+		"font_not_found": "ফন্ট ফাইল পাওয়া যায়নি:\n{font_path}",
+		"font_load_failed": "ফন্ট ফাইল লোড করা যায়নি:\n{font_path}",
+		"font_family_missing": "ফন্ট ফাইলে কোনো ফন্ট পরিবার পাওয়া যায়নি:\n{font_path}",
+		"windows_edition_failed": "Windows সংস্করণ নির্ধারণ করা যায়নি:\n{error}",
+		"powershell_named_script_failed": "PowerShell স্ক্রিপ্ট চালানো যায়নি:\n{script_name}\n\n{error}",
+		"registry_changes_payload_invalid": "অবৈধ রেজিস্ট্রি পরিবর্তন পেলোড।\n\n{error}",
+		"registry_tweak_failed": "রেজিস্ট্রি টুইক প্রয়োগ করা যায়নি:\n{target}\n\n{error}",
+		"downloaded_config_invalid": "ডাউনলোড করা কনফিগ বৈধ JSON নয়: {error}",
+		"config_load_failed": "{label} কনফিগ লোড করা যায়নি।\n{error}",
+		"config_download_failed": "URL থেকে কনফিগ ডাউনলোড করা যায়নি।\n{error}",
+		"config_missing": "কনফিগ পাওয়া যায়নি:\n{path}",
+		"bundled_winutil_missing": "অন্তর্ভুক্ত WinUtil স্ক্রিপ্ট পাওয়া যায়নি:\n{path}",
+		"winutil_failed": "ChrisTitusTech WinUtil চালানো যায়নি:\n{error}",
+		"bundled_win11debloat_missing": "অন্তর্ভুক্ত Win11Debloat স্ক্রিপ্ট পাওয়া যায়নি:\n{path}",
+		"win11debloat_failed": "Raphire Win11Debloat চালানো যায়নি:\n{error}"
+	}
+}
