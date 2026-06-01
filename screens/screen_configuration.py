@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import QApplication
 
 from configuration_components.preflight import run_configuration_preflight
 from configuration_components.qt_bridge import ConfigurationBridge
+from configuration_components.localization import LocalizationBridge
 
 
 class CheckSignals(QObject):
@@ -21,7 +22,9 @@ def main():
     engine = QQmlApplicationEngine()
     engine.warnings.connect(lambda errs: [print(f"[configuration] {e.toString()}") for e in errs])
     bridge = ConfigurationBridge()
+    i18n = LocalizationBridge()
     engine.rootContext().setContextProperty("bridge", bridge)
+    engine.rootContext().setContextProperty("i18n", i18n)
     qml_path = Path(__file__).resolve().parents[1] / "ui" / "configuration" / "Main.qml"
     engine.load(QUrl.fromLocalFile(str(qml_path)))
     if not engine.rootObjects():
@@ -57,4 +60,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(0 if main() else 0)
-

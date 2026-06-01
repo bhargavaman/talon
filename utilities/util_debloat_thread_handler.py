@@ -5,6 +5,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -85,7 +86,7 @@ class ScriptProcessHandler:
         returncode = proc.returncode or 0
         if returncode != 0:
             logger.error(f"{script_path} exited with code {returncode}")
-            show_error_popup(f"Script '{script_path}' failed with exit code {returncode}", allow_continue=False)
+            show_error_popup(t("errors.script_failed", {"script_path": script_path, "exit_code": returncode}), allow_continue=False)
             raise RuntimeError(f"{script_path} failed (exit code {returncode})")
 
     def _terminate_all_processes(self):

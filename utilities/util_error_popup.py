@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import (
     QHBoxLayout,
 )
 from PyQt5.QtCore import QObject, pyqtSignal, Qt, QThread, QCoreApplication
+from configuration_components.localization import t
 
 
 
@@ -22,18 +23,18 @@ class ErrorDialogManager(QObject):
     def _on_showDialog(self, message, allow_continue, event):
         dialog = QDialog()
         dialog.setWindowFlags(dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
-        dialog.setWindowTitle("Error")
+        dialog.setWindowTitle(t("errors.dialog_title"))
         dialog.setWindowModality(Qt.ApplicationModal)
         layout = QVBoxLayout(dialog)
         label = QLabel(message)
         label.setWordWrap(True)
         layout.addWidget(label)
-        btn_stop = QPushButton("Stop Installation")
+        btn_stop = QPushButton(t("errors.stop_installation"))
         btn_stop.clicked.connect(dialog.reject)
         button_layout = QHBoxLayout()
         button_layout.addWidget(btn_stop)
         if allow_continue:
-            btn_continue = QPushButton("Continue Anyways")
+            btn_continue = QPushButton(t("errors.continue_anyways"))
             btn_continue.clicked.connect(dialog.accept)
             button_layout.addWidget(btn_continue)
         layout.addLayout(button_layout)
@@ -61,18 +62,18 @@ def _get_manager():
 def _show_dialog_direct(message, allow_continue):
     dialog = QDialog()
     dialog.setWindowFlags(dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
-    dialog.setWindowTitle("Error")
+    dialog.setWindowTitle(t("errors.dialog_title"))
     dialog.setWindowModality(Qt.ApplicationModal)
     layout = QVBoxLayout(dialog)
     label = QLabel(message)
     label.setWordWrap(True)
     layout.addWidget(label)
-    btn_stop = QPushButton("Stop Installation")
+    btn_stop = QPushButton(t("errors.stop_installation"))
     btn_stop.clicked.connect(dialog.reject)
     button_layout = QHBoxLayout()
     button_layout.addWidget(btn_stop)
     if allow_continue:
-        btn_continue = QPushButton("Continue Anyways")
+        btn_continue = QPushButton(t("errors.continue_anyways"))
         btn_continue.clicked.connect(dialog.accept)
         button_layout.addWidget(btn_continue)
     layout.addLayout(button_layout)

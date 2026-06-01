@@ -97,16 +97,13 @@ def normalize_metadata_fields(data: dict):
 def build_install_plan(browser_name: str = "None", browser_package: str = "", include_browser_install: bool = False) -> dict:
     items = []
     for slug in step_catalog.BOOL_OPTION_SLUGS + step_catalog.STEP_SLUGS:
-        present = step_catalog.STEP_PRESENTATION.get(slug, {})
         item = {
             "key": slug,
-            "text": str(present.get("text", step_catalog.to_title_label(slug))),
-            "tooltip": str(present.get("tooltip", "")),
+            "text": "",
+            "tooltip": "",
             "enabled": False if slug in step_catalog.BOOL_OPTION_SLUGS else True,
         }
         if slug == "browser-installation":
-            item["text"] = step_catalog.browser_step_text(browser_name)
-            item["tooltip"] = step_catalog.browser_tooltip(browser_package)
             item["enabled"] = bool(include_browser_install)
         items.append(item)
     return {
@@ -168,8 +165,6 @@ def normalize_imported_plan(payload: dict) -> dict:
         imported = imported_by_key.get(item["key"])
         if imported is None:
             continue
-        item["text"] = imported["text"] or item["text"]
-        item["tooltip"] = imported["tooltip"] or item["tooltip"]
         item["enabled"] = bool(imported["enabled"])
     normalized["items"].extend(unknown_items)
     if not normalized["selected_browser_package"]:
@@ -297,7 +292,17 @@ def visible_enabled_items(data: dict) -> list:
             continue
         if n["key"] == "browser-installation" and not data.get("selected_browser_package", ""):
             continue
-        out.append({"key": n["key"], "text": n["text"], "tooltip": n["tooltip"]})
+        if n["key"] in set(step_catalog.BOOL_OPTION_SLUGS + step_catalog.STEP_SLUGS):
+            if n["key"] == "browser-installation":
+                text = step_catalog.browser_step_text(str(data.get("selected_browser_name", "None")))
+                tooltip = step_catalog.browser_tooltip(str(data.get("selected_browser_package", "")))
+            else:
+                text = step_catalog.step_text(n["key"])
+                tooltip = step_catalog.step_tooltip(n["key"])
+        else:
+            text = n["text"]
+            tooltip = n["tooltip"]
+        out.append({"key": n["key"], "text": text, "tooltip": tooltip})
     return out
 
 
@@ -306,8 +311,6 @@ def set_browser(package_id: str, browser_name: str):
     items = [normalize_item(item) for item in data.get("items", [])]
     idx = find_item_index(items, "browser-installation")
     if idx >= 0:
-        items[idx]["text"] = step_catalog.browser_step_text(browser_name)
-        items[idx]["tooltip"] = step_catalog.browser_tooltip(package_id)
         items[idx]["enabled"] = True
     data["items"] = items
     data["selected_browser_name"] = browser_name
@@ -332,4 +335,3 @@ def apply_internet_availability(available: bool):
     set_item_enabled(data, "browser-installation", False)
     data["include_browser_install"] = False
     save_install_plan(data)
-

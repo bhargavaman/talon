@@ -3,6 +3,7 @@ import sys
 import ctypes
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 def main(applied_background_path=None):
@@ -16,7 +17,7 @@ def main(applied_background_path=None):
     wallpaper_path = os.path.abspath(custom_path) if custom_path else os.path.join(media_dir, 'desktop_background.png')
     logger.info(f"Setting desktop background: {wallpaper_path}")
     if not os.path.exists(wallpaper_path):
-        msg = f"Wallpaper file not found: {wallpaper_path}"
+        msg = t("errors.wallpaper_not_found", {"path": wallpaper_path})
         logger.error(msg)
         show_error_popup(msg, allow_continue=False)
         sys.exit(1)
@@ -35,7 +36,7 @@ def main(applied_background_path=None):
         logger.info("Desktop background set successfully.")
     except Exception as e:
         logger.error(f"Failed to set desktop background: {e}")
-        show_error_popup(f"Failed to set desktop background:\n{e}", allow_continue=False)
+        show_error_popup(t("errors.desktop_background_failed", {"error": e}), allow_continue=False)
         sys.exit(1)
 
 

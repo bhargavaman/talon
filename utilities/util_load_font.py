@@ -4,6 +4,7 @@ from PyQt5.QtGui import QFontDatabase, QFont
 from PyQt5.QtWidgets import QApplication
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -20,17 +21,17 @@ def load_font(filename: str, default_size: int = None) -> QFont:
 
     if not os.path.exists(font_path):
         logger.error(f"Font file not found: {font_path}")
-        show_error_popup(f"Font file not found:\n{font_path}", allow_continue=False)
+        show_error_popup(t("errors.font_not_found", {"font_path": font_path}), allow_continue=False)
         raise FileNotFoundError(f"Font file not found: {font_path}")
     font_id = QFontDatabase.addApplicationFont(font_path)
     if font_id == -1:
         logger.error(f"Failed to load font: {font_path}")
-        show_error_popup(f"Failed to load font file:\n{font_path}", allow_continue=False)
+        show_error_popup(t("errors.font_load_failed", {"font_path": font_path}), allow_continue=False)
         raise RuntimeError(f"Failed to load font: {font_path}")
     families = QFontDatabase.applicationFontFamilies(font_id)
     if not families:
         logger.error(f"No font families found in file: {font_path}")
-        show_error_popup(f"No font families found in font file:\n{font_path}", allow_continue=False)
+        show_error_popup(t("errors.font_family_missing", {"font_path": font_path}), allow_continue=False)
         raise RuntimeError(f"No font families in file: {font_path}")
     family = families[0]
     if default_size is None:

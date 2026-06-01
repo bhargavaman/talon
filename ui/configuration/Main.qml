@@ -75,11 +75,11 @@ Window {
 			}
 
 			function openWin11ArgsDialog() {
-				advancedDialog.openDialog("Set Win11Debloat Arguments", bridge.getWin11DebloatArgsText(), "win11debloat")
+				advancedDialog.openDialog(i18n.t("configuration.dialogs.win11_args_title"), bridge.getWin11DebloatArgsText(), "win11debloat")
 			}
 
 			function openRegistryChangesDialog() {
-				advancedDialog.openDialog("Edit Registry Changes", bridge.getRegistryChangesText(), "registry-changes")
+				advancedDialog.openDialog(i18n.t("configuration.dialogs.registry_changes_title"), bridge.getRegistryChangesText(), "registry-changes")
 			}
 
 			onVisibleChanged: {

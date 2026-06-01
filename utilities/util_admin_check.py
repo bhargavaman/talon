@@ -3,6 +3,7 @@ import sys
 import ctypes
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -36,7 +37,7 @@ def run_as_admin():
         )
     except Exception as e:
         logger.exception("Failed to relaunch with admin privileges")
-        show_error_popup(f"Unable to elevate to Administrator:\n{e}", allow_continue=False)
+        show_error_popup(t("errors.admin_elevation_failed", {"error": e}), allow_continue=False)
         sys.exit(1)
 
 

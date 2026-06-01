@@ -5,6 +5,7 @@ from PyQt5.QtCore import QObject, pyqtSlot
 from PyQt5.QtWidgets import QApplication, QFileDialog
 
 from configuration_components import install_plan, step_catalog
+from configuration_components.localization import t
 from utilities.util_error_popup import show_error_popup
 
 
@@ -22,7 +23,7 @@ class ConfigurationBridge(QObject):
 
     @pyqtSlot(result="QVariantList")
     def getBrowserOptions(self):
-        return step_catalog.BROWSER_OPTIONS
+        return step_catalog.browser_options()
 
     @pyqtSlot(result="QVariantList")
     def getInstallPlanItems(self):
@@ -57,7 +58,24 @@ class ConfigurationBridge(QObject):
             items = [install_plan.normalize_item(item) for item in data.get("items", [])]
         except Exception:
             items = [install_plan.normalize_item(item) for item in install_plan.build_install_plan()["items"]]
-        return [{"key": it["key"], "label": it["text"], "value": bool(it["enabled"])} for it in items]
+        out = []
+        known_keys = set(step_catalog.BOOL_OPTION_SLUGS + step_catalog.STEP_SLUGS)
+        try:
+            data = install_plan.load_install_plan()
+        except Exception:
+            data = {}
+        for it in items:
+            label = it["text"]
+            if it["key"] in known_keys:
+                if it["key"] == "browser-installation":
+                    if str(data.get("selected_browser_package", "")).strip():
+                        label = step_catalog.browser_step_text(str(data.get("selected_browser_name", "None")))
+                    else:
+                        label = step_catalog.step_text(it["key"])
+                else:
+                    label = step_catalog.step_text(it["key"])
+            out.append({"key": it["key"], "label": label, "value": bool(it["enabled"])})
+        return out
 
     @pyqtSlot(str)
     def toggleAdvancedArg(self, key: str):
@@ -122,36 +140,36 @@ class ConfigurationBridge(QObject):
     @pyqtSlot()
     def importInstallPlan(self):
         try:
-            path, _ = QFileDialog.getOpenFileName(None, "Import Talon Install Plan", "", "JSON Files (*.json);;All Files (*)")
+            path, _ = QFileDialog.getOpenFileName(None, t("configuration.dialogs.import_plan_title"), "", t("configuration.dialogs.json_files_filter"))
             if not path:
                 return
             with open(path, "r", encoding="utf-8") as f:
                 payload = json.load(f)
             install_plan.save_install_plan(install_plan.normalize_imported_plan(payload))
         except Exception as e:
-            show_error_popup(f"Failed to import install plan:\n{e}", allow_continue=True)
+            show_error_popup(t("errors.import_plan_failed", {"error": e}), allow_continue=True)
 
     @pyqtSlot()
     def importWinUtilConfig(self):
         try:
-            path, _ = QFileDialog.getOpenFileName(None, "Import WinUtil Config", "", "JSON Files (*.json);;All Files (*)")
+            path, _ = QFileDialog.getOpenFileName(None, t("configuration.dialogs.import_winutil_title"), "", t("configuration.dialogs.json_files_filter"))
             if not path:
                 return
             with open(path, "r", encoding="utf-8") as f:
                 payload = json.load(f)
             if not isinstance(payload, (dict, list)):
-                raise ValueError("WinUtil config must be a JSON object or array.")
+                raise ValueError(t("errors.winutil_config_invalid"))
             data = install_plan.load_install_plan()
             data["winutil_config"] = install_plan.normalize_winutil_config(payload)
             install_plan.save_install_plan(data)
         except Exception as e:
-            show_error_popup(f"Failed to import WinUtil config:\n{e}", allow_continue=True)
+            show_error_popup(t("errors.import_winutil_failed", {"error": e}), allow_continue=True)
 
     @pyqtSlot()
     def exportInstallPlan(self):
         try:
             data = install_plan.load_install_plan()
-            path, _ = QFileDialog.getSaveFileName(None, "Export As Install Plan", "install_plan.json", "JSON Files (*.json);;All Files (*)")
+            path, _ = QFileDialog.getSaveFileName(None, t("configuration.dialogs.export_plan_title"), "install_plan.json", t("configuration.dialogs.json_files_filter"))
             if not path:
                 return
             if not path.lower().endswith(".json"):
@@ -159,26 +177,26 @@ class ConfigurationBridge(QObject):
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
         except Exception as e:
-            show_error_popup(f"Failed to export install plan:\n{e}", allow_continue=True)
+            show_error_popup(t("errors.export_plan_failed", {"error": e}), allow_continue=True)
 
     @pyqtSlot()
     def setAppliedBackground(self):
         try:
             path, _ = QFileDialog.getOpenFileName(
                 None,
-                "Set Applied Background",
+                t("configuration.dialogs.set_background_title"),
                 "",
-                "Images (*.png *.jpg *.jpeg *.bmp *.webp);;All Files (*)",
+                t("configuration.dialogs.image_files_filter"),
             )
             if not path:
                 return
             if not os.path.isfile(path):
-                raise ValueError("Selected image file does not exist.")
+                raise ValueError(t("errors.background_file_missing"))
             data = install_plan.load_install_plan()
             data["applied_background_path"] = os.path.abspath(path)
             install_plan.save_install_plan(data)
         except Exception as e:
-            show_error_popup(f"Failed to set applied background:\n{e}", allow_continue=True)
+            show_error_popup(t("errors.set_background_failed", {"error": e}), allow_continue=True)
 
     @pyqtSlot()
     def startDebloat(self):
@@ -203,7 +221,7 @@ class ConfigurationBridge(QObject):
             install_plan.save_install_plan(data)
             return True
         except Exception as e:
-            show_error_popup(f"Failed to save Win11Debloat arguments:\n{e}", allow_continue=True)
+            show_error_popup(t("errors.save_win11_args_failed", {"error": e}), allow_continue=True)
             return False
 
     @pyqtSlot(result=str)
@@ -227,12 +245,11 @@ class ConfigurationBridge(QObject):
             if raw:
                 parsed = json.loads(raw)
                 if not isinstance(parsed, (dict, list)):
-                    raise ValueError("Registry changes must be a JSON object or array.")
+                    raise ValueError(t("errors.registry_changes_invalid"))
             data = install_plan.load_install_plan()
             data["registry_changes"] = parsed
             install_plan.save_install_plan(data)
             return True
         except Exception as e:
-            show_error_popup(f"Failed to save registry changes:\n{e}", allow_continue=True)
+            show_error_popup(t("errors.save_registry_changes_failed", {"error": e}), allow_continue=True)
             return False
-

@@ -2,6 +2,7 @@ import winreg
 from typing import Any, Union, Optional
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -56,7 +57,7 @@ def set_value(
     except Exception as e:
         logger.exception(f"Error setting registry value {hive}\\{key_path}\\{name}: {e}")
         show_error_popup(
-            f"Failed to set registry value:\n{hive}\\{key_path}\\{name}\n\n{e}",
+            t("errors.registry_set_failed", {"target": f"{hive}\\{key_path}\\{name}", "error": e}),
             allow_continue=False
         )
         raise
@@ -81,7 +82,7 @@ def get_value(
     except Exception as e:
         logger.exception(f"Error reading registry value {hive}\\{key_path}\\{name}: {e}")
         show_error_popup(
-            f"Failed to read registry value:\n{hive}\\{key_path}\\{name}\n\n{e}",
+            t("errors.registry_read_failed", {"target": f"{hive}\\{key_path}\\{name}", "error": e}),
             allow_continue=False
         )
         raise
@@ -104,7 +105,7 @@ def delete_value(
     except Exception as e:
         logger.exception(f"Error deleting registry value {hive}\\{key_path}\\{name}: {e}")
         show_error_popup(
-            f"Failed to delete registry value:\n{hive}\\{key_path}\\{name}\n\n{e}",
+            t("errors.registry_delete_value_failed", {"target": f"{hive}\\{key_path}\\{name}", "error": e}),
             allow_continue=False
         )
         raise
@@ -124,7 +125,7 @@ def create_key(
     except Exception as e:
         logger.exception(f"Error creating registry key {hive}\\{key_path}: {e}")
         show_error_popup(
-            f"Failed to create registry key:\n{hive}\\{key_path}\n\n{e}",
+            t("errors.registry_create_key_failed", {"target": f"{hive}\\{key_path}", "error": e}),
             allow_continue=False
         )
         raise
@@ -149,7 +150,7 @@ def delete_key(
     except Exception as e:
         logger.exception(f"Error deleting registry key {hive}\\{key_path}: {e}")
         show_error_popup(
-            f"Failed to delete registry key:\n{hive}\\{key_path}\n\n{e}",
+            t("errors.registry_delete_key_failed", {"target": f"{hive}\\{key_path}", "error": e}),
             allow_continue=False
         )
         raise

@@ -34,7 +34,7 @@ Item {
 		anchors.top: parent.top
 		anchors.topMargin: 40
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: "System is ready to debloat. Please review."
+		text: i18n.t("configuration.review.title")
 		color: "#FFFFFF"
 		font.family: root.interFontFamily
 		font.pixelSize: 22
@@ -157,7 +157,7 @@ Item {
 		Text {
 			anchors.centerIn: parent
 			visible: root.configItems.length === 0
-			text: "No items."
+			text: i18n.t("configuration.review.empty")
 			color: "#7A7A7A"
 			font.family: root.interFontFamily
 			font.pixelSize: 15
@@ -201,7 +201,7 @@ Item {
 			anchors.top: parent.top
 			anchors.left: parent.left
 			anchors.right: parent.right
-			text: "The list on the left shows everything Talon is going to do to your system. If there's something you don't want it to do, you can remove items from the list.\n\nIf everything looks good to you, select \"Start.\""
+			text: i18n.t("configuration.review.guidance")
 			color: "#FFFFFF"
 			font.family: root.interFontFamily
 			font.pixelSize: 15
@@ -220,7 +220,7 @@ Item {
 			Image { source: "../../media/icon_warning.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
-				text: "No browser will be installed."
+				text: i18n.t("configuration.review.no_browser_warning")
 				color: "#FF0000"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -238,7 +238,7 @@ Item {
 			Image { source: "../../media/icon_info.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
-				text: "You aren't connected to internet. Talon won't install a browser."
+				text: i18n.t("configuration.review.no_internet_info")
 				color: "#00FFFF"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -257,7 +257,7 @@ Item {
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
 				width: rightPanel.width - 40
-				text: "Update policy won't be configured. Updates may restore bloat and undo some of Talon's settings."
+				text: i18n.t("configuration.review.no_updates_warning")
 				color: "#FF0000"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -275,7 +275,7 @@ Item {
 			Image { source: "../../media/icon_warning.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
-				text: "Cannot start debloat process. Nothing to do."
+				text: i18n.t("configuration.review.nothing_to_do")
 				color: "#FF0000"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -287,7 +287,7 @@ Item {
 		anchors.right: leftPanel.right
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 28
-		text: "Reset to Defaults"
+		text: i18n.t("configuration.review.reset_defaults")
 		color: resetDefaultsMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 		font.family: root.interFontFamily
 		font.pixelSize: 15
@@ -351,7 +351,7 @@ Item {
 		anchors.left: rightPanel.left
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 28
-		text: "Advanced"
+		text: i18n.t("configuration.review.advanced")
 		color: advancedMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 		font.family: root.interFontFamily
 		font.pixelSize: 15
@@ -381,7 +381,7 @@ Item {
 
 		Text {
 			anchors.centerIn: parent
-			text: "START"
+			text: i18n.t("configuration.review.start_button")
 			color: root.configItems.length > 0 ? "#000000" : "#7A7A7A"
 			font.family: root.interFontFamily
 			font.pixelSize: 16
@@ -398,4 +398,3 @@ Item {
 		}
 	}
 }
-

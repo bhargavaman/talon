@@ -7,6 +7,7 @@ import tempfile
 import time
 from types import SimpleNamespace
 from configuration_components import install_plan
+from configuration_components.localization import t
 from screens import load as load_screen
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
@@ -31,42 +32,42 @@ _INSTALL_UI_BASE = None
 DEBLOAT_STEPS = [
 	(
 		"remove-edge-permanently",
-		"Removing Microsoft Edge permanently...",
+		"app.install_overlay.remove_edge",
 		debloat_remove_edge.main,
 	),
 	(
 		"uninstall-outlook-onedrive",
-		"Uninstalling Outlook and OneDrive...",
+		"app.install_overlay.uninstall_outlook_onedrive",
 		debloat_uninstall_outlook_onedrive.main,
 	),
 	(
 		"browser-installation",
-		"Installing your chosen browser...",
+		"app.install_overlay.browser_installation",
 		debloat_browser_installation.main,
 	),
 	(
 		"debloat-windows-phase-one",
-		"Debloating Windows phase one (WinUtil)...",
+		"app.install_overlay.debloat_windows_phase_one",
 		debloat_execute_winutil.main,
 	),
 	(
 		"debloat-windows-phase-two",
-		"Debloating Windows phase two (Win11Debloat)...",
+		"app.install_overlay.debloat_windows_phase_two",
 		debloat_execute_win11debloat.main,
 	),
 	(
 		"registry-tweaks",
-		"Making some visual tweaks...",
+		"app.install_overlay.registry_tweaks",
 		debloat_registry_tweaks.main,
 	),
 	(
 		"configure-updates",
-		"Configuring Windows Update policies...",
+		"app.install_overlay.configure_updates",
 		debloat_configure_updates.main,
 	),
 	(
 		"apply-background",
-		"Setting your desktop background...",
+		"app.install_overlay.apply_background",
 		debloat_apply_background.main,
 	),
 ]
@@ -88,7 +89,7 @@ def _launch_developer_console(raw_args) -> bool:
 	except Exception as e:
 		logger.exception(f"Failed to launch developer console window: {e}")
 		show_error_popup(
-			f"Failed to launch Developer Mode console window.\n{e}",
+			t("errors.developer_console_failed", {"error": e}),
 			allow_continue=False,
 		)
 		return False
@@ -164,7 +165,7 @@ def run_screen(module_name: str):
 		except Exception as e:
 			logger.error(f"Failed to launch screen {script_file}: {e}")
 			show_error_popup(
-				f"Failed to launch screen '{module_name}'.\n{e}",
+				t("errors.screen_launch_failed", {"module_name": module_name, "error": e}),
 				allow_continue=False,
 			)
 			sys.exit(1)
@@ -176,7 +177,7 @@ def run_screen(module_name: str):
 	except Exception as e:
 		logger.exception(f"Exception in screen '{module_name}': {e}")
 		show_error_popup(
-			f"An unexpected error occurred in screen '{module_name}'.\n{e}",
+			t("errors.screen_unexpected", {"module_name": module_name, "error": e}),
 			allow_continue=False,
 		)
 		sys.exit(1)
@@ -235,9 +236,9 @@ def _build_install_ui():
 	for overlay in base.overlays:
 		overlay.setWindowOpacity(0.8)
 	overlay = base.primary_overlay
-	title_label = UITitleText("Talon is installing", parent=overlay)
+	title_label = UITitleText(t("app.install_overlay.title"), parent=overlay)
 	UIHeaderText(
-		"Please don't use your keyboard or mouse. You can watch as Talon works.",
+		t("app.install_overlay.guidance"),
 		parent=overlay,
 	)
 	status_label = UIHeaderText("", parent=overlay, follow_parent_resize=False)
@@ -318,7 +319,7 @@ def main(argv=None):
 	if args.config:
 		config_path = os.path.abspath(args.config)
 		if not os.path.isfile(config_path):
-			msg = f"Config file not found: {config_path}"
+			msg = t("errors.config_not_found", {"path": config_path})
 			logger.error(msg)
 			show_error_popup(msg, allow_continue=False)
 			sys.exit(1)
@@ -338,7 +339,7 @@ def main(argv=None):
 		plan = _load_install_plan()
 		execution_steps = _build_execution_steps_from_plan(plan)
 		if not execution_steps:
-			msg = "Install plan has no executable steps. Open Talon UI and configure at least one step."
+			msg = t("errors.empty_execution_plan")
 			logger.error(msg)
 			show_error_popup(msg, allow_continue=False)
 			return
@@ -385,7 +386,7 @@ def main(argv=None):
 				if getattr(args, f"skip_{slug.replace('-', '_')}_step", False):
 					logger.info(f"Skipping {slug} step")
 					continue
-				_update_status(bus, status_label, message)
+				_update_status(bus, status_label, t(message))
 				if args.dry_run:
 					logger.info(f"Dry-run: would run {slug} step")
 					if not args.headless and not args.developer_mode:
@@ -408,12 +409,12 @@ def main(argv=None):
 						bus.stop.emit()
 					if not args.headless:
 						show_error_popup(
-							"An unexpected error occurred during installation.\nCheck the log for details.",
+							t("errors.installation_unexpected"),
 							allow_continue=False,
 						)
 					return
 			if args.dry_run:
-				msg = "Dry run complete. No system changes were made."
+				msg = t("app.install_overlay.dry_run_complete")
 				_update_status(bus, status_label, msg)
 				if bus is not None:
 					bus.stop.emit()
@@ -421,15 +422,15 @@ def main(argv=None):
 				return
 			if args.headless or args.developer_mode:
 				if args.headless:
-					msg = "Suppressing system restart due to headless mode."
+					msg = t("app.install_overlay.suppress_restart_headless")
 				else:
-					msg = "Suppressing system restart due to developer mode."
+					msg = t("app.install_overlay.suppress_restart_developer")
 				_update_status(bus, status_label, msg)
 				if bus is not None:
 					bus.stop.emit()
 				return
 			else:
-				_update_status(bus, status_label, "Restarting system...")
+				_update_status(bus, status_label, t("app.install_overlay.restarting"))
 				if bus is not None:
 					bus.stop.emit()
 				try:
@@ -438,7 +439,7 @@ def main(argv=None):
 					logger.exception(f"Failed to restart system: {e}")
 					if not args.headless:
 						show_error_popup(
-							"Failed to restart the system.\nCheck the log for details.",
+							t("errors.restart_failed"),
 							allow_continue=False,
 						)
 		finally:

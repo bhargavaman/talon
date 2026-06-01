@@ -3,6 +3,7 @@ import tempfile
 from utilities.util_windows_check import check_windows_11_home_or_pro
 from utilities.util_error_popup import show_error_popup
 from utilities.util_logger import logger
+from configuration_components.localization import t
 
 def _check_temp_writable() -> bool:
     temp_root = os.environ.get("TEMP", tempfile.gettempdir())
@@ -22,8 +23,7 @@ def _check_temp_writable() -> bool:
     except Exception as e:
         logger.error(f"Temp dir check failed: {e}")
         show_error_popup(
-            f"Talon could not write files to {talon_dir}.\n"
-            "Please free up disk space or check permissions.",
+            t("errors.temp_unwritable", {"talon_dir": talon_dir}),
             allow_continue=True,
         )
         return False

@@ -3,6 +3,7 @@ import winreg
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
 from utilities.util_modify_registry import set_value
+from configuration_components.localization import t
 
 
 REGISTRY_MODIFICATIONS = [
@@ -129,7 +130,7 @@ def main(registry_changes=None):
         logger.error(f"Invalid registry changes payload: {e}")
         try:
             show_error_popup(
-                f"Invalid registry changes payload.\n\n{e}",
+                t("errors.registry_changes_payload_invalid", {"error": e}),
                 allow_continue=False
             )
         except Exception:
@@ -144,7 +145,7 @@ def main(registry_changes=None):
             logger.error(f"Failed to apply registry tweak {name}: {e}")
             try:
                 show_error_popup(
-                    f"Failed to apply registry tweak:\n{key_path}\\{name}\n\n{e}",
+                    t("errors.registry_tweak_failed", {"target": f"{key_path}\\{name}", "error": e}),
                     allow_continue=False
                 )
             except Exception:

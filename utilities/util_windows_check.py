@@ -2,6 +2,7 @@ import sys
 import winreg
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -23,8 +24,7 @@ def _read_registry_value(name: str) -> str:
 def check_windows_11_home_or_pro() -> str:
     if sys.platform != "win32":
         show_error_popup(
-            "Unsupported OS detected.\n"
-            "This tool requires Windows 11.",
+            t("errors.unsupported_os"),
             allow_continue=False
         )
     try:
@@ -33,8 +33,7 @@ def check_windows_11_home_or_pro() -> str:
         build_num    = int(build_str)
     except Exception:
         show_error_popup(
-            "Failed to determine Windows version.\n"
-            "This tool requires Windows 11.",
+            t("errors.windows_version_failed"),
             allow_continue=False
         )
     is_win11 = (
@@ -43,9 +42,7 @@ def check_windows_11_home_or_pro() -> str:
     )
     if not is_win11:
         show_error_popup(
-            f"Incompatible Windows version detected:\n"
-            f"  {product_name} (build {build_num})\n"
-            "This tool requires Windows 11.",
+            t("errors.incompatible_windows_version", {"product_name": product_name, "build_num": build_num}),
             allow_continue=False
         )
     logger.info(f"Detected OS: {product_name} (build {build_num})")

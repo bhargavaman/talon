@@ -7,6 +7,7 @@ import time
 from typing import List, Optional, Sequence, Union
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -59,7 +60,7 @@ def run_powershell_script(
     except Exception as e:
         logger.exception(f"Failed to start PowerShell process: {e}")
         show_error_popup(
-            f"Error launching PowerShell script:\n{e}",
+            t("errors.powershell_script_launch_failed", {"error": e}),
             allow_continue=allow_continue_on_fail,
         )
         raise
@@ -108,7 +109,7 @@ def run_powershell_script(
     if rc != 0:
         logger.error(f"PowerShell exited with code {rc}")
         show_error_popup(
-            f"PowerShell script '{os.path.basename(script_path)}' failed (exit code {rc})",
+            t("errors.powershell_script_failed", {"script_name": os.path.basename(script_path), "exit_code": rc}),
             allow_continue=allow_continue_on_fail,
         )
         raise RuntimeError(
@@ -154,7 +155,7 @@ def run_powershell_command(
     except Exception as e:
         logger.exception(f"Failed to start PowerShell command: {e}")
         show_error_popup(
-            f"Error launching PowerShell:\n{e}",
+            t("errors.powershell_launch_failed", {"error": e}),
             allow_continue=allow_continue_on_fail,
         )
         raise
@@ -206,7 +207,7 @@ def run_powershell_command(
     if rc != 0:
         logger.error(f"PowerShell exited with code {rc}")
         show_error_popup(
-            f"PowerShell command failed (exit code {rc})",
+            t("errors.powershell_command_failed", {"exit_code": rc}),
             allow_continue=allow_continue_on_fail,
         )
         raise RuntimeError(f"PowerShell command failed (code {rc})")

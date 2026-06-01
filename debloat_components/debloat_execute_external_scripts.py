@@ -7,6 +7,7 @@ import glob
 import urllib.request
 import urllib.parse
 from configuration_components import step_catalog
+from configuration_components.localization import t
 from utilities.util_logger import logger
 from utilities.util_powershell_handler import run_powershell_command
 from utilities.util_error_popup import show_error_popup
@@ -35,7 +36,7 @@ def _download_config(url: str) -> str:
     try:
         json.loads(data.decode("utf-8-sig"))
     except Exception as e:
-        raise RuntimeError(f"Downloaded config is not valid JSON: {e}")
+        raise RuntimeError(t("errors.downloaded_config_invalid", {"error": e}))
     fd, tmp_path = tempfile.mkstemp(prefix="talon_config_", suffix=".json")
     with os.fdopen(fd, "wb") as f:
         f.write(data)
@@ -51,7 +52,7 @@ def _load_json_config(path: str, label: str):
         logger.error(f"Failed to load {label} config: {e}")
         try:
             show_error_popup(
-                f"Failed to load {label} config.\n{e}",
+                t("errors.config_load_failed", {"label": label, "error": e}),
                 allow_continue=False,
             )
         except Exception:
@@ -168,7 +169,7 @@ def _prepare_context(config_path=None):
             logger.error(f"Failed to download config: {e}")
             try:
                 show_error_popup(
-                    f"Failed to download config from URL.\n{e}",
+                    t("errors.config_download_failed", {"error": e}),
                     allow_continue=False,
                 )
             except Exception:
@@ -181,7 +182,7 @@ def _prepare_context(config_path=None):
             logger.error(f"Config not found: {config_path}")
             try:
                 show_error_popup(
-                    f"Config not found:\n{config_path}",
+                    t("errors.config_missing", {"path": config_path}),
                     allow_continue=False,
                 )
             except Exception:
@@ -213,7 +214,7 @@ def run_winutil(config_path=None):
         logger.error(f"Bundled WinUtil script not found: {winutil_path}")
         try:
             show_error_popup(
-                f"Bundled WinUtil script not found:\n{winutil_path}",
+                t("errors.bundled_winutil_missing", {"path": winutil_path}),
                 allow_continue=False,
             )
         except Exception:
@@ -233,7 +234,7 @@ def run_winutil(config_path=None):
         logger.error(f"Failed to execute ChrisTitusTech WinUtil: {e}")
         try:
             show_error_popup(
-                f"Failed to execute ChrisTitusTech WinUtil:\n{e}",
+                t("errors.winutil_failed", {"error": e}),
                 allow_continue=False,
             )
         except Exception:
@@ -262,7 +263,7 @@ def run_win11debloat(config_path=None):
         logger.error(f"Bundled Win11Debloat script not found: {win11debloat_path}")
         try:
             show_error_popup(
-                f"Bundled Win11Debloat script not found:\n{win11debloat_path}",
+                t("errors.bundled_win11debloat_missing", {"path": win11debloat_path}),
                 allow_continue=False,
             )
         except Exception:
@@ -281,7 +282,7 @@ def run_win11debloat(config_path=None):
         logger.error(f"Failed to execute Raphi Win11Debloat: {e}")
         try:
             show_error_popup(
-                f"Failed to execute Raphi Win11Debloat:\n{e}",
+                t("errors.win11debloat_failed", {"error": e}),
                 allow_continue=False,
             )
         except Exception:

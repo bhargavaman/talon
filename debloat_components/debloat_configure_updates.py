@@ -3,6 +3,7 @@ import winreg
 from utilities.util_logger import logger
 from utilities.util_powershell_handler import run_powershell_script
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 
@@ -24,7 +25,7 @@ def main():
     except Exception as e:
         logger.error(f"Failed to read Windows edition: {e}")
         show_error_popup(
-            f"Failed to determine Windows edition:\n{e}",
+            t("errors.windows_edition_failed", {"error": e}),
             allow_continue=False,
         )
         sys.exit(1)
@@ -41,7 +42,7 @@ def main():
         logger.error(f"Failed to execute {script}: {e}")
         try:
             show_error_popup(
-                f"Failed to execute PowerShell script:\n{script}\n\n{e}",
+                t("errors.powershell_named_script_failed", {"script_name": script, "error": e}),
                 allow_continue=False,
             )
         except Exception:

@@ -5,6 +5,7 @@ from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 def has_internet(max_attempts: int = 3, url: str = "https://raventechnologiesgroup.com", timeout: int = 5) -> bool:
@@ -31,17 +32,12 @@ def ensure_internet(max_attempts: int = 3, url: str = "https://raventechnologies
         return True
     if allow_continue:
         show_error_popup(
-            "No internet connection detected.\n\n"
-            "Talon can continue without internet. If you proceed now, the browser installation step will be skipped.\n\n"
-            "Options:\n"
-            "- Connect to the internet and run Talon again to install your browser automatically.\n"
-            "- Or click Continue to proceed without a browser install (you can install a browser later).",
+            t("errors.no_internet_continue"),
             allow_continue=True,
         )
     else:
         show_error_popup(
-            "No internet connection detected.\n"
-            "An active internet connection is required to run Talon in non-headless mode.\n",
+            t("errors.no_internet_required"),
             allow_continue=False,
         )
     return False

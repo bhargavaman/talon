@@ -2,6 +2,7 @@ import sys
 from utilities.util_logger import logger
 from utilities.util_powershell_handler import run_powershell_script
 from utilities.util_error_popup import show_error_popup
+from configuration_components.localization import t
 
 
 def _run_script(script: str):
@@ -13,7 +14,7 @@ def _run_script(script: str):
         logger.error(f"Failed to execute {script}: {e}")
         try:
             show_error_popup(
-                f"Failed to execute PowerShell script:\n{script}\n\n{e}",
+                t("errors.powershell_named_script_failed", {"script_name": script, "error": e}),
                 allow_continue=False,
             )
         except Exception:

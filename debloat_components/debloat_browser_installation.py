@@ -4,6 +4,7 @@ import subprocess
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
 from utilities.util_powershell_handler import run_powershell_command
+from configuration_components.localization import t
 
 
 
@@ -40,7 +41,7 @@ def ensure_chocolatey():
 		except Exception as e:
 			logger.error(f"Failed to install or verify Chocolatey: {e}")
 			show_error_popup(
-				f"Failed to install or verify Chocolatey:\n{e}",
+				t("errors.chocolatey_install_failed", {"error": e}),
 				allow_continue=False
 			)
 			sys.exit(1)
@@ -79,17 +80,13 @@ def _install_choco_package(pkg_id: str, display_name: str):
 			return
 		logger.error(f"Chocolatey exited with code {result.returncode} for {pkg_id}")
 		show_error_popup(
-			"A problem occurred with Chocolatey during installation. "
-			f"'{display_name}' could not be installed successfully.\n"
-			f"Chocolatey exit code: {result.returncode}",
+			t("errors.chocolatey_browser_failed", {"display_name": display_name, "exit_code": result.returncode}),
 			allow_continue=True
 		)
 	except Exception as e:
 		logger.error(f"Unexpected error installing {pkg_id}: {e}")
 		show_error_popup(
-			"A problem occurred with Chocolatey during installation. "
-			f"'{display_name}' could not be installed successfully.\n"
-			f"Error: {e}",
+			t("errors.chocolatey_browser_error", {"display_name": display_name, "error": e}),
 			allow_continue=True
 		)
 
@@ -109,11 +106,11 @@ def main(selected_browser_package=None):
 	try:
 		pkg_id = str(selected_browser_package or "").strip()
 		if not pkg_id:
-			raise ValueError("No browser package was provided by the runner metadata.")
+			raise ValueError(t("errors.browser_metadata_missing"))
 		logger.info(f"Browser selected: {pkg_id}")
 	except Exception as e:
 		logger.error(f"Error reading browser choice metadata: {e}")
-		show_error_popup(f"Internal error reading browser choice metadata:\n{e}", allow_continue=False)
+		show_error_popup(t("errors.browser_metadata_error", {"error": e}), allow_continue=False)
 		sys.exit(1)
 	ensure_chocolatey()
 	install_vcredist()

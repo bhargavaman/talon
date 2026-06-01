@@ -12,7 +12,7 @@ Item {
 		anchors.top: parent.top
 		anchors.topMargin: 40
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: "Welcome. Please select your web browser."
+		text: i18n.t("configuration.browser.title")
 		color: "#FFFFFF"
 		font.family: root.interFontFamily
 		font.pixelSize: 22
@@ -20,7 +20,7 @@ Item {
 
 	Row {
 		anchors.centerIn: parent
-		spacing: 30
+		spacing: 22
 
 		Repeater {
 			model: root.browsers
@@ -70,7 +70,7 @@ Item {
 
 				Rectangle {
 					visible: parent.hovered
-					width: 300
+					width: Math.min(300, root.width - 48)
 					height: tooltipText.implicitHeight + 16
 					color: "#0B0B0B"
 					border.width: 1
@@ -110,7 +110,7 @@ Item {
 			spacing: 6
 
 			Text {
-				text: "Do not install a browser"
+				text: i18n.t("configuration.browser.skip")
 				color: skipBrowserMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -156,4 +156,3 @@ Item {
 		}
 	}
 }
-

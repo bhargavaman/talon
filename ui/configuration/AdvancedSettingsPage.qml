@@ -18,7 +18,7 @@ Item {
 		anchors.top: parent.top
 		anchors.topMargin: 40
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: "Advanced settings"
+		text: i18n.t("configuration.advanced.title")
 		color: "#FFFFFF"
 		font.family: root.interFontFamily
 		font.pixelSize: 22
@@ -32,10 +32,12 @@ Item {
 		Image { source: "../../media/icon_warning.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 		Text {
 			anchors.verticalCenter: parent.verticalCenter
-			text: "Do not touch unless you know what you're doing!"
+			width: Math.min(520, root.width - 120)
+			text: i18n.t("configuration.advanced.warning")
 			color: "#FF0000"
 			font.family: root.interFontFamily
 			font.pixelSize: 15
+			wrapMode: Text.WordWrap
 		}
 	}
 
@@ -51,17 +53,17 @@ Item {
 
 		Repeater {
 			model: [
-				{"label": "Import Talon Install Plan", "action": "importPlan"},
-				{"label": "Import WinUtil Config", "action": "importWinUtil"},
-				{"label": "Set Win11Debloat Arguments", "action": "win11"},
-				{"label": "Edit Registry Changes", "action": "registry"},
-				{"label": "Export As Install Plan", "action": "export"},
-				{"label": "Set Applied Background", "action": "background"}
+				{"label": i18n.t("configuration.advanced.import_plan"), "action": "importPlan"},
+				{"label": i18n.t("configuration.advanced.import_winutil"), "action": "importWinUtil"},
+				{"label": i18n.t("configuration.advanced.set_win11_args"), "action": "win11"},
+				{"label": i18n.t("configuration.advanced.edit_registry_changes"), "action": "registry"},
+				{"label": i18n.t("configuration.advanced.export_plan"), "action": "export"},
+				{"label": i18n.t("configuration.advanced.set_background"), "action": "background"}
 			]
 
 			Rectangle {
-				width: actionLabel.implicitWidth + 22
-				height: 30
+				width: Math.min(Math.max(actionLabel.implicitWidth + 22, 120), advancedActionsRow.width)
+				height: Math.max(30, actionLabel.implicitHeight + 12)
 				color: actionMouse.containsMouse ? "#101010" : "#000000"
 				border.width: 1
 				border.color: "#2A2A2A"
@@ -73,6 +75,9 @@ Item {
 					color: "#FFFFFF"
 					font.family: root.interFontFamily
 					font.pixelSize: 14
+					width: parent.width - 16
+					horizontalAlignment: Text.AlignHCenter
+					wrapMode: Text.WordWrap
 				}
 
 				MouseArea {
@@ -142,7 +147,7 @@ Item {
 
 				Text {
 					anchors.centerIn: parent
-					text: modelData.value ? "true" : "false"
+					text: modelData.value ? i18n.t("configuration.advanced.true") : i18n.t("configuration.advanced.false")
 					color: unavailableNoInternet ? "#7A7A7A" : "#FFFFFF"
 					font.family: root.interFontFamily
 					font.pixelSize: 14
@@ -174,7 +179,7 @@ Item {
 		anchors.leftMargin: 36
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 28
-		text: "See Documentation"
+		text: i18n.t("configuration.advanced.see_documentation")
 		color: seeDocsMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 		font.family: root.interFontFamily
 		font.pixelSize: 15
@@ -212,7 +217,7 @@ Item {
 
 			Text {
 				anchors.centerIn: parent
-				text: "Confirm"
+				text: i18n.t("configuration.advanced.confirm")
 				color: "#FFFFFF"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -228,4 +233,3 @@ Item {
 		}
 	}
 }
-
