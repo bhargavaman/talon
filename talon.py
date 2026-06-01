@@ -4,7 +4,9 @@ import sys
 import threading
 import json
 import tempfile
+import time
 from types import SimpleNamespace
+from configuration_components import install_plan
 from screens import load as load_screen
 from utilities.util_logger import logger
 from utilities.util_error_popup import show_error_popup
@@ -104,6 +106,7 @@ def parse_args(argv=None):
 	args = SimpleNamespace()
 	args.developer_mode = False
 	args.headless = False
+	args.dry_run = False
 	args.config = None
 	for slug, _, _ in DEBLOAT_STEPS:
 		setattr(args, f"skip_{slug.replace('-', '_')}_step", False)
@@ -112,6 +115,7 @@ def parse_args(argv=None):
 	alias_lookup = {
 		"developer-mode": "developer_mode",
 		"headless": "headless",
+		"dry-run": "dry_run",
 		"config": "config",
 	}
 
@@ -138,7 +142,7 @@ def parse_args(argv=None):
 			continue
 
 		raise SystemExit(
-			f"Unknown argument key '{key}'. Supported keys: developer-mode, headless, config, "
+			f"Unknown argument key '{key}'. Supported keys: developer-mode, headless, dry-run, config, "
 			+ ", ".join(step_lookup.keys())
 		)
 
@@ -179,19 +183,11 @@ def run_screen(module_name: str):
 
 
 def _install_plan_path() -> str:
-	return os.path.join(os.environ.get("TEMP", tempfile.gettempdir()), "talon", "install_plan.json")
+	return install_plan.install_plan_path()
 
 
 def _load_install_plan() -> dict:
-	path = _install_plan_path()
-	if not os.path.isfile(path):
-		return {}
-	try:
-		with open(path, "r", encoding="utf-8") as f:
-			data = json.load(f)
-		return data if isinstance(data, dict) else {}
-	except Exception:
-		return {}
+	return install_plan.load_install_plan()
 
 
 def _build_execution_steps_from_plan(plan: dict):
@@ -273,11 +269,13 @@ def _build_install_ui():
 		stop = pyqtSignal()
 		raiseit = pyqtSignal()
 		set_msg = pyqtSignal(str)
+		quit_later = pyqtSignal()
 	bus = _SpinnerBus()
 	bus.start.connect(spinner.start, Qt.QueuedConnection)
 	bus.stop.connect(spinner.stop, Qt.QueuedConnection)
 	bus.raiseit.connect(spinner.raise_, Qt.QueuedConnection)
 	bus.set_msg.connect(status_label.setText, Qt.QueuedConnection)
+	bus.quit_later.connect(lambda: QTimer.singleShot(2500, app.quit), Qt.QueuedConnection)
 	base.show()
 	status_label.raise_()
 	spinner.raise_()
@@ -314,6 +312,9 @@ def main(argv=None):
 	if args.headless:
 		args.developer_mode = True
 		args.skip_browser_installation_step = True
+	if args.dry_run:
+		os.environ["TALON_DRY_RUN"] = "1"
+		logger.info("Dry-run mode enabled; execution steps will be previewed without modifying the system.")
 	if args.config:
 		config_path = os.path.abspath(args.config)
 		if not os.path.isfile(config_path):
@@ -330,7 +331,7 @@ def main(argv=None):
 	runtime_applied_background_path = ""
 	execution_steps = [(slug, True, message, func) for slug, message, func in DEBLOAT_STEPS]
 	if not args.headless:
-		start_requested = bool(run_screen("screen_initial_blank"))
+		start_requested = bool(run_screen("screen_configuration"))
 		if not start_requested:
 			logger.info("Initial window closed without Start; exiting before debloat process starts.")
 			return
@@ -349,10 +350,12 @@ def main(argv=None):
 				if bool(raw.get("enabled", False)):
 					args.developer_mode = True
 				break
-		runtime_config_path, runtime_config_is_temp = _execution_config_path(args, plan)
+		if not args.dry_run:
+			runtime_config_path, runtime_config_is_temp = _execution_config_path(args, plan)
 	else:
-		ensure_admin()
-		pre_checks.main()
+		if not args.dry_run:
+			ensure_admin()
+			pre_checks.main()
 	app = None
 	status_label = None
 	spinner = None
@@ -383,6 +386,11 @@ def main(argv=None):
 					logger.info(f"Skipping {slug} step")
 					continue
 				_update_status(bus, status_label, message)
+				if args.dry_run:
+					logger.info(f"Dry-run: would run {slug} step")
+					if not args.headless and not args.developer_mode:
+						time.sleep(0.8)
+					continue
 				try:
 					if slug in ("debloat-windows-phase-one", "debloat-windows-phase-two"):
 						func(runtime_config_path)
@@ -404,6 +412,13 @@ def main(argv=None):
 							allow_continue=False,
 						)
 					return
+			if args.dry_run:
+				msg = "Dry run complete. No system changes were made."
+				_update_status(bus, status_label, msg)
+				if bus is not None:
+					bus.stop.emit()
+					bus.quit_later.emit()
+				return
 			if args.headless or args.developer_mode:
 				if args.headless:
 					msg = "Suppressing system restart due to headless mode."
