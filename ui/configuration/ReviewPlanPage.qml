@@ -72,7 +72,7 @@ Item {
 			anchors.left: parent.left
 			anchors.right: parent.right
 			anchors.bottom: presetDropdown.top
-			anchors.bottomMargin: 12
+			anchors.bottomMargin: 16
 			clip: true
 			model: root.configItems
 
@@ -199,6 +199,7 @@ Item {
 			anchors.left: parent.left
 			anchors.right: parent.right
 			anchors.bottom: parent.bottom
+			anchors.bottomMargin: 56
 			presets: root.presetOptions
 			selectedPresetKey: root.selectedPresetKey
 			interFontFamily: root.interFontFamily

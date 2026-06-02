@@ -38,7 +38,8 @@
             "nothing_to_do": "Não é possível iniciar o processo de debloat. Nada a fazer.",
             "reset_defaults": "Restaurar padrões",
             "advanced": "Avançado",
-            "start_button": "START"
+            "start_button": "START",
+            "custom_preset": "Padrão"
         },
         "advanced": {
             "title": "Configurações avançadas",
@@ -114,7 +115,7 @@
             "tooltip": "O Waterfox é recomendado em vez do Firefox, mas não do Brave. Ele é baseado no Firefox, mas remove rastreamento e telemetria."
         },
         "brave": {
-            "tooltip": "O Brave é o navegador recomendado, pois é o mais próximo do Chrome respeitando sua privacidade."
+            "tooltip": "O Brave é o navegador recomendado, pois é o mais próximo do Chrome, mas respeitando sua privacidade."
         },
         "librewolf": {
             "tooltip": "O LibreWolf é recomendado apenas para usuários avançados. Ele foi projetado para máxima privacidade e segurança, mas pode ser mais difícil de usar."
@@ -143,7 +144,7 @@
         "save_win11_args_failed": "Falha ao salvar os argumentos do Win11Debloat:\n{error}",
         "registry_changes_invalid": "As alterações do Registro devem ser um objeto ou array JSON.",
         "save_registry_changes_failed": "Falha ao salvar as alterações do Registro:\n{error}",
-        "unsupported_os": "Sistema operacional não suportado detectado.\nEsta ferramenta requer o Windows 11.",
+        "unsupported_os": "Sistema operacional não suportado.\nEsta ferramenta requer o Windows 11.",
         "windows_version_failed": "Falha ao determinar a versão do Windows.\nEsta ferramenta requer o Windows 11.",
         "incompatible_windows_version": "Versão incompatível do Windows detectada:\n    {product_name} (build {build_num})\nEsta ferramenta requer o Windows 11.",
         "temp_unwritable": "O Talon não conseguiu gravar arquivos em {talon_dir}.\nLibere espaço em disco ou verifique as permissões.",
