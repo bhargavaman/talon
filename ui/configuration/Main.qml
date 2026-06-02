@@ -64,7 +64,7 @@ Window {
 			languages: i18n.availableLanguages()
 			currentLanguage: i18n.currentLanguage
 			interFontFamily: interFont.name
-			visible: window.currentPage === 0 || window.currentPage === 1
+			visible: window.currentPage === 1 && (readyPage.showBrowserSelection || readyPage.showDebloatSummary || readyPage.showAdvancedPage)
 			onLanguageRequested: function(code) {
 				i18n.setLanguage(code)
 			}
