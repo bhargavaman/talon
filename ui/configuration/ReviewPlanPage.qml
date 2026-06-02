@@ -3,6 +3,8 @@ import QtQuick 2.15
 Item {
 	id: root
 	property var configItems: []
+	property var presetOptions: []
+	property string selectedPresetKey: ""
 	property bool internetAvailable: true
 	property string interFontFamily: ""
 	property var localizer
@@ -11,6 +13,7 @@ Item {
 	signal backRequested()
 	signal advancedRequested()
 	signal startRequested()
+	signal presetRequested(string key)
 
 	function hasBrowserInstallItem() {
 		for (var i = 0; i < configItems.length; i++) {
@@ -65,7 +68,11 @@ Item {
 
 		ListView {
 			id: configList
-			anchors.fill: parent
+			anchors.top: parent.top
+			anchors.left: parent.left
+			anchors.right: parent.right
+			anchors.bottom: presetDropdown.top
+			anchors.bottomMargin: 12
 			clip: true
 			model: root.configItems
 
@@ -184,6 +191,21 @@ Item {
 				color: "#FFFFFF"
 				font.family: root.interFontFamily
 				font.pixelSize: 12
+			}
+		}
+
+		PresetDropdown {
+			id: presetDropdown
+			anchors.left: parent.left
+			anchors.right: parent.right
+			anchors.bottom: parent.bottom
+			presets: root.presetOptions
+			selectedPresetKey: root.selectedPresetKey
+			interFontFamily: root.interFontFamily
+			localizer: root.localizer
+			openUp: true
+			onPresetRequested: function(key) {
+				root.presetRequested(key)
 			}
 		}
 	}

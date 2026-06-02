@@ -38,7 +38,8 @@
             "nothing_to_do": "Cannot start debloat process. Nothing to do.",
             "reset_defaults": "Reset to Defaults",
             "advanced": "Advanced",
-            "start_button": "START"
+            "start_button": "START",
+            "custom_preset": "Custom"
         },
         "advanced": {
             "title": "Advanced settings",

@@ -32,6 +32,18 @@ class ConfigurationBridge(QObject):
         except Exception:
             return install_plan.visible_enabled_items(install_plan.build_install_plan())
 
+    @pyqtSlot(result="QVariantList")
+    def getPresetOptions(self):
+        return step_catalog.preset_options()
+
+    @pyqtSlot(result=str)
+    def getSelectedPresetKey(self):
+        try:
+            data = install_plan.load_install_plan()
+            return str(data.get("selected_preset_key", step_catalog.STANDARD_PRESET_KEY))
+        except Exception:
+            return step_catalog.STANDARD_PRESET_KEY
+
     @pyqtSlot(result="QVariantMap")
     def getExecutionPlan(self):
         try:
@@ -86,6 +98,7 @@ class ConfigurationBridge(QObject):
                 if item["key"] == key:
                     item["enabled"] = not bool(item["enabled"])
                     break
+            data["selected_preset_key"] = "custom"
             if not data.get("selected_browser_package", ""):
                 for item in items:
                     if item["key"] == "browser-installation":
@@ -116,6 +129,7 @@ class ConfigurationBridge(QObject):
                     if item["key"] == remove_key:
                         item["enabled"] = False
                         break
+                data["selected_preset_key"] = "custom"
             data["items"] = items
             data["include_browser_install"] = any(
                 item["key"] == "browser-installation" and bool(item["enabled"]) for item in items
@@ -136,6 +150,13 @@ class ConfigurationBridge(QObject):
     @pyqtSlot()
     def resetInstallPlanDefaults(self):
         install_plan.reset_install_plan_defaults()
+
+    @pyqtSlot(str)
+    def selectPreset(self, preset_key: str):
+        try:
+            install_plan.apply_preset(preset_key)
+        except Exception:
+            return
 
     @pyqtSlot()
     def importInstallPlan(self):

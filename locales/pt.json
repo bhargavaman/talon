@@ -46,7 +46,7 @@
             "import_plan": "Importar plano de instalação do Talon",
             "import_winutil": "Importar configuração do WinUtil",
             "set_win11_args": "Definir argumentos do Win11Debloat",
-            "edit_registry_changes": "Editar alterações do Registro",
+            "edit_registry_changes": "Editar alterações de Registro",
             "export_plan": "Exportar como plano de instalação",
             "set_background": "Definir plano de fundo aplicado",
             "true": "verdadeiro",
@@ -58,7 +58,7 @@
             "cancel": "Cancelar",
             "save_changes": "Salvar alterações",
             "win11_args_title": "Definir argumentos do Win11Debloat",
-            "registry_changes_title": "Editar alterações do Registro",
+            "registry_changes_title": "Editar alterações de Registro",
             "import_plan_title": "Importar plano de instalação do Talon",
             "import_winutil_title": "Importar configuração do WinUtil",
             "export_plan_title": "Exportar como plano de instalação",
@@ -70,11 +70,11 @@
     "steps": {
         "remove_edge_permanently": {
             "text": "Remover o Microsoft Edge permanentemente",
-            "tooltip": "Desinstala o Microsoft Edge e garante que ele não volte. Você sempre pode reinstalá-lo manualmente se quiser. Aplicativos que dependem dele (msedgewebview2) continuarão funcionando."
+            "tooltip": "Desinstala o Microsoft Edge e garante que ele não volte. Você pode reinstalá-lo manualmente se quiser. Aplicativos que dependem dele (msedgewebview2) continuarão funcionando."
         },
         "uninstall_outlook_onedrive": {
             "text": "Desinstalar Outlook e OneDrive",
-            "tooltip": "Desinstala o aplicativo Outlook e o OneDrive, já que muitas pessoas não os utilizam. Você sempre pode reinstalá-los manualmente se quiser."
+            "tooltip": "Desinstala o aplicativo Outlook e o OneDrive, já que muitas pessoas não os utilizam. Você pode reinstalá-los manualmente se quiser."
         },
         "browser_installation": {
             "text": "Instalar navegador",

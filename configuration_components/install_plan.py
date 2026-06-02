@@ -94,28 +94,53 @@ def normalize_metadata_fields(data: dict):
     data["applied_background_path"] = str(data.get("applied_background_path", "")).strip()
 
 
-def build_install_plan(browser_name: str = "None", browser_package: str = "", include_browser_install: bool = False) -> dict:
+def copy_metadata_value(value):
+    return json.loads(json.dumps(value))
+
+
+def build_install_plan(
+    browser_name: str = "None",
+    browser_package: str = "",
+    include_browser_install: bool = False,
+    preset_key: str = step_catalog.STANDARD_PRESET_KEY,
+) -> dict:
+    preset = step_catalog.preset_by_key(preset_key)
+    preset_plan = copy_metadata_value(preset.get("plan", {}))
+    preset_items = {}
+    for raw in preset_plan.get("items", []):
+        if isinstance(raw, dict) and str(raw.get("key", "")).strip():
+            preset_items[str(raw.get("key", "")).strip()] = raw
     items = []
     for slug in step_catalog.BOOL_OPTION_SLUGS + step_catalog.STEP_SLUGS:
+        raw_item = preset_items.get(slug, {})
+        enabled = bool(raw_item.get("enabled", False if slug in step_catalog.BOOL_OPTION_SLUGS else True))
         item = {
             "key": slug,
-            "text": "",
-            "tooltip": "",
-            "enabled": False if slug in step_catalog.BOOL_OPTION_SLUGS else True,
+            "text": str(raw_item.get("text", "")),
+            "tooltip": str(raw_item.get("tooltip", "")),
+            "enabled": enabled,
         }
         if slug == "browser-installation":
-            item["enabled"] = bool(include_browser_install)
+            item["enabled"] = bool(include_browser_install and enabled)
         items.append(item)
+    winutil_config = copy_metadata_value(preset_plan.get("winutil_config", step_catalog.default_winutil_config()))
+    win11debloat_args = copy_metadata_value(preset_plan.get("win11debloat_args", step_catalog.default_win11debloat_args_text()))
+    if isinstance(win11debloat_args, list):
+        win11debloat_args = " ".join([str(v).strip() for v in win11debloat_args if str(v).strip()])
+    registry_changes = copy_metadata_value(preset_plan.get("registry_changes", None))
+    if registry_changes is None:
+        registry_changes = default_registry_changes()
     return {
         "version": INSTALL_PLAN_VERSION,
+        "selected_preset_key": str(preset.get("key", step_catalog.STANDARD_PRESET_KEY)),
         "selected_browser_name": browser_name,
         "selected_browser_package": browser_package,
-        "include_browser_install": include_browser_install,
+        "include_browser_install": is_item_enabled({"items": items}, "browser-installation"),
         "items": items,
-        "winutil_config": step_catalog.default_winutil_config(),
-        "win11debloat_args": step_catalog.default_win11debloat_args_text(),
-        "registry_changes": default_registry_changes(),
-        "applied_background_path": "",
+        "winutil_config": winutil_config,
+        "win11debloat_args": normalize_win11debloat_args_text(win11debloat_args),
+        "registry_changes": registry_changes,
+        "applied_background_path": str(preset_plan.get("applied_background_path", "")).strip(),
     }
 
 
@@ -147,7 +172,9 @@ def normalize_imported_plan(payload: dict) -> dict:
         browser_name=str(payload.get("selected_browser_name", "None")),
         browser_package=str(payload.get("selected_browser_package", "")),
         include_browser_install=bool(payload.get("include_browser_install", False)),
+        preset_key=str(payload.get("selected_preset_key", step_catalog.STANDARD_PRESET_KEY)),
     )
+    normalized["selected_preset_key"] = str(payload.get("selected_preset_key", normalized.get("selected_preset_key", step_catalog.STANDARD_PRESET_KEY)))
     normalized["version"] = incoming_version
     default_keys = {item["key"] for item in normalized["items"]}
     imported_by_key = {}
@@ -168,7 +195,7 @@ def normalize_imported_plan(payload: dict) -> dict:
         item["enabled"] = bool(imported["enabled"])
     normalized["items"].extend(unknown_items)
     if not normalized["selected_browser_package"]:
-        set_item_enabled(normalized, "browser-installation", False)
+        set_item_enabled_for_preset(normalized, "browser-installation", False)
     normalized["include_browser_install"] = is_item_enabled(normalized, "browser-installation")
     for key in metadata_keys():
         if key in payload:
@@ -195,6 +222,7 @@ def ensure_install_plan_file():
             browser_name=str(data.get("selected_browser_name", "None")),
             browser_package=str(data.get("selected_browser_package", "")),
             include_browser_install=bool(data.get("include_browser_install", False)),
+            preset_key=str(data.get("selected_preset_key", step_catalog.STANDARD_PRESET_KEY)),
         )
         existing_version = data.get("version", INSTALL_PLAN_VERSION)
         normalized["version"] = existing_version if isinstance(existing_version, int) and existing_version >= 1 else INSTALL_PLAN_VERSION
@@ -207,7 +235,7 @@ def ensure_install_plan_file():
             if item["key"] in existing_enabled_by_key:
                 item["enabled"] = existing_enabled_by_key[item["key"]]
         if not normalized["selected_browser_package"]:
-            set_item_enabled(normalized, "browser-installation", False)
+            set_item_enabled_for_preset(normalized, "browser-installation", False)
         normalized["include_browser_install"] = is_item_enabled(normalized, "browser-installation")
         for key in metadata_keys():
             if key in data:
@@ -255,6 +283,17 @@ def find_item_index(items: list, key: str) -> int:
 
 
 def set_item_enabled(data: dict, key: str, enabled: bool):
+    items = [normalize_item(item) for item in data.get("items", [])]
+    for item in items:
+        if item["key"] == key:
+            item["enabled"] = bool(enabled)
+            break
+    data["items"] = items
+    if key != "browser-installation" or bool(data.get("selected_browser_package", "")):
+        data["selected_preset_key"] = "custom"
+
+
+def set_item_enabled_for_preset(data: dict, key: str, enabled: bool):
     items = [normalize_item(item) for item in data.get("items", [])]
     for item in items:
         if item["key"] == key:
@@ -332,6 +371,23 @@ def apply_internet_availability(available: bool):
     if available:
         return
     data = load_install_plan()
-    set_item_enabled(data, "browser-installation", False)
+    set_item_enabled_for_preset(data, "browser-installation", False)
     data["include_browser_install"] = False
+    save_install_plan(data)
+
+
+def apply_preset(preset_key: str):
+    current = load_install_plan()
+    selected_browser_name = str(current.get("selected_browser_name", "None"))
+    selected_browser_package = str(current.get("selected_browser_package", ""))
+    preset = step_catalog.preset_by_key(preset_key)
+    data = build_install_plan(
+        browser_name=selected_browser_name,
+        browser_package=selected_browser_package,
+        include_browser_install=bool(selected_browser_package),
+        preset_key=str(preset.get("key", step_catalog.STANDARD_PRESET_KEY)),
+    )
+    if not selected_browser_package:
+        set_item_enabled_for_preset(data, "browser-installation", False)
+        data["selected_preset_key"] = str(preset.get("key", step_catalog.STANDARD_PRESET_KEY))
     save_install_plan(data)

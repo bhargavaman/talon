@@ -22,6 +22,7 @@ Window {
 		if (typeof readyPage !== "undefined") {
 			readyPage.refreshAdvancedArgs()
 			readyPage.refreshConfigItems()
+			readyPage.refreshPresetOptions()
 		}
 	}
 
@@ -92,6 +93,8 @@ Window {
 			property var configItems: []
 			property var advancedArgs: []
 			property var browsers: []
+			property var presetOptions: []
+			property string selectedPresetKey: ""
 
 			function refreshConfigItems() {
 				configItems = bridge.getInstallPlanItems()
@@ -101,10 +104,16 @@ Window {
 				advancedArgs = bridge.getAdvancedArgs()
 			}
 
+			function refreshPresetOptions() {
+				presetOptions = bridge.getPresetOptions()
+				selectedPresetKey = bridge.getSelectedPresetKey()
+			}
+
 			function refreshLocalizedModels() {
 				browsers = bridge.getBrowserOptions()
 				refreshConfigItems()
 				refreshAdvancedArgs()
+				refreshPresetOptions()
 			}
 
 			function openWin11ArgsDialog() {
@@ -228,6 +237,8 @@ Window {
 				opacity: readyPage.showDebloatSummary ? 1.0 : 0.0
 				visible: opacity > 0.0
 				configItems: readyPage.configItems
+				presetOptions: readyPage.presetOptions
+				selectedPresetKey: readyPage.selectedPresetKey
 				internetAvailable: window.internetAvailable
 				interFontFamily: interFont.name
 				localizer: localizer
@@ -235,11 +246,17 @@ Window {
 				onRemoveItem: function(index) {
 					bridge.removeInstallPlanItem(index)
 					readyPage.refreshConfigItems()
+					readyPage.refreshPresetOptions()
 				}
 				onResetDefaults: {
 					bridge.resetInstallPlanDefaults()
 					readyPage.refreshConfigItems()
 					readyPage.refreshAdvancedArgs()
+					readyPage.refreshPresetOptions()
+				}
+				onPresetRequested: function(key) {
+					bridge.selectPreset(key)
+					readyPage.refreshLocalizedModels()
 				}
 				onBackRequested: {
 					readyPage.showDebloatSummary = false
@@ -275,6 +292,7 @@ Window {
 				onToggleArg: function(key) {
 					bridge.toggleAdvancedArg(key)
 					window.refreshPlanViews()
+					readyPage.refreshPresetOptions()
 				}
 				onConfirm: {
 					readyPage.showAdvancedPage = false

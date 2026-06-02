@@ -1,4 +1,7 @@
 import copy
+import json
+import os
+import sys
 
 from configuration_components.localization import t
 
@@ -54,6 +57,7 @@ STEP_SLUGS = [
 ]
 
 BOOL_OPTION_SLUGS = ["developer-mode"]
+STANDARD_PRESET_KEY = "standard"
 
 STEP_PRESENTATION = {
     "remove-edge-permanently": {
@@ -150,6 +154,98 @@ DEFAULT_WIN11DEBLOAT_ARGS = [
     "-DisableSearchHistory",
     "-DisableDeliveryOptimization",
 ]
+
+_STANDARD_PRESET_FALLBACK = {
+    "preset_key": STANDARD_PRESET_KEY,
+    "preset_name": "Standard",
+    "version": 1,
+    "selected_preset_key": STANDARD_PRESET_KEY,
+    "selected_browser_name": "None",
+    "selected_browser_package": "",
+    "include_browser_install": False,
+    "items": [{"key": slug, "enabled": False if slug in BOOL_OPTION_SLUGS else True} for slug in BOOL_OPTION_SLUGS + STEP_SLUGS],
+    "winutil_config": copy.deepcopy(DEFAULT_WINUTIL_CONFIG),
+    "win11debloat_args": " ".join(DEFAULT_WIN11DEBLOAT_ARGS),
+    "registry_changes": None,
+    "applied_background_path": "",
+}
+
+
+def _repo_root() -> str:
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def _candidate_preset_dirs():
+    candidates = []
+    if getattr(sys, "frozen", False):
+        candidates.append(os.path.join(os.path.dirname(sys.executable), "presets"))
+    candidates.append(os.path.join(_repo_root(), "presets"))
+    candidates.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "presets"))
+    return [os.path.abspath(path) for path in candidates]
+
+
+def presets_dir() -> str:
+    for path in _candidate_preset_dirs():
+        if os.path.isdir(path):
+            return path
+    return _candidate_preset_dirs()[0]
+
+
+def _normalize_preset(raw, fallback_key: str) -> dict:
+    if not isinstance(raw, dict):
+        return {}
+    key = str(raw.get("preset_key", raw.get("selected_preset_key", fallback_key))).strip() or fallback_key
+    name = str(raw.get("preset_name", raw.get("name", to_title_label(key)))).strip() or to_title_label(key)
+    plan = copy.deepcopy(raw)
+    plan["selected_preset_key"] = key
+    plan.pop("preset_key", None)
+    plan.pop("preset_name", None)
+    plan.pop("name", None)
+    if not isinstance(plan.get("version"), int):
+        return {}
+    if not isinstance(plan.get("items"), list):
+        return {}
+    return {
+        "key": key,
+        "name": name,
+        "plan": plan,
+    }
+
+
+def _load_preset_file(path: str) -> dict:
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return _normalize_preset(json.load(f), os.path.splitext(os.path.basename(path))[0])
+    except Exception:
+        return {}
+
+
+def available_presets() -> list:
+    presets = []
+    root = presets_dir()
+    if os.path.isdir(root):
+        names = sorted(os.listdir(root), key=lambda name: (name != f"{STANDARD_PRESET_KEY}.json", name.lower()))
+        for name in names:
+            if not name.endswith(".json"):
+                continue
+            preset = _load_preset_file(os.path.join(root, name))
+            if preset:
+                presets.append(preset)
+    if not any(preset["key"] == STANDARD_PRESET_KEY for preset in presets):
+        presets.insert(0, _normalize_preset(_STANDARD_PRESET_FALLBACK, STANDARD_PRESET_KEY))
+    return presets
+
+
+def preset_options() -> list:
+    return [{"key": preset["key"], "name": preset["name"]} for preset in available_presets()]
+
+
+def preset_by_key(key: str) -> dict:
+    wanted = str(key or STANDARD_PRESET_KEY).strip()
+    for preset in available_presets():
+        if preset["key"] == wanted:
+            return copy.deepcopy(preset)
+    return _normalize_preset(_STANDARD_PRESET_FALLBACK, STANDARD_PRESET_KEY)
 
 
 def default_winutil_config():
