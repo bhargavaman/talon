@@ -166,7 +166,9 @@ class ConfigurationBridge(QObject):
                 return
             with open(path, "r", encoding="utf-8") as f:
                 payload = json.load(f)
-            install_plan.save_install_plan(install_plan.normalize_imported_plan(payload))
+            data = install_plan.normalize_imported_plan(payload)
+            install_plan.mark_custom(data)
+            install_plan.save_install_plan(data)
         except Exception as e:
             show_error_popup(t("errors.import_plan_failed", {"error": e}), allow_continue=True)
 
@@ -182,6 +184,7 @@ class ConfigurationBridge(QObject):
                 raise ValueError(t("errors.winutil_config_invalid"))
             data = install_plan.load_install_plan()
             data["winutil_config"] = install_plan.normalize_winutil_config(payload)
+            install_plan.mark_custom(data)
             install_plan.save_install_plan(data)
         except Exception as e:
             show_error_popup(t("errors.import_winutil_failed", {"error": e}), allow_continue=True)
@@ -215,6 +218,7 @@ class ConfigurationBridge(QObject):
                 raise ValueError(t("errors.background_file_missing"))
             data = install_plan.load_install_plan()
             data["applied_background_path"] = os.path.abspath(path)
+            install_plan.mark_custom(data)
             install_plan.save_install_plan(data)
         except Exception as e:
             show_error_popup(t("errors.set_background_failed", {"error": e}), allow_continue=True)
@@ -239,6 +243,7 @@ class ConfigurationBridge(QObject):
         try:
             data = install_plan.load_install_plan()
             data["win11debloat_args"] = install_plan.normalize_win11debloat_args_text(text)
+            install_plan.mark_custom(data)
             install_plan.save_install_plan(data)
             return True
         except Exception as e:
@@ -269,6 +274,7 @@ class ConfigurationBridge(QObject):
                     raise ValueError(t("errors.registry_changes_invalid"))
             data = install_plan.load_install_plan()
             data["registry_changes"] = parsed
+            install_plan.mark_custom(data)
             install_plan.save_install_plan(data)
             return True
         except Exception as e:

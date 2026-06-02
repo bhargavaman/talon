@@ -284,11 +284,17 @@ Window {
 					bridge.importInstallPlan()
 					window.refreshPlanViews()
 				}
-				onImportWinUtil: bridge.importWinUtilConfig()
+				onImportWinUtil: {
+					bridge.importWinUtilConfig()
+					window.refreshPlanViews()
+				}
 				onEditWin11Args: readyPage.openWin11ArgsDialog()
 				onEditRegistryChanges: readyPage.openRegistryChangesDialog()
 				onExportPlan: bridge.exportInstallPlan()
-				onSetBackground: bridge.setAppliedBackground()
+				onSetBackground: {
+					bridge.setAppliedBackground()
+					window.refreshPlanViews()
+				}
 				onToggleArg: function(key) {
 					bridge.toggleAdvancedArg(key)
 					window.refreshPlanViews()
@@ -312,8 +318,10 @@ Window {
 						ok = bridge.saveWin11DebloatArgsText(text)
 					else if (mode === "registry-changes")
 						ok = bridge.saveRegistryChangesText(text)
-					if (ok)
+					if (ok) {
 						advancedDialog.closeDialog()
+						window.refreshPlanViews()
+					}
 				}
 			}
 		}

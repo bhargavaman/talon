@@ -224,6 +224,7 @@ def ensure_install_plan_file():
             include_browser_install=bool(data.get("include_browser_install", False)),
             preset_key=str(data.get("selected_preset_key", step_catalog.STANDARD_PRESET_KEY)),
         )
+        normalized["selected_preset_key"] = str(data.get("selected_preset_key", normalized.get("selected_preset_key", step_catalog.STANDARD_PRESET_KEY)))
         existing_version = data.get("version", INSTALL_PLAN_VERSION)
         normalized["version"] = existing_version if isinstance(existing_version, int) and existing_version >= 1 else INSTALL_PLAN_VERSION
         existing_enabled_by_key = {}
@@ -275,6 +276,10 @@ def save_install_plan(data: dict):
         json.dump(data, f, indent=2)
 
 
+def mark_custom(data: dict):
+    data["selected_preset_key"] = "custom"
+
+
 def find_item_index(items: list, key: str) -> int:
     for i, item in enumerate(items):
         if normalize_item(item)["key"] == key:
@@ -290,7 +295,7 @@ def set_item_enabled(data: dict, key: str, enabled: bool):
             break
     data["items"] = items
     if key != "browser-installation" or bool(data.get("selected_browser_package", "")):
-        data["selected_preset_key"] = "custom"
+        mark_custom(data)
 
 
 def set_item_enabled_for_preset(data: dict, key: str, enabled: bool):
