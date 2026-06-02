@@ -32,7 +32,7 @@
             "title": "Désencombrement système prêt. Veuillez vérifier.",
             "empty": "Aucun élément.",
             "guidance": "La liste à gauche montre tout ce que Talon va faire sur votre système.S’il y a quelque chose que vous ne voulez pas qu’il fasse, vous pouvez supprimer des éléments de la liste.\n\nSi tout vous semble bon, sélectionnez \"Démarrer.\"",
-            "no_browser_warning": "Aucun navigateur ne sera installer.",
+            "no_browser_warning": "Aucun navigateur ne sera installé.",
             "no_internet_info": "Vous n'êtes pas connecté à internet. Talon ne va pas installer le navigateur.",
             "no_updates_warning": "La stratégie de mise à jour ne sera pas configurée. Les mises à jour peuvent restaurer le blocage et annuler certains paramètres de Talon.",
             "nothing_to_do": "Désencombrement impossible. Aucune tâche.",
