@@ -70,6 +70,14 @@ Window {
 			}
 		}
 
+		MouseArea {
+			anchors.fill: parent
+			visible: languageSelector.dropdownOpen
+			z: languageSelector.z - 1
+			hoverEnabled: true
+			onClicked: languageSelector.closeDropdown()
+		}
+
 		Item {
 			id: readyPage
 			anchors.fill: parent

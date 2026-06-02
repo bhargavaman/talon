@@ -9,15 +9,18 @@ Item {
 	property var languages: []
 	property string currentLanguage: ""
 	property string interFontFamily: ""
+	property alias dropdownOpen: dropdown.visible
 	signal languageRequested(string code)
+
+	function closeDropdown() {
+		dropdown.visible = false
+	}
 
 	Rectangle {
 		id: button
 		width: 34
 		height: 34
-		color: selectorMouse.containsMouse || dropdown.visible ? "#101010" : "#000000"
-		border.width: 1
-		border.color: dropdown.visible ? "#FFFFFF" : "#2A2A2A"
+		color: "transparent"
 
 		Image {
 			anchors.centerIn: parent
@@ -43,7 +46,7 @@ Item {
 		x: 0
 		y: 40
 		width: 220
-		height: Math.min(languageColumn.implicitHeight + 8, 260)
+		height: Math.min(languageColumn.implicitHeight, 260)
 		color: "#000000"
 		border.width: 1
 		border.color: "#2A2A2A"
@@ -52,7 +55,6 @@ Item {
 
 		Flickable {
 			anchors.fill: parent
-			anchors.margins: 4
 			contentWidth: width
 			contentHeight: languageColumn.implicitHeight
 			boundsBehavior: Flickable.StopAtBounds
