@@ -99,11 +99,11 @@
         },
         "apply_background": {
             "text": "Aplicar plano de fundo da área de trabalho",
-            "tooltip": "Para completar a aparência de um sistema recém-limpo, o Talon define o plano de fundo da área de trabalho para um personalizado com a marca Raven. O plano de fundo exato pode ser configurado nas Configurações avançadas."
+            "tooltip": "Para completar a aparência de um sistema recém-limpo, o Talon define o plano de fundo da área de trabalho para um personalizado com a logomarca Raven. O plano de fundo exato pode ser configurado nas Configurações avançadas."
         },
         "developer_mode": {
             "text": "Modo desenvolvedor (ocultar sobreposição de instalação)",
-            "tooltip": "Quando ativado, o Talon é executado sem mostrar a sobreposição de instalação em tela cheia."
+            "tooltip": "Quando ativo, o Talon é executado sem mostrar a sobreposição de instalação em tela cheia."
         }
     },
     "browsers": {
