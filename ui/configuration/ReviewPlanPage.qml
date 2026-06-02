@@ -5,6 +5,7 @@ Item {
 	property var configItems: []
 	property bool internetAvailable: true
 	property string interFontFamily: ""
+	property var localizer
 	signal removeItem(int index)
 	signal resetDefaults()
 	signal backRequested()
@@ -34,7 +35,7 @@ Item {
 		anchors.top: parent.top
 		anchors.topMargin: 40
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: i18n.t("configuration.review.title")
+		text: root.localizer.text("configuration.review.title")
 		color: "#FFFFFF"
 		font.family: root.interFontFamily
 		font.pixelSize: 22
@@ -157,7 +158,7 @@ Item {
 		Text {
 			anchors.centerIn: parent
 			visible: root.configItems.length === 0
-			text: i18n.t("configuration.review.empty")
+			text: root.localizer.text("configuration.review.empty")
 			color: "#7A7A7A"
 			font.family: root.interFontFamily
 			font.pixelSize: 15
@@ -201,7 +202,7 @@ Item {
 			anchors.top: parent.top
 			anchors.left: parent.left
 			anchors.right: parent.right
-			text: i18n.t("configuration.review.guidance")
+			text: root.localizer.text("configuration.review.guidance")
 			color: "#FFFFFF"
 			font.family: root.interFontFamily
 			font.pixelSize: 15
@@ -220,7 +221,7 @@ Item {
 			Image { source: "../../media/icon_warning.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
-				text: i18n.t("configuration.review.no_browser_warning")
+				text: root.localizer.text("configuration.review.no_browser_warning")
 				color: "#FF0000"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -238,7 +239,7 @@ Item {
 			Image { source: "../../media/icon_info.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
-				text: i18n.t("configuration.review.no_internet_info")
+				text: root.localizer.text("configuration.review.no_internet_info")
 				color: "#00FFFF"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -257,7 +258,7 @@ Item {
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
 				width: rightPanel.width - 40
-				text: i18n.t("configuration.review.no_updates_warning")
+				text: root.localizer.text("configuration.review.no_updates_warning")
 				color: "#FF0000"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -275,7 +276,7 @@ Item {
 			Image { source: "../../media/icon_warning.png"; width: 24; height: 24; fillMode: Image.PreserveAspectFit; smooth: true }
 			Text {
 				anchors.verticalCenter: parent.verticalCenter
-				text: i18n.t("configuration.review.nothing_to_do")
+				text: root.localizer.text("configuration.review.nothing_to_do")
 				color: "#FF0000"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
@@ -287,7 +288,7 @@ Item {
 		anchors.right: leftPanel.right
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 28
-		text: i18n.t("configuration.review.reset_defaults")
+		text: root.localizer.text("configuration.review.reset_defaults")
 		color: resetDefaultsMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 		font.family: root.interFontFamily
 		font.pixelSize: 15
@@ -351,7 +352,7 @@ Item {
 		anchors.left: rightPanel.left
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 28
-		text: i18n.t("configuration.review.advanced")
+		text: root.localizer.text("configuration.review.advanced")
 		color: advancedMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 		font.family: root.interFontFamily
 		font.pixelSize: 15
@@ -381,7 +382,7 @@ Item {
 
 		Text {
 			anchors.centerIn: parent
-			text: i18n.t("configuration.review.start_button")
+			text: root.localizer.text("configuration.review.start_button")
 			color: root.configItems.length > 0 ? "#000000" : "#7A7A7A"
 			font.family: root.interFontFamily
 			font.pixelSize: 16

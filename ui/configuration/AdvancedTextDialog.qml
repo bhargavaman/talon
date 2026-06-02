@@ -12,6 +12,7 @@ Rectangle {
 	property string editorText: ""
 	property string interFontFamily: ""
 	property string monoFontFamily: ""
+	property var localizer
 	signal saveRequested(string mode, string text)
 
 	function openDialog(title, text, dialogMode) {
@@ -158,7 +159,7 @@ Rectangle {
 				Text {
 					id: cancelLabel
 					anchors.centerIn: parent
-					text: i18n.t("configuration.dialogs.cancel")
+					text: root.localizer.text("configuration.dialogs.cancel")
 					color: "#FFFFFF"
 					font.family: root.interFontFamily
 					font.pixelSize: 14
@@ -183,7 +184,7 @@ Rectangle {
 				Text {
 					id: saveLabel
 					anchors.centerIn: parent
-					text: i18n.t("configuration.dialogs.save_changes")
+					text: root.localizer.text("configuration.dialogs.save_changes")
 					color: "#000000"
 					font.family: root.interFontFamily
 					font.pixelSize: 14

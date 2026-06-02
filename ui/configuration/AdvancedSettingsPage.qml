@@ -5,6 +5,7 @@ Item {
 	property var advancedArgs: []
 	property bool internetAvailable: true
 	property string interFontFamily: ""
+	property var localizer
 	signal importPlan()
 	signal importWinUtil()
 	signal editWin11Args()
@@ -18,7 +19,7 @@ Item {
 		anchors.top: parent.top
 		anchors.topMargin: 40
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: i18n.t("configuration.advanced.title")
+		text: root.localizer.text("configuration.advanced.title")
 		color: "#FFFFFF"
 		font.family: root.interFontFamily
 		font.pixelSize: 22
@@ -33,7 +34,7 @@ Item {
 		Text {
 			anchors.verticalCenter: parent.verticalCenter
 			width: Math.min(implicitWidth, root.width - 120)
-			text: i18n.t("configuration.advanced.warning")
+			text: root.localizer.text("configuration.advanced.warning")
 			color: "#FF0000"
 			font.family: root.interFontFamily
 			font.pixelSize: 15
@@ -53,12 +54,12 @@ Item {
 
 		Repeater {
 			model: [
-				{"label": i18n.t("configuration.advanced.import_plan"), "action": "importPlan"},
-				{"label": i18n.t("configuration.advanced.import_winutil"), "action": "importWinUtil"},
-				{"label": i18n.t("configuration.advanced.set_win11_args"), "action": "win11"},
-				{"label": i18n.t("configuration.advanced.edit_registry_changes"), "action": "registry"},
-				{"label": i18n.t("configuration.advanced.export_plan"), "action": "export"},
-				{"label": i18n.t("configuration.advanced.set_background"), "action": "background"}
+				{"label": root.localizer.text("configuration.advanced.import_plan"), "action": "importPlan"},
+				{"label": root.localizer.text("configuration.advanced.import_winutil"), "action": "importWinUtil"},
+				{"label": root.localizer.text("configuration.advanced.set_win11_args"), "action": "win11"},
+				{"label": root.localizer.text("configuration.advanced.edit_registry_changes"), "action": "registry"},
+				{"label": root.localizer.text("configuration.advanced.export_plan"), "action": "export"},
+				{"label": root.localizer.text("configuration.advanced.set_background"), "action": "background"}
 			]
 
 			Rectangle {
@@ -147,7 +148,7 @@ Item {
 
 				Text {
 					anchors.centerIn: parent
-					text: modelData.value ? i18n.t("configuration.advanced.true") : i18n.t("configuration.advanced.false")
+					text: modelData.value ? root.localizer.text("configuration.advanced.true") : root.localizer.text("configuration.advanced.false")
 					color: unavailableNoInternet ? "#7A7A7A" : "#FFFFFF"
 					font.family: root.interFontFamily
 					font.pixelSize: 14
@@ -179,7 +180,7 @@ Item {
 		anchors.leftMargin: 36
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 28
-		text: i18n.t("configuration.advanced.see_documentation")
+		text: root.localizer.text("configuration.advanced.see_documentation")
 		color: seeDocsMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 		font.family: root.interFontFamily
 		font.pixelSize: 15
@@ -217,7 +218,7 @@ Item {
 
 			Text {
 				anchors.centerIn: parent
-				text: i18n.t("configuration.advanced.confirm")
+				text: root.localizer.text("configuration.advanced.confirm")
 				color: "#FFFFFF"
 				font.family: root.interFontFamily
 				font.pixelSize: 15

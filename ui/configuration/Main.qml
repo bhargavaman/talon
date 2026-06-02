@@ -46,9 +46,28 @@ Window {
 		resizeMargin: window.resizeMargin
 		borderColor: window.borderColor
 
+		I18nBinding {
+			id: localizer
+		}
+
 		LoadingPage {
 			anchors.fill: parent
 			visible: window.currentPage === 0
+		}
+
+		LanguageSelector {
+			id: languageSelector
+			anchors.left: parent.left
+			anchors.leftMargin: 14
+			anchors.top: parent.top
+			anchors.topMargin: 14
+			languages: i18n.availableLanguages()
+			currentLanguage: i18n.currentLanguage
+			interFontFamily: interFont.name
+			visible: window.currentPage === 0 || window.currentPage === 1
+			onLanguageRequested: function(code) {
+				i18n.setLanguage(code)
+			}
 		}
 
 		Item {
@@ -74,12 +93,18 @@ Window {
 				advancedArgs = bridge.getAdvancedArgs()
 			}
 
+			function refreshLocalizedModels() {
+				browsers = bridge.getBrowserOptions()
+				refreshConfigItems()
+				refreshAdvancedArgs()
+			}
+
 			function openWin11ArgsDialog() {
-				advancedDialog.openDialog(i18n.t("configuration.dialogs.win11_args_title"), bridge.getWin11DebloatArgsText(), "win11debloat")
+				advancedDialog.openDialog(localizer.text("configuration.dialogs.win11_args_title"), bridge.getWin11DebloatArgsText(), "win11debloat")
 			}
 
 			function openRegistryChangesDialog() {
-				advancedDialog.openDialog(i18n.t("configuration.dialogs.registry_changes_title"), bridge.getRegistryChangesText(), "registry-changes")
+				advancedDialog.openDialog(localizer.text("configuration.dialogs.registry_changes_title"), bridge.getRegistryChangesText(), "registry-changes")
 			}
 
 			onVisibleChanged: {
@@ -90,10 +115,21 @@ Window {
 					transitionToSummaryInProgress = false
 					selectedBrowser = ""
 					selectedBrowserName = ""
-					browsers = bridge.getBrowserOptions()
-					refreshConfigItems()
-					refreshAdvancedArgs()
+					refreshLocalizedModels()
 					introTimer.restart()
+				}
+			}
+
+			Connections {
+				target: i18n
+				function onLanguageChanged() {
+					readyPage.refreshLocalizedModels()
+					if (advancedDialog.visible) {
+						if (advancedDialog.mode === "win11debloat")
+							advancedDialog.titleText = localizer.text("configuration.dialogs.win11_args_title")
+						else if (advancedDialog.mode === "registry-changes")
+							advancedDialog.titleText = localizer.text("configuration.dialogs.registry_changes_title")
+					}
 				}
 			}
 
@@ -155,6 +191,7 @@ Window {
 				browsers: readyPage.browsers
 				selectedBrowser: readyPage.selectedBrowser
 				interFontFamily: interFont.name
+				localizer: localizer
 				Behavior on opacity { NumberAnimation { duration: 500 } }
 				onBrowserSelected: function(packageId, browserName) {
 					if (readyPage.transitionToSummaryInProgress || readyPage.showDebloatSummary)
@@ -185,6 +222,7 @@ Window {
 				configItems: readyPage.configItems
 				internetAvailable: window.internetAvailable
 				interFontFamily: interFont.name
+				localizer: localizer
 				Behavior on opacity { NumberAnimation { duration: 500 } }
 				onRemoveItem: function(index) {
 					bridge.removeInstallPlanItem(index)
@@ -215,6 +253,7 @@ Window {
 				advancedArgs: readyPage.advancedArgs
 				internetAvailable: window.internetAvailable
 				interFontFamily: interFont.name
+				localizer: localizer
 				Behavior on opacity { NumberAnimation { duration: 500 } }
 				onImportPlan: {
 					bridge.importInstallPlan()
@@ -240,6 +279,7 @@ Window {
 				id: advancedDialog
 				interFontFamily: interFont.name
 				monoFontFamily: cascadiaMonoFont.name
+				localizer: localizer
 				onSaveRequested: function(mode, text) {
 					var ok = false
 					if (mode === "win11debloat")

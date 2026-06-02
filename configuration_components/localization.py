@@ -3,7 +3,7 @@ import os
 import sys
 from copy import deepcopy
 
-from PyQt5.QtCore import QObject, pyqtProperty, pyqtSlot
+from PyQt5.QtCore import QObject, pyqtProperty, pyqtSignal, pyqtSlot
 
 
 DEFAULT_LANGUAGE = "en"
@@ -62,7 +62,8 @@ def available_languages() -> list:
     root = locales_dir()
     if not os.path.isdir(root):
         return out
-    for name in sorted(os.listdir(root)):
+    names = sorted(os.listdir(root), key=lambda name: (name != f"{DEFAULT_LANGUAGE}.json", name.lower()))
+    for name in names:
         if not name.endswith(".json"):
             continue
         code = name[:-5]
@@ -111,7 +112,9 @@ def t(key: str, params=None) -> str:
 
 
 class LocalizationBridge(QObject):
-    @pyqtProperty(str, constant=False)
+    languageChanged = pyqtSignal()
+
+    @pyqtProperty(str, notify=languageChanged)
     def currentLanguage(self):
         return current_language()
 
@@ -121,7 +124,11 @@ class LocalizationBridge(QObject):
 
     @pyqtSlot(str, result=bool)
     def setLanguage(self, language):
-        return set_language(language)
+        before = current_language()
+        ok = set_language(language)
+        if ok and current_language() != before:
+            self.languageChanged.emit()
+        return ok
 
     @pyqtSlot(str, result=str)
     def t(self, key):

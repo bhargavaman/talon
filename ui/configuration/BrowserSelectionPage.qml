@@ -5,6 +5,7 @@ Item {
 	property var browsers: []
 	property string selectedBrowser: ""
 	property string interFontFamily: ""
+	property var localizer
 	signal browserSelected(string packageId, string browserName)
 	signal skipRequested()
 
@@ -12,7 +13,7 @@ Item {
 		anchors.top: parent.top
 		anchors.topMargin: 40
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: i18n.t("configuration.browser.title")
+		text: root.localizer.text("configuration.browser.title")
 		color: "#FFFFFF"
 		font.family: root.interFontFamily
 		font.pixelSize: 22
@@ -110,7 +111,7 @@ Item {
 			spacing: 6
 
 			Text {
-				text: i18n.t("configuration.browser.skip")
+				text: root.localizer.text("configuration.browser.skip")
 				color: skipBrowserMouse.containsMouse ? "#FFFFFF" : "#A0A0A0"
 				font.family: root.interFontFamily
 				font.pixelSize: 15
