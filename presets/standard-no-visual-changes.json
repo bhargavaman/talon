@@ -1,0 +1,139 @@
+{
+  "preset_key": "standard-no-visual-changes",
+  "preset_name": "Standard (No Visual Changes)",
+  "version": 1,
+  "selected_preset_key": "standard-no-visual-changes",
+  "selected_browser_name": "None",
+  "selected_browser_package": "",
+  "include_browser_install": false,
+  "items": [
+    {
+      "key": "developer-mode",
+      "text": "",
+      "tooltip": "",
+      "enabled": false
+    },
+    {
+      "key": "remove-edge-permanently",
+      "text": "",
+      "tooltip": "",
+      "enabled": true
+    },
+    {
+      "key": "uninstall-outlook-onedrive",
+      "text": "",
+      "tooltip": "",
+      "enabled": true
+    },
+    {
+      "key": "browser-installation",
+      "text": "",
+      "tooltip": "",
+      "enabled": false
+    },
+    {
+      "key": "debloat-windows-phase-one",
+      "text": "",
+      "tooltip": "",
+      "enabled": true
+    },
+    {
+      "key": "debloat-windows-phase-two",
+      "text": "",
+      "tooltip": "",
+      "enabled": true
+    },
+    {
+      "key": "registry-tweaks",
+      "text": "",
+      "tooltip": "",
+      "enabled": false
+    },
+    {
+      "key": "configure-updates",
+      "text": "",
+      "tooltip": "",
+      "enabled": true
+    },
+    {
+      "key": "apply-background",
+      "text": "",
+      "tooltip": "",
+      "enabled": false
+    }
+  ],
+  "winutil_config": {
+    "WPFTweaks": [
+      "WPFTweaksActivity",
+      "WPFTweaksConsumerFeatures",
+      "WPFTweaksDisableBGapps",
+      "WPFTweaksTelemetry",
+      "WPFTweaksWPBT",
+      "WPFTweaksWidget",
+      "WPFTweaksServices",
+      "WPFTweaksDisableExplorerAutoDiscovery",
+      "WPFTweaksDisplay",
+      "WPFTweaksRightClickMenu",
+      "WPFTweaksRevertStartMenu",
+      "WPFTweaksRemoveOneDrive",
+      "WPFTweaksXboxRemoval",
+      "WPFTweaksRemoveHome",
+      "WPFTweaksDeBloat",
+      "WPFTweaksWindowsAI",
+      "WPFTweaksDisableStoreSearch"
+    ]
+  },
+  "win11debloat_args": "-Silent -RemoveApps -RemoveGamingApps -DisableTelemetry -DisableBing -DisableWidgets -DisableCopilot -DisableDVR -DisableMouseAcceleration -DisableSettings365Ads -DisableSettingsHome -DisablePaintAI -DisableNotepadAI -DisableEdgeAI -DisableStickyKeys -DisableEdgeAds -DisableBraveBloat -DisableRecall -DisableAISvcAutoStart -DisableClickToDo -DisableSearchHistory -DisableDeliveryOptimization",
+  "registry_changes": [
+    {
+      "hive": "HKEY_CURRENT_USER",
+      "key_path": "Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+      "name": "AppCaptureEnabled",
+      "value_type": "REG_DWORD",
+      "value": 0
+    },
+    {
+      "hive": "HKEY_LOCAL_MACHINE",
+      "key_path": "SOFTWARE\\Microsoft\\PolicyManager\\default\\ApplicationManagement\\AllowGameDVR",
+      "name": "Value",
+      "value_type": "REG_DWORD",
+      "value": 0
+    },
+    {
+      "hive": "HKEY_CURRENT_USER",
+      "key_path": "Control Panel\\Desktop",
+      "name": "MenuShowDelay",
+      "value_type": "REG_SZ",
+      "value": "0"
+    },
+    {
+      "hive": "HKEY_CURRENT_USER",
+      "key_path": "Control Panel\\Desktop\\WindowMetrics",
+      "name": "MinAnimate",
+      "value_type": "REG_DWORD",
+      "value": 0
+    },
+    {
+      "hive": "HKEY_CURRENT_USER",
+      "key_path": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "name": "ExtendedUIHoverTime",
+      "value_type": "REG_DWORD",
+      "value": 1
+    },
+    {
+      "hive": "HKEY_CURRENT_USER",
+      "key_path": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "name": "HideFileExt",
+      "value_type": "REG_DWORD",
+      "value": 0
+    },
+    {
+      "hive": "HKEY_CURRENT_USER",
+      "key_path": "Control Panel\\Desktop",
+      "name": "DragFullWindows",
+      "value_type": "REG_SZ",
+      "value": "1"
+    }
+  ],
+  "applied_background_path": ""
+}

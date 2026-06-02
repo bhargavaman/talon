@@ -1,0 +1,189 @@
+{
+    "meta": {
+        "code": "mr",
+        "native_name": "मराठी",
+        "english_name": "Marathi",
+        "direction": "ltr"
+    },
+    "app": {
+        "install_overlay": {
+            "title": "Talon इन्स्टॉल होत आहे",
+            "guidance": "कृपया keyboard किंवा mouse वापरू नका. Talon काम करत असताना तुम्ही प्रक्रिया पाहू शकता.",
+            "remove_edge": "Microsoft Edge कायमचे काढून टाकत आहे...",
+            "uninstall_outlook_onedrive": "Outlook आणि OneDrive अनइन्स्टॉल करत आहे...",
+            "browser_installation": "तुम्ही निवडलेला ब्राउझर इन्स्टॉल करत आहे...",
+            "debloat_windows_phase_one": "Windows debloat प्रक्रिया फेज १ सुरू आहे (WinUtil)...",
+            "debloat_windows_phase_two": "Windows debloat प्रक्रिया फेज २ सुरू आहे(Win11Debloat)...",
+            "registry_tweaks": "काही visual बदल लागू करत आहे...",
+            "configure_updates": "Windows Update Policy कॉन्फिगर करत आहे...",
+            "apply_background": "Desktop background सेट करत आहे...",
+            "dry_run_complete": "Dry run पूर्ण झाले. सिस्टम मध्ये कोणतेही बदल केले नाहीत.",
+            "suppress_restart_headless": "Headless mode मुळे सिस्टम रीस्टार्ट रद्द केले.",
+            "suppress_restart_developer": "Developer mode मुळे सिस्टम रीस्टार्ट रद्द केले.",
+            "restarting": "सिस्टम रीस्टार्ट होत आहे..."
+        }
+    },
+    "configuration": {
+        "browser": {
+            "title": "स्वागत आहे. कृपया तुमचा web ब्राउझर निवडा.",
+            "skip": "ब्राउझर इन्स्टॉल करू नका"
+        },
+        "review": {
+            "title": "सिस्टम debloat साठी तयार आहे. कृपया तपासा.",
+            "empty": "कोणतेही item नाही.",
+            "guidance": "डाव्या बाजूची यादी Talon तुमच्या सिस्टमवर कोणते बदल करणार आहे ते दाखवते. एखादा बदल नको असल्यास, तुम्ही तो यादीतून काढू शकता.\n\nसर्व काही योग्य वाटत असल्यास, \"Start\" निवडा.",
+            "no_browser_warning": "कोणताही ब्राउझर इन्स्टॉल केला जाणार नाही.",
+            "no_internet_info": "इंटरनेट कनेक्शन नाही. तुम्ही internet ला connected नाही आहात. Talon ब्राउझर इन्स्टॉल करणार नाही.",
+            "no_updates_warning": "Update Policy कॉन्फिगर केले जाणार नाही. Updates मुळे bloat परत येऊ शकतात आणि Talon चे काही बदल पूर्ववत होऊ शकतात.",
+            "nothing_to_do": "Debloat प्रक्रिया सुरू करता येत नाही.",
+            "reset_defaults": "Default सेटिंग्ज परत आणा",
+            "advanced": "Advanced",
+            "start_button": "START",
+            "custom_preset": "Custom"
+        },
+        "advanced": {
+            "title": "Advanced सेटिंग्ज",
+            "warning": "काय करत आहात हे माहित नसेल तर इथले पर्याय बदलू नका!",
+            "import_plan": "Talon Install Plan import करा",
+            "import_winutil": "WinUtil Config import करा",
+            "set_win11_args": "Win11Debloat Arguments सेट करा",
+            "edit_registry_changes": "Registry बदल edit करा",
+            "export_plan": "Install Plan म्हणून export करा",
+            "set_background": "लागू केलेला Background सेट करा",
+            "true": "होय",
+            "false": "नाही",
+            "see_documentation": "Documentation पहा",
+            "confirm": "पुष्टी करा"
+        },
+        "dialogs": {
+            "cancel": "रद्द करा",
+            "save_changes": "बदल जतन करा",
+            "win11_args_title": "Win11Debloat Arguments सेट करा",
+            "registry_changes_title": "Registry बदल edit करा",
+            "import_plan_title": "Talon इन्स्टॉल Plan import करा",
+            "import_winutil_title": "WinUtil Config import करा",
+            "export_plan_title": "इन्स्टॉल Plan म्हणून export करा",
+            "set_background_title": "लागू केलेला Background सेट करा",
+            "json_files_filter": "JSON Files (*.json);;All Files (*)",
+            "image_files_filter": "Images (*.png *.jpg *.jpeg *.bmp *.webp);;All Files (*)"
+        }
+    },
+    "steps": {
+        "remove_edge_permanently": {
+            "text": "Microsoft Edge कायमचे काढून टाका",
+            "tooltip": "Microsoft Edge अनइन्स्टॉल करून तो पुन्हा आपोआप येणार नाही याची खात्री केली जाते. गरज पडल्यास तुम्ही तो नंतर पुन्हा इन्स्टॉल करू शकता. त्यावर अवलंबून असलेले apps (msedgewebview2) आधीप्रमाणे काम करत राहतील."
+        },
+        "uninstall_outlook_onedrive": {
+            "text": "Outlook आणि OneDrive अनइन्स्टॉल करा",
+            "tooltip": "Outlook app आणि OneDrive अनइन्स्टॉल केले जातील. अनेक लोक हे वापरत नाहीत. नंतर गरज पडल्यास पुन्हा इन्स्टॉल करू शकता."
+        },
+        "browser_installation": {
+            "text": "Web browser इन्स्टॉल करा",
+            "text_with_browser": "Web browser इन्स्टॉल करा: {browser_name}",
+            "tooltip": "अद्याप कोणताही ब्राउझर निवडलेला नाही."
+        },
+        "debloat_windows_phase_one": {
+            "text": "Windows debloat प्रक्रिया फेज १ (WinUtil)",
+            "tooltip": "Talon डीब्लोट प्रक्रियेसाठी ChrisTitusTech चे लोकप्रिय WinUtil tool वापरते. पूर्ण प्रक्रिया ऑटोमॅटिक आहे, त्यामुळे तुम्हाला काही करावे लागणार नाही. हा step काढू नये अशी शिफारस आहे."
+        },
+        "debloat_windows_phase_two": {
+            "text": "Windows debloat प्रक्रिया फेज २ (Win11Debloat)",
+            "tooltip": "Talon डीब्लोट प्रक्रियेसाठी Raphire चे Win11Debloat tool वापरते. पूर्ण प्रक्रिया ऑटोमॅटिक आहे. हा स्टेप काढू नये अशी शिफारस आहे"
+        },
+        "registry_tweaks": {
+            "text": "Desktop वर visual tweaks लागू करा",
+            "tooltip": "Windows Registry मध्ये बदल करून सिस्टम अधिक clean आणि वापरायला सोपी बनवली जाते. उदा. taskbar डावीकडे आणणे, dark mode लावणे, menu delay कमी करणे आणि file extensions दाखवणे."
+        },
+        "configure_updates": {
+            "text": "फक्त security updates चालू ठेवा",
+            "tooltip": "Windows updates मुळे bloatware परत येऊ नये आणि Talon चे बदल रद्द होऊ नयेत म्हणून Talon security-only update policy सेट करते; non-security \"feature\" updates वगळले जातात. हे Windows Pro वर कायमस्वरूपी लागू राहते, परंतु Windows Home वर केवळ ३६५ दिवसांसाठी."
+        },
+        "apply_background": {
+            "text": "Desktop background लागू करा",
+            "tooltip": "नुकत्याच debloat केलेल्या सिस्टम चा look पूर्ण करण्यासाठी, Talon एक custom Raven wallpaper सेट करते. कोणता wallpaper वापरायचा हे Advanced Settings मधून बदलता येते."
+        },
+        "developer_mode": {
+            "text": "Developer mode (installation overlay लपवा)",
+            "tooltip": "हा पर्याय चालू केल्यावर Talon full-screen installation overlay न दाखवता चालेल."
+        }
+    },
+    "browsers": {
+        "edge": {
+            "tooltip": "Edge हा फारसा चांगला पर्याय मानला जात नाही, कारण तो privacy साठी चांगला नाही आणि जाहिराती दाखवतो."
+        },
+        "waterfox": {
+            "tooltip": "Waterfox हा Firefox पेक्षा चांगला पर्याय आहे, पण Brave इतका नाही. तो Firefox वर आधारित असून tracking आणि telemetry कमी करतो."
+        },
+        "brave": {
+            "tooltip": "Brave हा सर्वात चांगला ब्राउझर पर्याय आहे. तो Chrome सारखा अनुभव देतो आणि तुमच्या privacy ची देखील काळजी घेतो."
+        },
+        "librewolf": {
+            "tooltip": "LibreWolf हा तांत्रिक माहिती असलेल्या वापरकर्त्यांसाठी योग्य आहे. तो privacy आणि security वर जास्त लक्ष देतो, पण वापरायला थोडा कठीण वाटू शकतो."
+        },
+        "firefox": {
+            "tooltip": "Firefox फक्त गरज असल्यास वापरा. त्यात default telemetry आणि sponsored content असते."
+        }
+    },
+    "errors": {
+        "dialog_title": "Error",
+        "stop_installation": "इन्स्टॉलेशन थांबवा",
+        "continue_anyways": "तरीही continue करा",
+        "developer_console_failed": "Developer Mode console window सुरू करण्यात अयशस्वी.\n{error}",
+        "screen_launch_failed": "'{module_name}' screen सुरू करण्यात अयशस्वी.\n{error}",
+        "screen_unexpected": "'{module_name}' screen मध्ये अनपेक्षित error आला.\n{error}",
+        "config_not_found": "Config file सापडली नाही: {path}",
+        "empty_execution_plan": "Install plan मध्ये कोणतेही executable steps नाहीत. Talon UI उघडा आणि किमान एक स्टेप कॉन्फिगर करा.",
+        "installation_unexpected": "इन्स्टॉलेशन दरम्यान अनपेक्षित error आला.\nअधिक माहितीसाठी log तपासा.",
+        "restart_failed": "सिस्टम रीस्टार्ट करण्यात अयशस्वी.\nअधिक माहितीसाठी log तपासा.",
+        "import_plan_failed": "Install plan import करण्यात अयशस्वी:\n{error}",
+        "import_winutil_failed": "WinUtil config import करण्यात अयशस्वी:\n{error}",
+        "winutil_config_invalid": "WinUtil config हे JSON object किंवा array असणे आवश्यक आहे.",
+        "export_plan_failed": "Install plan निर्यात करण्यात अयशस्वी:\n{error}",
+        "background_file_missing": "निवडलेली image file अस्तित्वात नाही.",
+        "set_background_failed": "Background सेट करण्यात अयशस्वी:\n{error}",
+        "save_win11_args_failed": "Win11Debloat arguments जतन करण्यात अयशस्वी:\n{error}",
+        "registry_changes_invalid": "Registry बदल हे JSON object किंवा array असणे आवश्यक आहे.",
+        "save_registry_changes_failed": "Registry changes जतन करण्यात अयशस्वी:\n{error}",
+        "unsupported_os": "Unsupported OS आढळला.\nया tool साठी Windows 11 असणे आवश्यक आहे.",
+        "windows_version_failed": "Windows version निश्चित करण्यात अयशस्वी.\nहे tool Windows 11 साठी आवश्यक आहे.",
+        "incompatible_windows_version": "विसंगत Windows version आढळला:\n    {product_name} (build {build_num})\nया tool साठी Windows 11 असणे आवश्यक आहे.",
+        "temp_unwritable": "Talon {talon_dir} मध्ये files लिहू शकला नाही.\nकृपया disk space free करा किंवा permissions तपासा.",
+        "admin_elevation_failed": "Administrator अधिकार मिळवण्यात अयशस्वी:\n{error}",
+        "no_internet_continue": "Internet connection उपलब्ध नाही.\n\nTalon internet शिवाय सुद्धा continue करू शकतो. जर आता proceed केले तर ब्राउझर installation step skip केली जाईल.\n\nOptions:\n- Internet शी connect करा आणि ब्राउझर automatically इन्स्टॉल करण्यासाठी Talon पुन्हा run करा.\n- किंवा ब्राउझर इन्स्टॉलेशन शिवाय पुढे जाण्यासाठी Continue वर click करा (तुम्ही ब्राउझर नंतर इन्स्टॉल करू शकता).",
+        "no_internet_required": "Internet connection उपलब्ध नाही.\nNon-headless mode मध्ये Talon चालवण्यासाठी सक्रिय internet कनेक्शन आवश्यक आहे.\n",
+        "powershell_script_launch_failed": "PowerShell script सुरू करताना error आला:\n{error}",
+        "powershell_script_failed": "PowerShell script '{script_name}' अयशस्वी झाली (exit code {exit_code})",
+        "powershell_launch_failed": "PowerShell सुरू करताना error आला:\n{error}",
+        "powershell_command_failed": "PowerShell command अयशस्वी झाली (exit code {exit_code})",
+        "registry_set_failed": "Registry value सेट करण्यात अयशस्वी:\n{target}\n\n{error}",
+        "registry_read_failed": "Registry value वाचण्यात अयशस्वी:\n{target}\n\n{error}",
+        "registry_delete_value_failed": "Registry value हटवण्यात अयशस्वी:\n{target}\n\n{error}",
+        "registry_create_key_failed": "Registry key तयार करण्यात अयशस्वी:\n{target}\n\n{error}",
+        "registry_delete_key_failed": "Registry key हटवण्यात अयशस्वी:\n{target}\n\n{error}",
+        "wallpaper_not_found": "Wallpaper file सापडली नाही: {path}",
+        "desktop_background_failed": "Desktop background सेट करण्यात अयशस्वी:\n{error}",
+        "chocolatey_install_failed": "Chocolatey इन्स्टॉल किंवा verify करण्यात अयशस्वी:\n{error}",
+        "chocolatey_browser_failed": "इन्स्टॉलेशन दरम्यान Chocolatey मध्ये समस्या आली. '{display_name}' यशस्वीरित्या इन्स्टॉल होऊ शकला नाही.\nChocolatey exit code: {exit_code}",
+        "chocolatey_browser_error": "इन्स्टॉलेशन दरम्यान Chocolatey मध्ये समस्या आली. '{display_name}' यशस्वीरित्या इन्स्टॉल होऊ शकला नाही.\nत्रुटी: {error}",
+        "browser_metadata_missing": "Runner metadata मध्ये कोणताही browser package दिलेला नाही.",
+        "browser_metadata_error": "Browser choice metadata read करताना अंतर्गत error आला:\n{error}",
+        "script_failed": "Script '{script_path}' exit code {exit_code} सह अयशस्वी झाली",
+        "font_not_found": "Font file सापडली नाही:\n{font_path}",
+        "font_load_failed": "Font file लोड करण्यात अयशस्वी:\n{font_path}",
+        "font_family_missing": "Font file मध्ये कोणतेही font families आढळले नाहीत:\n{font_path}",
+        "windows_edition_failed": "Windows edition निश्चित करण्यात अयशस्वी:\n{error}",
+        "powershell_named_script_failed": "PowerShell script execute करण्यात अयशस्वी:\n{script_name}\n\n{error}",
+        "registry_changes_payload_invalid": "अवैध registry changes payload.\n\n{error}",
+        "registry_tweak_failed": "Registry tweak लागू करण्यात अयशस्वी:\n{target}\n\n{error}",
+        "downloaded_config_invalid": "डाउनलोड केलेला config वैध JSON नाही: {error}",
+        "config_load_failed": "{label} config लोड करण्यात अयशस्वी.\n{error}",
+        "config_download_failed": "URL वरून config डाउनलोड करण्यात अयशस्वी.\n{error}",
+        "config_missing": "Config सापडला नाही:\n{path}",
+        "bundled_winutil_missing": "Bundled WinUtil script सापडली नाही:\n{path}",
+        "winutil_failed": "ChrisTitusTech WinUtil execute करण्यात अयशस्वी:\n{error}",
+        "bundled_win11debloat_missing": "Bundled Win11Debloat script सापडली नाही:\n{path}",
+        "win11debloat_failed": "Raphi Win11Debloat execute करण्यात अयशस्वी:\n{error}"
+    }
+}
+
+
