@@ -1,8 +1,13 @@
 @echo off
 set FileVersion=1.0.0.3
-set ProductVersion=2026.6.1.18
 set "ROOT=%~dp0"
 set "SCRIPT_BUNDLE_DIR=%ROOT%external_scripts"
+
+for /f "usebackq delims=" %%V in (`python -c "import ast,pathlib,re,sys; s=pathlib.Path(sys.argv[1]).read_text(encoding='utf-8-sig'); m=re.search(r'^TALON_VERSION\s*=\s*(.+)$', s, re.M); sys.exit(1) if not m else print(ast.literal_eval(m.group(1)))" "%ROOT%talon.py"`) do set "ProductVersion=%%V"
+if not defined ProductVersion (
+	echo Failed to read TALON_VERSION from talon.py.
+	exit /b 1
+)
 
 if exist "%SCRIPT_BUNDLE_DIR%" rd /s /q "%SCRIPT_BUNDLE_DIR%"
 mkdir "%SCRIPT_BUNDLE_DIR%"
@@ -10,7 +15,7 @@ mkdir "%SCRIPT_BUNDLE_DIR%"
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
 	"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; " ^
 	"$u1 = 'https://christitus.com/win'; " ^
-	"$u2 = 'https://api.github.com/repos/Raphire/Win11Debloat/zipball/2026.04.26'; " ^
+	"$u2 = 'https://api.github.com/repos/Raphire/Win11Debloat/zipball/2026.05.20'; " ^
 	"$o1 = Join-Path '%SCRIPT_BUNDLE_DIR%' 'winutil.ps1'; " ^
 	"$zip2 = Join-Path '%SCRIPT_BUNDLE_DIR%' 'win11debloat.zip'; " ^
 	"Invoke-WebRequest -Uri $u1 -OutFile $o1 -UseBasicParsing; " ^

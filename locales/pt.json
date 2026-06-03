@@ -135,6 +135,7 @@
         "empty_execution_plan": "O plano de instalação não possui etapas executáveis. Abra a interface do Talon e configure pelo menos uma etapa.",
         "installation_unexpected": "Ocorreu um erro inesperado durante a instalação.\nVerifique o log para mais detalhes.",
         "restart_failed": "Falha ao reiniciar o sistema.\nVerifique o log para mais detalhes.",
+        "completion_marker_failed": "Falha ao registrar o marcador de conclusão do Talon.\n{error}",
         "import_plan_failed": "Falha ao importar o plano de instalação:\n{error}",
         "import_winutil_failed": "Falha ao importar a configuração do WinUtil:\n{error}",
         "winutil_config_invalid": "A configuração do WinUtil deve ser um objeto ou array JSON.",

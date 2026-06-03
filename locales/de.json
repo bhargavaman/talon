@@ -135,6 +135,7 @@
         "installation_unexpected": "Während der Installation ist ein unerwarteter Fehler aufgetreten.\nSiehe Protokoll für Details.",
         "restart_failed": "Das System konnte nicht neu gestartet werden.\nSiehe Protokoll für Details.",
         "import_plan_failed": "Der Installationsplan konnte nicht importiert werden:\n{error}",
+        "completion_marker_failed": "Talon-Abschlussmarkierung konnte nicht aufgezeichnet werden.\n{error}",
         "import_winutil_failed": "Die WinUtil-Konfiguration konnte nicht importiert werden:\n{error}",
         "winutil_config_invalid": "Die WinUtil-Konfiguration muss ein JSON-Objekt oder -Array sein.",
         "export_plan_failed": "Der Installationsplan konnte nicht exportiert werden:\n{error}",

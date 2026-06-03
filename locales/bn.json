@@ -135,6 +135,7 @@
 		"installation_unexpected": "ইনস্টলেশনের সময় একটি অপ্রত্যাশিত ত্রুটি ঘটেছে।\nবিস্তারিত জানতে লগ দেখুন।",
 		"restart_failed": "সিস্টেম রিস্টার্ট করা যায়নি।\nবিস্তারিত জানতে লগ দেখুন।",
 		"import_plan_failed": "ইনস্টল পরিকল্পনা আমদানি করা যায়নি:\n{error}",
+		"completion_marker_failed": "Talon সম্পূর্ণতা চিহ্ন রেকর্ড করতে ব্যর্থ হয়েছে।\n{error}",
 		"import_winutil_failed": "WinUtil কনফিগ আমদানি করা যায়নি:\n{error}",
 		"winutil_config_invalid": "WinUtil কনফিগ অবশ্যই একটি JSON অবজেক্ট বা অ্যারে হতে হবে।",
 		"export_plan_failed": "ইনস্টল পরিকল্পনা রপ্তানি করা যায়নি:\n{error}",

@@ -135,6 +135,7 @@
         "installation_unexpected": "इंस्टॉलेशन के दौरान एक अप्रत्याशित त्रुटि हुई।\nविवरण के लिए लॉग देखें।",
         "restart_failed": "सिस्टम रीस्टार्ट करने में विफल।\nविवरण के लिए लॉग देखें।",
         "import_plan_failed": "इंस्टॉल योजना आयात करने में विफल:\n{error}",
+        "completion_marker_failed": "टैलन पूर्णता मार्कर रिकॉर्ड करने में विफल।\n{error}",
         "import_winutil_failed": "WinUtil कॉन्फ़िग आयात करने में विफल:\n{error}",
         "winutil_config_invalid": "WinUtil कॉन्फ़िग एक JSON ऑब्जेक्ट या ऐरे होना चाहिए।",
         "export_plan_failed": "इंस्टॉल योजना निर्यात करने में विफल:\n{error}",

@@ -135,6 +135,7 @@
         "empty_execution_plan": "Install plan मध्ये कोणतेही executable steps नाहीत. Talon UI उघडा आणि किमान एक स्टेप कॉन्फिगर करा.",
         "installation_unexpected": "इन्स्टॉलेशन दरम्यान अनपेक्षित error आला.\nअधिक माहितीसाठी log तपासा.",
         "restart_failed": "सिस्टम रीस्टार्ट करण्यात अयशस्वी.\nअधिक माहितीसाठी log तपासा.",
+        "completion_marker_failed": "Talon पूर्णता चिन्ह नोंदवण्यात अयशस्वी.\n{error}",
         "import_plan_failed": "Install plan import करण्यात अयशस्वी:\n{error}",
         "import_winutil_failed": "WinUtil config import करण्यात अयशस्वी:\n{error}",
         "winutil_config_invalid": "WinUtil config हे JSON object किंवा array असणे आवश्यक आहे.",

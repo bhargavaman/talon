@@ -135,6 +135,7 @@
         "empty_execution_plan": "Le plan d’installation ne contient aucune étape exécutable. Ouvrez l’interface utilisateur de Talon et configurez au moins une étape.",
         "installation_unexpected": "Une erreur inattendue s’est produite lors de l’installation.\nConsultez le journal pour plus de détails.",
         "restart_failed": "Échec du redémarrage du système.\nConsultez le journal pour plus de détails.",
+        "completion_marker_failed": "Échec de l’enregistrement du marqueur d’achèvement Talon.\n{error}",
         "import_plan_failed": "Échec de l’importation du plan d’installation:\n{error}",
         "import_winutil_failed": "Échec de l’importation de la configuration WinUtil:\n{error}",
         "winutil_config_invalid": "La configuration de WinUtil doit être un objet ou un tableau JSON.",

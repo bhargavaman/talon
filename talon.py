@@ -5,6 +5,7 @@ import threading
 import json
 import tempfile
 import time
+import winreg
 from types import SimpleNamespace
 from configuration_components import install_plan
 from configuration_components.localization import t
@@ -29,6 +30,8 @@ from ui_components.ui_title_text import UITitleText
 from ui_components.ui_loading_spinner import UILoadingSpinner
 
 _INSTALL_UI_BASE = None
+TALON_VERSION = "2026.6.2.17"
+_COMPLETION_REGISTRY_PATH = r"Software\RavenTechnologiesGroup\Talon"
 DEBLOAT_STEPS = [
 	(
 		"remove-edge-permanently",
@@ -299,6 +302,21 @@ def _restart_windows():
 	if result.returncode != 0:
 		raise RuntimeError(f"shutdown.exe failed with exit code {result.returncode}")
 
+
+def _record_debloat_completion():
+	epoch_utc = int(time.time())
+	access = winreg.KEY_WRITE
+	if hasattr(winreg, "KEY_WOW64_64KEY"):
+		access |= winreg.KEY_WOW64_64KEY
+	with winreg.CreateKeyEx(winreg.HKEY_LOCAL_MACHINE, _COMPLETION_REGISTRY_PATH, 0, access) as key:
+		winreg.SetValueEx(key, "Version", 0, winreg.REG_SZ, TALON_VERSION)
+		winreg.SetValueEx(key, "DebloatRanUtc", 0, winreg.REG_QWORD, epoch_utc)
+	logger.info(
+		f"Recorded Talon completion marker: HKLM\\{_COMPLETION_REGISTRY_PATH} "
+		f"Version={TALON_VERSION}, DebloatRanUtc={epoch_utc}"
+	)
+
+
 def main(argv=None):
 	raw_args = sys.argv[1:] if argv is None else list(argv)
 	args = parse_args(argv)
@@ -420,6 +438,15 @@ def main(argv=None):
 					bus.stop.emit()
 					bus.quit_later.emit()
 				return
+			try:
+				_record_debloat_completion()
+			except Exception as e:
+				logger.exception(f"Failed to record Talon completion marker: {e}")
+				if not args.headless:
+					show_error_popup(
+						t("errors.completion_marker_failed", {"error": e}),
+						allow_continue=True,
+					)
 			if args.headless or args.developer_mode:
 				if args.headless:
 					msg = t("app.install_overlay.suppress_restart_headless")

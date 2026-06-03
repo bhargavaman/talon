@@ -135,6 +135,7 @@
         "installation_unexpected": "Ocurrió un error inesperado durante la instalación.\nConsulta el registro para más detalles.",
         "restart_failed": "No se pudo reiniciar el sistema.\nConsulta el registro para más detalles.",
         "import_plan_failed": "No se pudo importar el plan de instalación:\n{error}",
+        "completion_marker_failed": "No se pudo registrar el marcador de finalización de Talon.\n{error}",
         "import_winutil_failed": "No se pudo importar la configuración de WinUtil:\n{error}",
         "winutil_config_invalid": "La configuración de WinUtil debe ser un objeto o arreglo JSON.",
         "export_plan_failed": "No se pudo exportar el plan de instalación:\n{error}",

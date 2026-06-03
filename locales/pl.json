@@ -95,7 +95,7 @@
             "tooltip": "Modyfikuje Rejestr Windowsa w celu poprawienia wyglądu i odczucia z użytkowania, w skład zmian w których wchodzi wyrównanie przycisków paska zadań do lewej strony, ustawienie motywu systemu na ciemny, usunięcie opóźnień w menu, oraz pokazywanie rozszerzeń plików."
         },
         "configure_updates": {
-            "text": "Ustaw zasady aktualizacji na "tylko zabezpieczenia"",
+            "text": "Ustaw zasady aktualizacji na tylko zabezpieczenia",
             "tooltip": "Aby zapobiec aktualizacjom Windowsa które zainstalują na nowo niechciane programy i usuną niektóre ustawienia, Talon zmienia zasady aktualizacji w systemie tak, aby otrzymywał tylko aktualizacje zabezpieczeń, ignorując aktualizacje \"funkcji\" . W Windowsie Pro zmiany są trwałe, ale w Windowsie Home zmiana trwa przez 365 dni."
         },
         "apply_background": {
@@ -135,6 +135,7 @@
         "empty_execution_plan": "Plan instalacyjny nie zawiera kroków wykonywalnych. Otwórz interfejs Talona i skonfiguruj przynajmniej jeden krok.",
         "installation_unexpected": "Wystąpił nieoczekiwany błąd podczas instalacji.\nPo więcej informacji, sprawdź log.",
         "restart_failed": "Nie udało sie zrestartować systemu.\nPo więcej informacji, sprawdź log..",
+        "completion_marker_failed": "Nie udało się zapisać znacznika ukończenia Talon.\n{error}",
         "import_plan_failed": "Nie udało się zaimportować planu instalacyjnego:\n{error}",
         "import_winutil_failed": "Nie udało się zaimportować konfiguracji WinUtil:\n{error}",
         "winutil_config_invalid": "Konfiguracja WinUtil musi byc obiektem lub tablicą JSON.",

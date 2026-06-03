@@ -134,6 +134,7 @@
         "config_not_found": "Config file not found: {path}",
         "empty_execution_plan": "Install plan has no executable steps. Open Talon UI and configure at least one step.",
         "installation_unexpected": "An unexpected error occurred during installation.\nCheck the log for details.",
+        "completion_marker_failed": "Failed to record Talon completion marker.\n{error}",
         "restart_failed": "Failed to restart the system.\nCheck the log for details.",
         "import_plan_failed": "Failed to import install plan:\n{error}",
         "import_winutil_failed": "Failed to import WinUtil config:\n{error}",
