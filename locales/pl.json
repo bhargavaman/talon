@@ -8,9 +8,9 @@
     "app": {
         "install_overlay": {
             "title": "Instalacja Talona w toku",
-            "guidance": "Proszę nie dotykać klawiatury i myszy w trakcie procesu. Możesz podejrzeć jak talon pracuje w tle.",
-            "remove_edge": "Permanentne usuwanie Microsoft Edgea...",
-            "uninstall_outlook_onedrive": "Odinstalowywanie Outlooka i OneDrivea",
+            "guidance": "Proszę nie dotykać klawiatury i myszy w trakcie procesu. Możesz oglądać jak Talon pracuje w tle.",
+            "remove_edge": "Permanentne usuwanie Microsoft Edge...",
+            "uninstall_outlook_onedrive": "Odinstalowywanie Outlooka i OneDrive.",
             "browser_installation": "Instalowanie wybranej przeglądarki internetowej...",
             "debloat_windows_phase_one": "Faza pierwsza debloatu Windowsa (WinUtil)...",
             "debloat_windows_phase_two": "Faza druga debloatu Windowsa (Win11Debloat)...",
@@ -19,17 +19,17 @@
             "apply_background": "Ustawianie tła pulpitu...",
             "dry_run_complete": "Przebieg próbny ukończony. Nie zostały wprowadzone żadne zmiany w systemie.",
             "suppress_restart_headless": "Wstrzymywanie restartu systemu w trybie headless.",
-            "suppress_restart_developer": "Wstrzymywanie restartu systemu w trybie programisty",
+            "suppress_restart_developer": "Wstrzymywanie restartu systemu w trybie programisty.",
             "restarting": "Restartowanie systemu..."
         }
     },
     "configuration": {
         "browser": {
-            "title": "Witamy. Proszę wybrać przeglądarke internetową.",
-            "skip": "Nie instaluj przeglądarki internetowej"
+            "title": "Witaj. Wybierz preferowaną przeglądarke internetową.",
+            "skip": "Nie instaluj przeglądarki internetowej."
         },
         "review": {
-            "title": "System jest gotowy do debloatu. Prosimy zweryfikować.",
+            "title": "System jest gotowy do debloatu. Zweryfikuj wybrane opcje.",
             "empty": "Brak pozycji.",
             "guidance": "Lista po lewej ukazuje co Talon zmieni w twoim systemie. Jeśli jest tutaj coś czego nie chcesz zrobić, możesz usunąć to z listy.\n\nJeśli wszystko wygląda w porządku, wybierz \"Start.\"",
             "no_browser_warning": "Nie zostanie zainstalowana żadna przeglądarka internetowa.",
@@ -71,15 +71,15 @@
     "steps": {
         "remove_edge_permanently": {
             "text": "Usuń Microsoft Edge Permanentnie",
-            "tooltip": "Odinstalowuje Edge, oraz upewnia sie że nigdy nie wróci. Jeżeli chcesz możesz go zainstalować ponownie. Aplikacje wymagające go (msedgewebview2) będą nadal działać."
+            "tooltip": "Odinstalowuje Edge, oraz uniemożliwia jego automatyczną reinstalację. Jeżeli chcesz, możesz go zainstalować ponownie. Aplikacje wymagające msedgewebview2 będą nadal działać."
         },
         "uninstall_outlook_onedrive": {
             "text": "Odinstaluj Outlooka i OneDrive",
-            "tooltip": "Odinstalowuje aplikację Outlook i OneDrive, ponieważ duża liczba osób ich nie używa. Możesz je zainstalować od nowa jeśli chcesz."
+            "tooltip": "Odinstalowuje aplikację Outlook i OneDrive, nie używane przez większość osób. Możesz je zainstalować od nowa jeśli chcesz."
         },
         "browser_installation": {
             "text": "Zainstaluj przeglądarke internetową",
-            "text_with_browser": "Zainstaluje przeglądarke internetową: {browser_name}",
+            "text_with_browser": "Zainstaluje przeglądarke internetową {browser_name}",
             "tooltip": "Żadna przeglądarka nie została wybrana."
         },
         "debloat_windows_phase_one": {
@@ -88,14 +88,14 @@
         },
         "debloat_windows_phase_two": {
             "text": "Debloat Windows phase two (Win11Debloat)",
-            "tooltip": "Talon używa popularnego i uznanego narzędzia, Win11Debloat autorstwa Raphire, jako część procesu debloatu. Cały proces jest zautomatyzowany, więc nie musisz robić nic. Usunięcie tego kroku jest niezalecane.."
+            "tooltip": "Talon używa popularnego i uznanego narzędzia, Win11Debloat autorstwa Raphire, jako część procesu debloatu. Cały proces jest zautomatyzowany, więc nie musisz robić nic. Usunięcie tego kroku jest niezalecane."
         },
         "registry_tweaks": {
             "text": "Wprowadź zmiany wizualne pulpitu",
-            "tooltip": "Modyfikuje Rejestr Windowsa w celu poprawienia wyglądu i odczucia z użytkowania, w skład zmian w których wchodzi wyrównanie przycisków paska zadań do lewej strony, ustawienie motywu systemu na ciemny, usunięcie opóźnień w menu, oraz pokazywanie rozszerzeń plików."
+            "tooltip": "Modyfikuje Rejestr Windowsa w celu poprawienia wyglądu i odczucia z użytkowania. Ustawia m.in. wyrównanie przycisków paska zadań do lewej strony, ustawienie motywu systemu na ciemny, usunięcie opóźnień w menu, oraz pokazywanie rozszerzeń plików."
         },
         "configure_updates": {
-            "text": "Ustaw zasady aktualizacji na tylko zabezpieczenia",
+            "text": "Ustaw zasady aktualizacji na "tylko zabezpieczenia"",
             "tooltip": "Aby zapobiec aktualizacjom Windowsa które zainstalują na nowo niechciane programy i usuną niektóre ustawienia, Talon zmienia zasady aktualizacji w systemie tak, aby otrzymywał tylko aktualizacje zabezpieczeń, ignorując aktualizacje \"funkcji\" . W Windowsie Pro zmiany są trwałe, ale w Windowsie Home zmiana trwa przez 365 dni."
         },
         "apply_background": {
@@ -109,7 +109,7 @@
     },
     "browsers": {
         "edge": {
-            "tooltip": "Edge jest niezalecany, chyba że w wyjątkowych okolicznościach, z racji na jego inwazyjność prywatności oraz reklamy."
+            "tooltip": "Edge jest niezalecany, chyba że jest to konieczne, z racji na jego inwazyjność prywatności oraz reklamy."
         },
         "waterfox": {
             "tooltip": "Waterfox jest zalecany zamiast Firefoxa, ale nie Brave. Jest bazowany na Firefoxie, ale usuwa śledzenie i telemetrie."
@@ -121,7 +121,7 @@
             "tooltip": "LibreWolf jest zalecany tylko dla obeznanych z technologią . Jest zaprojektowany dla maksymalnej prywatności i bezpieczeństwa, ale może być nieco trudny w użytkowaniu."
         },
         "firefox": {
-            "tooltip": "Firefox jest niezalecany, chyba że w wyjątkowych okolicznościach, z racji na domyślnie aktywną telemetrie oraz zawartość sponsorowaną."
+            "tooltip": "Firefox jest niezalecany, chyba że jest to konieczne, z racji na domyślnie aktywną telemetrie oraz zawartość sponsorowaną."
         }
     },
     "errors": {
@@ -130,29 +130,28 @@
         "continue_anyways": "Kontynuuj mimo to",
         "developer_console_failed": "Uruchomienie okna konsoli trybu programisty zakończone niepowodzeniem.\n{error}",
         "screen_launch_failed": "Nie udało się uruchomić ekranu '{module_name}'.\n{error}",
-        "screen_unexpected": "Wystąpił nieoczekiwany błąd  screen '{module_name}'.\n{error}",
+        "screen_unexpected": "Wystąpił nieoczekiwany błąd ekranu '{module_name}'.\n{error}",
         "config_not_found": "Plik konfiguracyjny nie został znaleziony: {path}",
         "empty_execution_plan": "Plan instalacyjny nie zawiera kroków wykonywalnych. Otwórz interfejs Talona i skonfiguruj przynajmniej jeden krok.",
-        "installation_unexpected": "Wystąpił nieoczekiwany błąd podczas instalacji.\nPo więcej informacji, sprawdź log.",
-        "restart_failed": "Nie udało sie zrestartować systemu.\nPo więcej informacji, sprawdź log..",
-        "completion_marker_failed": "Nie udało się zapisać znacznika ukończenia Talon.\n{error}",
+        "installation_unexpected": "Wystąpił nieoczekiwany błąd podczas instalacji.\nSprawdź log po więcej informacji.",
+        "restart_failed": "Nie udało sie zrestartować systemu.\nSprawdź log po więcej informacji.",
         "import_plan_failed": "Nie udało się zaimportować planu instalacyjnego:\n{error}",
         "import_winutil_failed": "Nie udało się zaimportować konfiguracji WinUtil:\n{error}",
         "winutil_config_invalid": "Konfiguracja WinUtil musi byc obiektem lub tablicą JSON.",
-        "export_plan_failed": "Nie udało się zaeksportować planu instalacyjnego:\n{error}",
-        "background_file_missing": "Wybrany plik obrazu nie istnieje.",
+        "export_plan_failed": "Nie udało się wyeksportować planu instalacyjnego:\n{error}",
+        "background_file_missing": "Wybrany plik graficzny nie istnieje.",
         "set_background_failed": "Nie udało się ustawić wybranego tła pulpitu:\n{error}",
         "save_win11_args_failed": "Nie udało się zapisać niektórych argumentów Win11Debloat:\n{error}",
         "registry_changes_invalid": "Zmiany rejestru muszą być obiektem lub tablicą JSON.",
         "save_registry_changes_failed": "Nie udało się zapisać zmian rejetru:\n{error}",
-        "unsupported_os": "Wykryto nie wspierany system operacyjny.\nTo narzędzie wymaga Windowsa 11.",
-        "windows_version_failed": "Nie udało się wykryć wersji systemu.\nTo narzędzie wymaga Windowsa 11.",
-        "incompatible_windows_version": "Wykryto niekompatybilną wersję systemu:\n    {product_name} (build {build_num})\nTo narzędzie wymagaWindows 11.",
-        "temp_unwritable": "Talon nie mógł zapisać plików w {talon_dir}.\nProszę zwolnić miejsce na dysku lub sprawdzić uprawnienia.",
+        "unsupported_os": "Wykryto nie wspierany system operacyjny.\nTalon wymaga Windowsa 11.",
+        "windows_version_failed": "Nie udało się wykryć wersji systemu.\nTalon wymaga Windowsa 11.",
+        "incompatible_windows_version": "Wykryto niekompatybilną wersję systemu:\n    {product_name} (build {build_num})\nTalon wymaga Windowsa 11",
+        "temp_unwritable": "Talon nie mógł zapisać plików w {talon_dir}.\nZwolnij przestrzeń dyskową lub sprawdzić uprawnienia.",
         "admin_elevation_failed": "Nie można nadać praw Administratora :\n{error}",
         "no_internet_continue": "Nie wykryto połączenia internetowego.\n\nTalon może kontynuować bez internetu. Jeśli przejdziesz dalej, krok instalacji przeglądarki internetowej zostanie pominięty.\n\nOptions:\n- Połącz się z internetem i uruchom ponownie Talona aby zainstalować przeglądarkę internetową.\n- Lub kliknij Kontynuuj aby przejść dalej bez instalacji przeglądarki internetowej (możesz zainstalować ją później).",
-        "no_internet_required": "Niy wykryto połączania internetowego.\nAktywne połączenie internetowe jest wymagane aby uruchomić Talona w trybie graficznym.\n",
-        "powershell_script_launch_failed": "Wystąpił błąd uruchamiając skrypt PowerShell:\n{error}",
+        "no_internet_required": "Nie wykryto połączenia internetowego.\nAktywne połączenie internetowe jest wymagane aby uruchomić Talona w trybie graficznym.\n",
+        "powershell_script_launch_failed": "Wystąpił błąd przy uruchomieniu skryptu PowerShell:\n{error}",
         "powershell_script_failed": "Skrypt PowerShell '{script_name}' zakończył się błędem (exit code {exit_code})",
         "powershell_launch_failed": "Wystąpił błąd przy uruchomieniu PowerShell:\n{error}",
         "powershell_command_failed": "Komenda PowerShell zwróciła błąd (exit code {exit_code})",
@@ -161,11 +160,11 @@
         "registry_delete_value_failed": "Nie udało się usunąć wartości rejetru:\n{target}\n\n{error}",
         "registry_create_key_failed": "Nie udało się utworzyć klucza rejestru:\n{target}\n\n{error}",
         "registry_delete_key_failed": "Nie udało się usunąć klucza rejestru:\n{target}\n\n{error}",
-        "wallpaper_not_found": "Wallpaper file not found: {path}",
+        "wallpaper_not_found": "Nie znaleziono pliku tapety: {path}",
         "desktop_background_failed": "Nie udało się ustawić tła pulpitu:\n{error}",
         "chocolatey_install_failed": "Nie udało się zainstalować lub zweryfikować Chocolatey:\n{error}",
         "chocolatey_browser_failed": "Wystąpił błąd Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nKod zamknięcia Chocolatey: {exit_code}",
-        "chocolatey_browser_error": "Wystąpił błąd w Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nBłąd: {error}",
+        "chocolatey_browser_error": "Wystąpił błąd Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nBłąd: {error}",
         "browser_metadata_missing": "Żadna paczka zawierająca przeglądarke nie została dostarczona przez metadane programu uruchamiającego.",
         "browser_metadata_error": "Wewnętrzny błąd odczytu metadanych wybranej przeglądarki:\n{error}",
         "script_failed": "Skrypy '{script_path}' zakończył się błędem {exit_code}",
@@ -179,7 +178,7 @@
         "downloaded_config_invalid": "Pobrany plik konfiguracyjny nie jest prawidłowym plikiem JSON: {error}",
         "config_load_failed": "Nie udało się załadować konfiguracji {label}.\n{error}",
         "config_download_failed": "Nie udało się pobrać konfiguracji z podanego adresu URL.\n{error}",
-        "config_missing": "Nie znaleziono konfiguracji:\n{path}",
+        "config_missing": "Nie znaleziono pliku konfiguracji:\n{path}",
         "bundled_winutil_missing": "Załączony skrypt WinUtil nie został odnaleziony:\n{path}",
         "winutil_failed": "Nie udało się uruchomić narzędzia WinUtil ChrisTitusTecha:\n{error}",
         "bundled_win11debloat_missing": "Załączony Win11Debloat nie został odnaleziony:\n{path}",
