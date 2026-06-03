@@ -1,8 +1,8 @@
 {
-  "preset_key": "standard-no-visual-changes",
-  "preset_name": "Standard (No Visual Changes)",
+  "preset_key": "debloat-lite",
+  "preset_name": "Debloat Lite",
   "version": 1,
-  "selected_preset_key": "standard-no-visual-changes",
+  "selected_preset_key": "custom",
   "selected_browser_name": "None",
   "selected_browser_package": "",
   "include_browser_install": false,
@@ -17,7 +17,7 @@
       "key": "remove-edge-permanently",
       "text": "",
       "tooltip": "",
-      "enabled": true
+      "enabled": false
     },
     {
       "key": "uninstall-outlook-onedrive",
@@ -53,7 +53,7 @@
       "key": "configure-updates",
       "text": "",
       "tooltip": "",
-      "enabled": true
+      "enabled": false
     },
     {
       "key": "apply-background",
@@ -72,26 +72,20 @@
       "WPFTweaksServices",
       "WPFTweaksDisableExplorerAutoDiscovery",
       "WPFTweaksDisplay",
+      "WPFTweaksRightClickMenu",
+      "WPFTweaksRevertStartMenu",
       "WPFTweaksRemoveOneDrive",
-      "WPFTweaksXboxRemoval",
       "WPFTweaksDeBloat",
       "WPFTweaksWindowsAI",
       "WPFTweaksDisableStoreSearch"
     ]
   },
-  "win11debloat_args": "-Silent -RemoveApps -RemoveGamingApps -DisableTelemetry -DisableBing -DisableWidgets -DisableCopilot -DisableDVR -DisableMouseAcceleration -DisableSettings365Ads -DisableSettingsHome -DisablePaintAI -DisableNotepadAI -DisableEdgeAI -DisableStickyKeys -DisableEdgeAds -DisableBraveBloat -DisableRecall -DisableAISvcAutoStart -DisableClickToDo -DisableSearchHistory -DisableDeliveryOptimization",
+  "win11debloat_args": "-Silent -RemoveApps -DisableTelemetry -DisableBing -DisableSuggestions -DisableLockscreenTips -RevertContextMenu -DisableWidgets -DisableCopilot -DisableDVR -DisableMouseAcceleration -DisableDesktopSpotlight -DisableSettings365Ads -DisableSettingsHome -DisablePaintAI -DisableNotepadAI -DisableEdgeAI -DisableStickyKeys -DisableRecall -DisableAISvcAutoStart -DisableClickToDo -DisableSearchHistory -DisableDeliveryOptimization",
   "registry_changes": [
     {
       "hive": "HKEY_CURRENT_USER",
       "key_path": "Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
       "name": "AppCaptureEnabled",
-      "value_type": "REG_DWORD",
-      "value": 0
-    },
-    {
-      "hive": "HKEY_LOCAL_MACHINE",
-      "key_path": "SOFTWARE\\Microsoft\\PolicyManager\\default\\ApplicationManagement\\AllowGameDVR",
-      "name": "Value",
       "value_type": "REG_DWORD",
       "value": 0
     },
