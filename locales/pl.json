@@ -7,181 +7,181 @@
     },
     "app": {
         "install_overlay": {
-            "title": "Instalacja Talona w toku",
-            "guidance": "Proszę nie dotykać klawiatury i myszy w trakcie procesu. Możesz oglądać jak Talon pracuje w tle.",
+            "title": "Trwa instalacja Talona",
+            "guidance": "Prosimy nie dotykać klawiatury i myszy. W tle możesz zobaczyć, jak Talon pracuje.",
             "remove_edge": "Permanentne usuwanie Microsoft Edge...",
-            "uninstall_outlook_onedrive": "Odinstalowywanie Outlooka i OneDrive.",
-            "browser_installation": "Instalowanie wybranej przeglądarki internetowej...",
-            "debloat_windows_phase_one": "Faza pierwsza debloatu Windowsa (WinUtil)...",
-            "debloat_windows_phase_two": "Faza druga debloatu Windowsa (Win11Debloat)...",
-            "registry_tweaks": "Przeprowadzanie kilku modyfikacji wizualnych...",
-            "configure_updates": "Konfigurowanie zasad Windows Update...",
+            "uninstall_outlook_onedrive": "Odinstalowanie Outlooka oraz OneDrivea...",
+            "browser_installation": "Instalowanie wybranej przez ciebie przeglądarki internetowej...",
+            "debloat_windows_phase_one": "Faza pierwsza odchudzania Windowsa (WinUtil)...",
+            "debloat_windows_phase_two": "Faza druga odchudzania Windowsa (Win11Debloat)...",
+            "registry_tweaks": "Przeprowadzanie modyfikacji wizualnych...",
+            "configure_updates": "Konfiguracja zasad aktualizacji Windows Update...",
             "apply_background": "Ustawianie tła pulpitu...",
             "dry_run_complete": "Przebieg próbny ukończony. Nie zostały wprowadzone żadne zmiany w systemie.",
-            "suppress_restart_headless": "Wstrzymywanie restartu systemu w trybie headless.",
-            "suppress_restart_developer": "Wstrzymywanie restartu systemu w trybie programisty.",
-            "restarting": "Restartowanie systemu..."
+            "suppress_restart_headless": "Wstrzymanie ponownego uruchamiania systemu z powodu trybu headless.",
+            "suppress_restart_developer": "Wstrzymanie ponownego uruchamiania systemu przez Tryb Programisty.",
+            "restarting": "Ponowne uruchamianie systemu..."
         }
     },
     "configuration": {
         "browser": {
-            "title": "Witaj. Wybierz preferowaną przeglądarke internetową.",
-            "skip": "Nie instaluj przeglądarki internetowej."
+            "title": "Witamy. Prosimy wybrać przeglądarkę internetową.",
+            "skip": "Nie instaluj przeglądarki."
         },
         "review": {
-            "title": "System jest gotowy do debloatu. Zweryfikuj wybrane opcje.",
+            "title": "System jest gotowy do odchudzenia. Zweryfikuj wybrane opcje.",
             "empty": "Brak pozycji.",
-            "guidance": "Lista po lewej ukazuje co Talon zmieni w twoim systemie. Jeśli jest tutaj coś czego nie chcesz zrobić, możesz usunąć to z listy.\n\nJeśli wszystko wygląda w porządku, wybierz \"Start.\"",
-            "no_browser_warning": "Nie zostanie zainstalowana żadna przeglądarka internetowa.",
-            "no_internet_info": "Nie jesteś połączony z internetem. Talon nie zainstaluje przeglądarki internetowej",
-            "no_updates_warning": "Zasady aktualizacji nie zostaną skonfigurowane. Aktualizacje mogą przywrócić niechciane programy oraz cofnąć niektóre ustawienia Talona.",
-            "nothing_to_do": "Nie można rozpocząć debloatu. Nie ma nic do zrobienia.",
-            "reset_defaults": "Przywróć domyślne.",
+            "guidance": "Lista po lewej stronie prezentuje, co Talon zrobi z twoim systemem. Jeśli jest coś, czego nie chcesz zrobić, możesz usunąć pozycję z listy.\n\nJeżeli wszystko wygląda dobrze, wybierz \"Start.\"",
+            "no_browser_warning": "Żadna przeglądarka nie zostanie zainstalowana.",
+            "no_internet_info": "Nie jesteś połączony z internetem. Talon nie zainstaluje przeglądarki.",
+            "no_updates_warning": "Zasady aktualizacji nie zostaną skonfigurowane. Aktualizacje mogą przywrócić niechciane programy oraz odwrócić niektóre zmiany wprowadzone przez Talona.",
+            "nothing_to_do": "Nie można zacząć procesu odchudzania. Nie ma nic do zrobienia.",
+            "reset_defaults": "Przywróć domyślne",
             "advanced": "Zaawansowane",
             "start_button": "START",
             "custom_preset": "Niestandardowe"
         },
         "advanced": {
             "title": "Ustawienia zaawansowane",
-            "warning": "Nie dotykaj tutaj niczego, chyba że wiesz co robisz!",
-            "import_plan": "Zaimportuj Plan Instalacyjny Talona",
-            "import_winutil": "Zaimportuj Konfiguracje WinUtil",
-            "set_win11_args": "Ustaw Argumenty Win11Debloat",
-            "edit_registry_changes": "Edytuj Zmiany Rejestru",
-            "export_plan": "Eksportuj Jako Plan Instalacyjny",
-            "set_background": "Ustaw Wybrane Tło Pulpitu",
+            "warning": "Nie ruszaj tutaj niczego, chyba że wiesz, co robisz!",
+            "import_plan": "Importuj plan instalacyjny Talona",
+            "import_winutil": "Importuj plik konfiguracyjny WinUtil",
+            "set_win11_args": "Ustaw argumenty Win11Debloat",
+            "edit_registry_changes": "Edytuj zmiany rejestru",
+            "export_plan": "Eksportuj jako plan instalacyjny",
+            "set_background": "Wybierz tło do ustawienia",
             "true": "true",
             "false": "false",
-            "see_documentation": "Zobacz Dokumentację",
+            "see_documentation": "Zobacz dokumentację",
             "confirm": "Potwierdź"
         },
         "dialogs": {
             "cancel": "Anuluj",
-            "save_changes": "Zapisz Zmiany",
-            "win11_args_title": "Ustaw Argumenty Win11Debloat",
-            "registry_changes_title": "Edytuj Zmiany Rejestru",
-            "import_plan_title": "Zaimportuj Plan Instalacyjny Talona",
-            "import_winutil_title": "Zaimportuj Konfiguracje WinUtil",
-            "export_plan_title": "Eksportuj Jako Plan Instalacyjny",
-            "set_background_title": "Ustaw Wybrane Tło Pulpitu",
-            "json_files_filter": "JSON Files (*.json);;All Files (*)",
-            "image_files_filter": "Images (*.png *.jpg *.jpeg *.bmp *.webp);;All Files (*)"
+            "save_changes": "Zapisz zmiany",
+            "win11_args_title": "Ustaw argumenty Win11Debloat",
+            "registry_changes_title": "Edytuj zmiany rejestru",
+            "import_plan_title": "Importuj plan instalacyjny Talona",
+            "import_winutil_title": "Importuj plik konfiguracyjny WinUtil",
+            "export_plan_title": "Eksportuj jako plan instalacyjny",
+            "set_background_title": "Wybierz tło do ustawienia",
+            "json_files_filter": "Pliki JSON (*.json);;Wszystkie pliki (*)",
+            "image_files_filter": "Obrazy (*.png *.jpg *.jpeg *.bmp *.webp);;Wszystkie pliki (*)"
         }
     },
     "steps": {
         "remove_edge_permanently": {
-            "text": "Usuń Microsoft Edge Permanentnie",
-            "tooltip": "Odinstalowuje Edge, oraz uniemożliwia jego automatyczną reinstalację. Jeżeli chcesz, możesz go zainstalować ponownie. Aplikacje wymagające msedgewebview2 będą nadal działać."
+            "text": "Permanentnie usuń Microsoft Edge",
+            "tooltip": "Odinstalowuje Microsoft Edge oraz zapobiega jego samoczynnemu powrotowi. Jeżeli chcesz, możesz go zainstalować z powrotem. Aplikacje wymagające składnika msedgewebview2 będą nadal działać."
         },
         "uninstall_outlook_onedrive": {
-            "text": "Odinstaluj Outlooka i OneDrive",
-            "tooltip": "Odinstalowuje aplikację Outlook i OneDrive, nie używane przez większość osób. Możesz je zainstalować od nowa jeśli chcesz."
+            "text": "Odinstaluj Outlook i OneDrivea",
+            "tooltip": "Odinstalowuje aplikację Outlooka oraz OneDrivea, ponieważ większość osób z nich nie korzysta. Jeżeli chcesz, możesz je zainstalować z powrotem."
         },
         "browser_installation": {
-            "text": "Zainstaluj przeglądarke internetową",
-            "text_with_browser": "Zainstaluje przeglądarke internetową {browser_name}",
+            "text": "Zainstaluj przeglądarkę internetową",
+            "text_with_browser": "Zainstaluj przeglądarkę internetową: {browser_name}",
             "tooltip": "Żadna przeglądarka nie została wybrana."
         },
         "debloat_windows_phase_one": {
-            "text": "Faza pierwsza debloatu Windowsa (WinUtil)",
-            "tooltip": "Talon używa popularnego i uznanego narzędzia, WinUtil autorstwa ChrisTitusTech, jako część procesu debloatu. Cały proces jest zautomatyzowany, więc nie musisz robić nic. Usunięcie tego kroku jest niezalecane."
+            "text": "Faza pierwsza odchudzania Windowsa (WinUtil)",
+            "tooltip": "Talon używa popularnego narzędzia, WinUtil autorstwa ChrisTitusTech, jako część procesu odchudzania. Cały proces jest zautomatyzowany, więc nie musisz robić nic. Usunięcie tego kroku jest niezalecane."
         },
         "debloat_windows_phase_two": {
-            "text": "Debloat Windows phase two (Win11Debloat)",
-            "tooltip": "Talon używa popularnego i uznanego narzędzia, Win11Debloat autorstwa Raphire, jako część procesu debloatu. Cały proces jest zautomatyzowany, więc nie musisz robić nic. Usunięcie tego kroku jest niezalecane."
+            "text": "Druga faza odchudzania Windowsa (Win11Debloat)",
+            "tooltip": "Talon używa popularnego narzędzia, Win11Debloat autorstwa Raphire, jako część procesu odchudzania. Cały proces jest zautomatyzowany, więc nie musisz robić nic. Usunięcie tego kroku jest niezalecane."
         },
         "registry_tweaks": {
             "text": "Wprowadź zmiany wizualne pulpitu",
-            "tooltip": "Modyfikuje Rejestr Windowsa w celu poprawienia wyglądu i odczucia z użytkowania. Ustawia m.in. wyrównanie przycisków paska zadań do lewej strony, ustawienie motywu systemu na ciemny, usunięcie opóźnień w menu, oraz pokazywanie rozszerzeń plików."
+            "tooltip": "Wprowadza modyfikację rejestru systemowego w celu poprawy wyglądu i uczucia z użytkowania, takich jak: zmiana wyrównania paska zadań do lewej strony, zmiana motywu systemu na ciemny, usunięcie opóźnień w menu, oraz pokazywanie rozszerzeń plików."
         },
         "configure_updates": {
-            "text": "Ustaw zasady aktualizacji na "tylko zabezpieczenia"",
-            "tooltip": "Aby zapobiec aktualizacjom Windowsa które zainstalują na nowo niechciane programy i usuną niektóre ustawienia, Talon zmienia zasady aktualizacji w systemie tak, aby otrzymywał tylko aktualizacje zabezpieczeń, ignorując aktualizacje \"funkcji\" . W Windowsie Pro zmiany są trwałe, ale w Windowsie Home zmiana trwa przez 365 dni."
+            "text": "Ustaw zasadę aktualizacji na tylko zabezpieczenia",
+            "tooltip": "Aby zapobiec aktualizacją Windowsa na przywrócenie niechcianych aplikacji oraz odwrócenia wprowadzonych zmian, Talon ustawia zasady aktualizacji w systemie, które sprawiają, że system otrzymuje tylko aktualizacje zabezpieczeń, ignorując niepotrzebne aktualizacje \"funkcji\". Zmiana ta jest trwała w Windowsie Pro, jednak na Windowsie Home działa tylko przez 365 dni."
         },
         "apply_background": {
             "text": "Ustaw tło pulpitu",
-            "tooltip": "Dla kompletności wyglądu systemu po debloacie, Talon zmienia tło pulpitu na niestandardowe tło z logo Raven. Dokładne tło pulpitu może zostać zmienione w ustawieniach zaawansowanych."
+            "tooltip": "Dla kompletności wyglądu odchudzonego systemu Talon ustawia tło twojego pulpitu na niestandardowe, z logo Raven. Jeżeli chcesz, aby zostało ustawione inne, możesz skonfigurować to w ustawieniach zaawansowanych."
         },
         "developer_mode": {
-            "text": "Tryb programisty (ukrywa nakładke w trakcie instalacji)",
-            "tooltip": "Po aktywacji, Talon pracuje bez uruchomienia nakładki w trakcie instalacji."
+            "text": "Tryb Programisty (ukrywa nakładkę podczas instalacji)",
+            "tooltip": "Podczas działania w Trybie Programisty, Talon przeprowadza proces instalacji bez użycia pełnoekranowej nakładki."
         }
     },
     "browsers": {
         "edge": {
-            "tooltip": "Edge jest niezalecany, chyba że jest to konieczne, z racji na jego inwazyjność prywatności oraz reklamy."
+            "tooltip": "Edge jest niezalecany, chyba że jest to konieczne, z powodu bycia bardzo inwazyjnym dla twojej prywatności oraz wbudowanych reklam."
         },
         "waterfox": {
-            "tooltip": "Waterfox jest zalecany zamiast Firefoxa, ale nie Brave. Jest bazowany na Firefoxie, ale usuwa śledzenie i telemetrie."
+            "tooltip": "Waterfox jest zalecany zamiast Firefoxa, ale nie zamiast Brave. Jest on oparty na Firefoxie, ale usuwa śledzenie oraz telemetrię."
         },
         "brave": {
-            "tooltip": "Brave jest rekomendowaną przeglądarką, ponieważ jest najbliższy do Chrome, jednocześnie szanując twoją prywatność."
+            "tooltip": "Brave jest zalecaną przeglądarką, z racji bycia bardzo zbliżonym do Chrome, jednocześnie szanując twoją prywatność."
         },
         "librewolf": {
-            "tooltip": "LibreWolf jest zalecany tylko dla obeznanych z technologią . Jest zaprojektowany dla maksymalnej prywatności i bezpieczeństwa, ale może być nieco trudny w użytkowaniu."
+            "tooltip": "LibreWolf jest zalecany tylko osobom obeznanym z technologią. Jest zaprojektowany dla maksymalnej prywatności i bezpieczeństwa, ale bywa nieco trudniejszym w użytkowaniu."
         },
         "firefox": {
-            "tooltip": "Firefox jest niezalecany, chyba że jest to konieczne, z racji na domyślnie aktywną telemetrie oraz zawartość sponsorowaną."
+            "tooltip": "Firefox jest niezalecany, chyba że jest to konieczne, ponieważ domyślnie zawiera telemetrię oraz zawartość sponsorowaną."
         }
     },
     "errors": {
         "dialog_title": "Błąd",
         "stop_installation": "Zatrzymaj instalację",
         "continue_anyways": "Kontynuuj mimo to",
-        "developer_console_failed": "Uruchomienie okna konsoli trybu programisty zakończone niepowodzeniem.\n{error}",
+        "developer_console_failed": "Nie udało się uruchomić okna konsoli Trybu Programisty.\n{error}",
         "screen_launch_failed": "Nie udało się uruchomić ekranu '{module_name}'.\n{error}",
-        "screen_unexpected": "Wystąpił nieoczekiwany błąd ekranu '{module_name}'.\n{error}",
-        "config_not_found": "Plik konfiguracyjny nie został znaleziony: {path}",
-        "empty_execution_plan": "Plan instalacyjny nie zawiera kroków wykonywalnych. Otwórz interfejs Talona i skonfiguruj przynajmniej jeden krok.",
-        "installation_unexpected": "Wystąpił nieoczekiwany błąd podczas instalacji.\nSprawdź log po więcej informacji.",
-        "restart_failed": "Nie udało sie zrestartować systemu.\nSprawdź log po więcej informacji.",
-        "import_plan_failed": "Nie udało się zaimportować planu instalacyjnego:\n{error}",
+        "screen_unexpected": "Wystąpił nieoczekiwany błąd w ekranie '{module_name}'.\n{error}",
+        "config_not_found": "Plik konfiguracyjny nie został odnaleziony: {path}",
+        "empty_execution_plan": "Plan instalacyjny nie zawiera kroków wykonywalnych. Uruchom Talona w trybie graficznym i skonfiguruj przynajmniej jeden krok.",
+        "installation_unexpected": "Wystąpił nieoczekiwany błąd podczas instalacji.\nPo więcej szczegółów sprawdź log.",
+        "restart_failed": "Nie udało się ponownie uruchomić systemu.\nPo więcej szczegółów sprawdź log.",
+        "import_plan_failed": "Nie udało się zaimportować planu instalacji:\n{error}",
         "import_winutil_failed": "Nie udało się zaimportować konfiguracji WinUtil:\n{error}",
-        "winutil_config_invalid": "Konfiguracja WinUtil musi byc obiektem lub tablicą JSON.",
+        "winutil_config_invalid": "Konfiguracja WinUtil musi być obiektem lub tablicą JSON.",
         "export_plan_failed": "Nie udało się wyeksportować planu instalacyjnego:\n{error}",
-        "background_file_missing": "Wybrany plik graficzny nie istnieje.",
-        "set_background_failed": "Nie udało się ustawić wybranego tła pulpitu:\n{error}",
-        "save_win11_args_failed": "Nie udało się zapisać niektórych argumentów Win11Debloat:\n{error}",
+        "background_file_missing": "Wybrany plik tła nie istnieje.",
+        "set_background_failed": "Nie udało się ustawić wybranego tła:\n{error}",
+        "save_win11_args_failed": "Nie udało się zapisać argumentów Win11Debloat:\n{error}",
         "registry_changes_invalid": "Zmiany rejestru muszą być obiektem lub tablicą JSON.",
-        "save_registry_changes_failed": "Nie udało się zapisać zmian rejetru:\n{error}",
-        "unsupported_os": "Wykryto nie wspierany system operacyjny.\nTalon wymaga Windowsa 11.",
-        "windows_version_failed": "Nie udało się wykryć wersji systemu.\nTalon wymaga Windowsa 11.",
-        "incompatible_windows_version": "Wykryto niekompatybilną wersję systemu:\n    {product_name} (build {build_num})\nTalon wymaga Windowsa 11",
-        "temp_unwritable": "Talon nie mógł zapisać plików w {talon_dir}.\nZwolnij przestrzeń dyskową lub sprawdzić uprawnienia.",
-        "admin_elevation_failed": "Nie można nadać praw Administratora :\n{error}",
-        "no_internet_continue": "Nie wykryto połączenia internetowego.\n\nTalon może kontynuować bez internetu. Jeśli przejdziesz dalej, krok instalacji przeglądarki internetowej zostanie pominięty.\n\nOptions:\n- Połącz się z internetem i uruchom ponownie Talona aby zainstalować przeglądarkę internetową.\n- Lub kliknij Kontynuuj aby przejść dalej bez instalacji przeglądarki internetowej (możesz zainstalować ją później).",
-        "no_internet_required": "Nie wykryto połączenia internetowego.\nAktywne połączenie internetowe jest wymagane aby uruchomić Talona w trybie graficznym.\n",
-        "powershell_script_launch_failed": "Wystąpił błąd przy uruchomieniu skryptu PowerShell:\n{error}",
-        "powershell_script_failed": "Skrypt PowerShell '{script_name}' zakończył się błędem (exit code {exit_code})",
-        "powershell_launch_failed": "Wystąpił błąd przy uruchomieniu PowerShell:\n{error}",
-        "powershell_command_failed": "Komenda PowerShell zwróciła błąd (exit code {exit_code})",
-        "registry_set_failed": "Nie udało sie ustawić wartości rejestru:\n{target}\n\n{error}",
-        "registry_read_failed": "Nie udało się odczytać wartości rejetru:\n{target}\n\n{error}",
-        "registry_delete_value_failed": "Nie udało się usunąć wartości rejetru:\n{target}\n\n{error}",
+        "save_registry_changes_failed": "Nie udało się zapisać zmian rejestru:\n{error}",
+        "unsupported_os": "Wykryto niewspierany system operacyjny.\nTalon wymaga Windowsa 11.",
+        "windows_version_failed": "Nie udało się ustalić wersji uruchomionego systemu.\nTalon wymaga Windowsa 11.",
+        "incompatible_windows_version": "Wykryto niekompatybilną wersję Windowsa:\n    {product_name} (build {build_num})\nTalon wymaga Windowsa 11.",
+        "temp_unwritable": "Talon nie mógł zapisać plików w {talon_dir}.\nProsimy zwolnić przestrzeń dyskową lub sprawdzić uprawnienia.",
+        "admin_elevation_failed": "Brak możliwości nadania praw administratora:\n{error}",
+        "no_internet_continue": "Nie wykryto połączenia internetowego.\n\nTalon może kontynuować bez internetu. Jeżeli przejdziesz dalej, krok instalacji przeglądarki internetowej zostanie pominięty.\n\nOpcje:\n- Połącz się z internetem oraz uruchom ponownie Talona, aby zainstalować przeglądarkę automatycznie.\n- Lub kliknij kontynuuj z pominięciem instalacji przeglądarki (możesz zainstalować ją później).",
+        "no_internet_required": "Nie wykryto połączenia internetowego.\nAktywne połączenie z internetem jest wymagane do uruchomienia Talona w trybie graficznym.\n",
+        "powershell_script_launch_failed": "Błąd podczas uruchomienia skryptu PowerShell:\n{error}",
+        "powershell_script_failed": "Skrypt PowerShella '{script_name}' nie powiódł się (kod wyjścia {exit_code})",
+        "powershell_launch_failed": "Wystąpił błąd przy uruchomieniu PowerShella:\n{error}",
+        "powershell_command_failed": "Komenda PowerShella nie powiodła się (kod wyjścia {exit_code})",
+        "registry_set_failed": "Nie udało się ustawić wartości rejestru:\n{target}\n\n{error}",
+        "registry_read_failed": "Nie udało się odczytać wartości rejestru:\n{target}\n\n{error}",
+        "registry_delete_value_failed": "Nie udało się usunąć wartości rejestru:\n{target}\n\n{error}",
         "registry_create_key_failed": "Nie udało się utworzyć klucza rejestru:\n{target}\n\n{error}",
         "registry_delete_key_failed": "Nie udało się usunąć klucza rejestru:\n{target}\n\n{error}",
-        "wallpaper_not_found": "Nie znaleziono pliku tapety: {path}",
+        "wallpaper_not_found": "Plik tapety nie istnieje: {path}",
         "desktop_background_failed": "Nie udało się ustawić tła pulpitu:\n{error}",
         "chocolatey_install_failed": "Nie udało się zainstalować lub zweryfikować Chocolatey:\n{error}",
-        "chocolatey_browser_failed": "Wystąpił błąd Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nKod zamknięcia Chocolatey: {exit_code}",
-        "chocolatey_browser_error": "Wystąpił błąd Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nBłąd: {error}",
-        "browser_metadata_missing": "Żadna paczka zawierająca przeglądarke nie została dostarczona przez metadane programu uruchamiającego.",
-        "browser_metadata_error": "Wewnętrzny błąd odczytu metadanych wybranej przeglądarki:\n{error}",
-        "script_failed": "Skrypy '{script_path}' zakończył się błędem {exit_code}",
-        "font_not_found": "Nie odnaleziono pliku czcionki:\n{font_path}",
+        "chocolatey_browser_failed": "Wystąpił błąd z Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nKod wyjścia Chocolatey: {exit_code}",
+        "chocolatey_browser_error": "Wystąpił błąd z Chocolatey w trakcie instalacji. '{display_name}' nie mógł zostać zainstalowany prawidłowo.\nBłąd: {error}",
+        "browser_metadata_missing": "Metadane programu uruchamiającego nie dostarczyły żadnego pakietu przeglądarki",
+        "browser_metadata_error": "Błąd wewnętrzny podczas odczytu metadanych wybranej przeglądarki:\n{error}",
+        "script_failed": "Skrypt '{script_path}' nie powiódł się z kodem wyjścia {exit_code}",
+        "font_not_found": "Plik czcionki nie został odnaleziony:\n{font_path}",
         "font_load_failed": "Nie udało się załadować pliku czcionki:\n{font_path}",
-        "font_family_missing": "Nie znaleziono rodziny czcionek w pliku czcionki:\n{font_path}",
-        "windows_edition_failed": "Nie udało się wykryć edycji Windowsa:\n{error}",
-        "powershell_named_script_failed": "Nie udało się wykonać skryptu PowerShell:\n{script_name}\n\n{error}",
+        "font_family_missing": "Nie odnaleziono rodzin czcionek w pliku czcionki:\n{font_path}",
+        "windows_edition_failed": "Nie udało się ustalić edycji Windowsa:\n{error}",
+        "powershell_named_script_failed": "Nie udało się wykonać skryptu PowerShella:\n{script_name}\n\n{error}",
         "registry_changes_payload_invalid": "Nieprawidłowy ładunek zmian rejestru.\n\n{error}",
-        "registry_tweak_failed": "Nie udało sie zastosować zmian rejestru:\n{target}\n\n{error}",
-        "downloaded_config_invalid": "Pobrany plik konfiguracyjny nie jest prawidłowym plikiem JSON: {error}",
-        "config_load_failed": "Nie udało się załadować konfiguracji {label}.\n{error}",
-        "config_download_failed": "Nie udało się pobrać konfiguracji z podanego adresu URL.\n{error}",
-        "config_missing": "Nie znaleziono pliku konfiguracji:\n{path}",
-        "bundled_winutil_missing": "Załączony skrypt WinUtil nie został odnaleziony:\n{path}",
-        "winutil_failed": "Nie udało się uruchomić narzędzia WinUtil ChrisTitusTecha:\n{error}",
-        "bundled_win11debloat_missing": "Załączony Win11Debloat nie został odnaleziony:\n{path}",
-        "win11debloat_failed": "Nie udało się uruchomić narzędzia Win11Debloat Raphiego:\n{error}"
+        "registry_tweak_failed": "Nie udało się wprowadzić poprawki rejestru:\n{target}\n\n{error}",
+        "downloaded_config_invalid": "Pobrana konfiguracja nie jest prawidłowym plikiem JSON: {error}",
+        "config_load_failed": "Nie udało się załadować konfiguracji {label} .\n{error}",
+        "config_download_failed": "Nie udało się pobrać konfiguracji z adresu URL.\n{error}",
+        "config_missing": "Nie odnaleziono konfiguracji:\n{path}",
+        "bundled_winutil_missing": "Nie znaleziono dołączonego skryptu WinUtil:\n{path}",
+        "winutil_failed": "Nie udało się uruchomić ChrisTitusTech WinUtil:\n{error}",
+        "bundled_win11debloat_missing": "Nie znaleziono dołączonego skryptu Win11Debloat:\n{path}",
+        "win11debloat_failed": "Nie udało się uruchomić Raphi Win11Debloat:\n{error}"
     }
 }
