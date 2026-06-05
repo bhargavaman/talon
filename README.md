@@ -7,15 +7,25 @@ Documentation is available [here](https://github.com/ravendevteam/talon/blob/mai
 
 
 ## Installation
-You can download the latest version of Talon from [here](https://raventechnologiesgroup.com/explore#talon). If you run into issues with Windows Defender while running Talon, like Talon suddenly disappearing as you're running it, try disabling Real Time Protection in Windows Defender.
+You can get Talon Talon from [here](https://raventechnologiesgroup.com/explore#talon).
 
-## Run Via PowerShell
+## Run Via PowerShell (Express Method)
 
-Talon can be ran via PowerShell. This is a great choice if you're more tech savvy and/or you don't want to deal with the difficulties of Windows Defender. **Running Talon in this manner does not require disabling Windows Defender temporarily, but it does run Talon in HEADLESS mode, suppressing UIs and the automatic restart.** Keep this in mind if you run it this way.
+Talon can be ran via PowerShell. This is a great choice if you're more tech savvy and/or you don't want to deal with the difficulties of Windows Defender. Open PowerShell as Administrator, then run the following command:
 
 ```
 irm https://debloat.win | iex
 ```
+
+## Run Talon as an Executable (Manual Method)
+
+For those who wish to have more granular control over what happens on their system. Follow these steps:
+
+1. Temporarily set C: as an exclusion in Windows Defender. This temporarily disables action from Defender to avoid interference with Talon mid-process, and avoid issues or corruption. **REMOVE THE EXCLUSION AFTER INSTALLING TALON!**
+
+2. Head to the download page for Talon and select "Manual," which will provide an option to download Talon.
+
+3. Once downloaded, extract the ZIP, locate Talon.exe, and run it.
 
 ## Compile From Source
 To compile from source, make sure you have Python 3.12.4, install the necessary libraries from `requirements.txt`, then run `build.bat`. **Please note that, when building from source, you are building the absolute latest version of the code (even newer than the most recent release)**!

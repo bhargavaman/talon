@@ -18,9 +18,7 @@
             "configure_updates": "Configurando políticas do Windows Update...",
             "apply_background": "Definindo seu plano de fundo da área de trabalho...",
             "dry_run_complete": "Execução de teste concluída. Nenhuma alteração foi feita no sistema.",
-            "suppress_restart_headless": "Suprimindo reinicialização do sistema devido ao modo headless.",
-            "suppress_restart_developer": "Suprimindo reinicialização do sistema devido ao modo desenvolvedor.",
-            "restarting": "Reiniciando o sistema..."
+            "complete_no_restart": "Instalação concluída. O Talon não reiniciará o sistema automaticamente."
         }
     },
     "configuration": {
@@ -134,7 +132,6 @@
         "config_not_found": "Arquivo de configuração não encontrado: {path}",
         "empty_execution_plan": "O plano de instalação não possui etapas executáveis. Abra a interface do Talon e configure pelo menos uma etapa.",
         "installation_unexpected": "Ocorreu um erro inesperado durante a instalação.\nVerifique o log para mais detalhes.",
-        "restart_failed": "Falha ao reiniciar o sistema.\nVerifique o log para mais detalhes.",
         "completion_marker_failed": "Falha ao registrar o marcador de conclusão do Talon.\n{error}",
         "import_plan_failed": "Falha ao importar o plano de instalação:\n{error}",
         "import_winutil_failed": "Falha ao importar a configuração do WinUtil:\n{error}",

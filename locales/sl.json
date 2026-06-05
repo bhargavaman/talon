@@ -18,9 +18,7 @@
             "configure_updates": "Urejamo pravila za posodobitve sistema Windows ...",
             "apply_background": "Nastavljamo vaše ozadje namizja ...",
             "dry_run_complete": "Poskusni zagon je končan. Sistemskih sprememb ni bilo.",
-            "suppress_restart_headless": "Preprečevanje ponovnega zagona sistema zaradi headless načina.",
-            "suppress_restart_developer": "Preprečevanje ponovnega zagona sistema zaradi načina za razvijalce.",
-            "restarting": "Ponovni zagon sistema ..."
+            "complete_no_restart": "Namestitev je končana. Talon sistema ne bo samodejno ponovno zagnal."
         }
     },
     "configuration": {
@@ -135,7 +133,6 @@
         "empty_execution_plan": "Načrt za namestitev nima izvršljivih korakov. Odprite Talon UI in nastavite vsaj en korak.",
         "installation_unexpected": "Nepredvidena napaka med namestitvijo.\nPreverite log za podrobnosti.",
         "completion_marker_failed": "Beleženje oznake dokončanja Talona ni uspelo.\n{error}",
-        "restart_failed": "Ponovni zagon sistema ni bil uspešen.\nPreverite log za podrobnosti.",
         "import_plan_failed": "Uvoz načrta namestitve ni uspel:\n{error}",
         "import_winutil_failed": "Uvoz WinUtil nastavitev ni uspel:\n{error}",
         "winutil_config_invalid": "WinUtil nastavitev mora biti JSON objekt ali array.",

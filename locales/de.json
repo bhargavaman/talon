@@ -18,9 +18,7 @@
             "configure_updates": "Windows-Update-Richtlinien werden konfiguriert...",
             "apply_background": "Desktop-Hintergrund wird festgelegt...",
             "dry_run_complete": "Testlauf abgeschlossen. Es wurden keine Systemänderungen vorgenommen.",
-            "suppress_restart_headless": "Systemneustart wird aufgrund des Headless-Modus unterdrückt.",
-            "suppress_restart_developer": "Systemneustart wird aufgrund des Entwicklermodus unterdrückt.",
-            "restarting": "System wird neu gestartet..."
+            "complete_no_restart": "Installation abgeschlossen. Talon startet das System nicht automatisch neu."
         }
     },
     "configuration": {
@@ -133,7 +131,6 @@
         "config_not_found": "Konfigurationsdatei nicht gefunden: {path}",
         "empty_execution_plan": "Der Installationsplan enthält keine ausführbaren Schritte. Öffne die Talon-Oberfläche und konfiguriere mindestens einen Schritt.",
         "installation_unexpected": "Während der Installation ist ein unerwarteter Fehler aufgetreten.\nSiehe Protokoll für Details.",
-        "restart_failed": "Das System konnte nicht neu gestartet werden.\nSiehe Protokoll für Details.",
         "import_plan_failed": "Der Installationsplan konnte nicht importiert werden:\n{error}",
         "completion_marker_failed": "Talon-Abschlussmarkierung konnte nicht aufgezeichnet werden.\n{error}",
         "import_winutil_failed": "Die WinUtil-Konfiguration konnte nicht importiert werden:\n{error}",

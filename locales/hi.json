@@ -18,9 +18,7 @@
             "configure_updates": "Windows Update policies को सेट किया जा रहा है...",
             "apply_background": "आपका desktop background सेट किया जा रहा है...",
             "dry_run_complete": "Dry run पूरा हुआ। सिस्टम में कोई बदलाव नहीं किया गया।",
-            "suppress_restart_headless": "Headless mode के कारण सिस्टम रीस्टार्ट को रोका जा रहा है।",
-            "suppress_restart_developer": "Developer mode के कारण सिस्टम रीस्टार्ट को रोका जा रहा है।",
-            "restarting": "सिस्टम रीस्टार्ट हो रहा है..."
+            "complete_no_restart": "इंस्टॉलेशन पूरा हुआ। Talon आपके सिस्टम को अपने आप रीस्टार्ट नहीं करेगा।"
         }
     },
     "configuration": {
@@ -134,7 +132,6 @@
         "config_not_found": "Config file नहीं मिली: {path}",
         "empty_execution_plan": "Install Plan में कोई लागू करने योग्य स्टेप नहीं हैं। Talon UI खोलें और कम से कम एक स्टेप सेट करें।",
         "installation_unexpected": "इन्स्टॉलेशन के दौरान एक त्रुटि हुई।\nजानकारी के लिए लॉग जांचें।",
-        "restart_failed": "सिस्टम को रीस्टार्ट करने में असफल।\nजानकारी के लिए लॉग जांचें।",
         "import_plan_failed": "Install Plan import करने में असफल:\n{error}",
         "import_winutil_failed": "WinUtil Config import करने में असफल:\n{error}",
         "winutil_config_invalid": "WinUtil Config एक JSON object या array होना चाहिए।",

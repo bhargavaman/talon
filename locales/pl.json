@@ -18,9 +18,7 @@
             "configure_updates": "Konfiguracja zasad aktualizacji Windows Update...",
             "apply_background": "Ustawianie tła pulpitu...",
             "dry_run_complete": "Przebieg próbny ukończony. Nie zostały wprowadzone żadne zmiany w systemie.",
-            "suppress_restart_headless": "Wstrzymanie ponownego uruchamiania systemu z powodu trybu headless.",
-            "suppress_restart_developer": "Wstrzymanie ponownego uruchamiania systemu przez Tryb Programisty.",
-            "restarting": "Ponowne uruchamianie systemu..."
+            "complete_no_restart": "Instalacja zakończona. Talon nie uruchomi systemu ponownie automatycznie."
         }
     },
     "configuration": {
@@ -134,7 +132,6 @@
         "config_not_found": "Plik konfiguracyjny nie został odnaleziony: {path}",
         "empty_execution_plan": "Plan instalacyjny nie zawiera kroków wykonywalnych. Uruchom Talona w trybie graficznym i skonfiguruj przynajmniej jeden krok.",
         "installation_unexpected": "Wystąpił nieoczekiwany błąd podczas instalacji.\nPo więcej szczegółów sprawdź log.",
-        "restart_failed": "Nie udało się ponownie uruchomić systemu.\nPo więcej szczegółów sprawdź log.",
         "import_plan_failed": "Nie udało się zaimportować planu instalacji:\n{error}",
         "import_winutil_failed": "Nie udało się zaimportować konfiguracji WinUtil:\n{error}",
         "winutil_config_invalid": "Konfiguracja WinUtil musi być obiektem lub tablicą JSON.",

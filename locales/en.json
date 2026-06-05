@@ -18,9 +18,7 @@
             "configure_updates": "Configuring Windows Update policies...",
             "apply_background": "Setting your desktop background...",
             "dry_run_complete": "Dry run complete. No system changes were made.",
-            "suppress_restart_headless": "Suppressing system restart due to headless mode.",
-            "suppress_restart_developer": "Suppressing system restart due to developer mode.",
-            "restarting": "Restarting system..."
+            "complete_no_restart": "Installation complete. Talon will not restart your system automatically."
         }
     },
     "configuration": {
@@ -135,7 +133,6 @@
         "empty_execution_plan": "Install plan has no executable steps. Open Talon UI and configure at least one step.",
         "installation_unexpected": "An unexpected error occurred during installation.\nCheck the log for details.",
         "completion_marker_failed": "Failed to record Talon completion marker.\n{error}",
-        "restart_failed": "Failed to restart the system.\nCheck the log for details.",
         "import_plan_failed": "Failed to import install plan:\n{error}",
         "import_winutil_failed": "Failed to import WinUtil config:\n{error}",
         "winutil_config_invalid": "WinUtil config must be a JSON object or array.",

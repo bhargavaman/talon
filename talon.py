@@ -292,17 +292,6 @@ def _update_status(bus, label: UIHeaderText, message: str):
 	bus.set_msg.emit(message)
 	bus.raiseit.emit()
 
-def _restart_windows():
-	result = subprocess.run(
-		["shutdown", "/r", "/t", "0", "/f"],
-		check=False,
-		stdout=subprocess.DEVNULL,
-		stderr=subprocess.DEVNULL,
-	)
-	if result.returncode != 0:
-		raise RuntimeError(f"shutdown.exe failed with exit code {result.returncode}")
-
-
 def _record_debloat_completion():
 	epoch_utc = int(time.time())
 	access = winreg.KEY_WRITE
@@ -447,28 +436,11 @@ def main(argv=None):
 						t("errors.completion_marker_failed", {"error": e}),
 						allow_continue=True,
 					)
-			if args.headless or args.developer_mode:
-				if args.headless:
-					msg = t("app.install_overlay.suppress_restart_headless")
-				else:
-					msg = t("app.install_overlay.suppress_restart_developer")
-				_update_status(bus, status_label, msg)
-				if bus is not None:
-					bus.stop.emit()
-				return
-			else:
-				_update_status(bus, status_label, t("app.install_overlay.restarting"))
-				if bus is not None:
-					bus.stop.emit()
-				try:
-					_restart_windows()
-				except Exception as e:
-					logger.exception(f"Failed to restart system: {e}")
-					if not args.headless:
-						show_error_popup(
-							t("errors.restart_failed"),
-							allow_continue=False,
-						)
+			_update_status(bus, status_label, t("app.install_overlay.complete_no_restart"))
+			if bus is not None:
+				bus.stop.emit()
+				bus.quit_later.emit()
+			return
 		finally:
 			_cleanup_runtime_config()
 
