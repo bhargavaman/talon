@@ -1,0 +1,188 @@
+{
+    "meta": {
+        "code": "sl",
+        "native_name": "Slovenščina",
+        "english_name": "Slovenian",
+        "direction": "ltr"
+    },
+    "app": {
+        "install_overlay": {
+            "title": "Talon se namešča.",
+            "guidance": "Prosimo, da ne uporabljate miške ali tipkovnice. Lahko spremljate, kako Talon deluje.",
+            "remove_edge": "Trajno odstranjujemo Microsoft Edge ...",
+            "uninstall_outlook_onedrive": "Odstranjujemo Outlook in OneDrive ...",
+            "browser_installation": "Nameščamo vaš izbran brskalnik ...",
+            "debloat_windows_phase_one": "Prva faza odstranitve nepotrebne programske opreme iz sistema Windows (WinUtil) ...",
+            "debloat_windows_phase_two": "Druga faza odstranitve nepotrebne programske opreme iz sistema Windows (Win11Debloat) ...",
+            "registry_tweaks": "Delamo nekaj vizualnih popravkov ...",
+            "configure_updates": "Urejamo pravila za posodobitve sistema Windows ...",
+            "apply_background": "Nastavljamo vaše ozadje namizja ...",
+            "dry_run_complete": "Poskusni zagon je končan. Sistemskih sprememb ni bilo.",
+            "suppress_restart_headless": "Preprečevanje ponovnega zagona sistema zaradi headless načina.",
+            "suppress_restart_developer": "Preprečevanje ponovnega zagona sistema zaradi načina za razvijalce.",
+            "restarting": "Ponovni zagon sistema ..."
+        }
+    },
+    "configuration": {
+        "browser": {
+            "title": "Dobrodošli. Prosimo izberite svoj brskalnik.",
+            "skip": "Ne namesti brskalnika"
+        },
+        "review": {
+            "title": "Sistem je pripravljen na odstranitev nepotrebne programske opreme. Prosimo, preglejte.",
+            "empty": "Prazno.",
+            "guidance": "Seznam na levi strani kaže, kaj vse bo Talon storil sistemu. Če je kaj, česar ne želite, da stori, lahko to odstranite s seznama.\n\nČe se vam vse zdi pravilno, izberite  \"Začni.\"",
+            "no_browser_warning": "Brskalnik ne bo nameščen.",
+            "no_internet_info": "Niste povezani na omrežje. Talon ne bo namestil brskalnika.",
+            "no_updates_warning": "Politika posodobitev ne bo nastavljena. Posodobitve lahko obnovijo nepotrebno programje in razveljavijo nekatere Talonove nastavitve.",
+            "nothing_to_do": "Ne morem zagnati procesa odstranitve nepotrebne programske opreme, saj ni nič za storiti.",
+            "reset_defaults": "Vrni Privzeto",
+            "advanced": "Napredno",
+            "start_button": "ZAČNI",
+            "custom_preset": "Po meri"
+        },
+        "advanced": {
+            "title": "Napredne nastavitve",
+            "warning": "Ne spreminjajte, razen če veste, kaj počnete!",
+            "import_plan": "Uvozi Talonov Načrt Namestitve",
+            "import_winutil": "Uvozi WinUtil Nastavitve",
+            "set_win11_args": "Nastavi Win11Debloat Argumente",
+            "edit_registry_changes": "Uredi Spremembe Registrov",
+            "export_plan": "Izvozi Kot Načrt Namestitve",
+            "set_background": "Nastavi Uporabljeno Ozadje",
+            "true": "da",
+            "false": "ne",
+            "see_documentation": "Pregled Dokumentacije",
+            "confirm": "Potrdi"
+        },
+        "dialogs": {
+            "cancel": "Prekini",
+            "save_changes": "Shrani Spremembe",
+            "win11_args_title": "Nastavi Win11Debloat Argumente",
+            "registry_changes_title": "Uredi Spremembe Registrov",
+            "import_plan_title": "Uvozi Talonov Načrt Namestitve",
+            "import_winutil_title": "Uvozi WinUtil Nastavitve",
+            "export_plan_title": "Izvozi Kot Načrt Namestitve",
+            "set_background_title": "Nastavi Uporabljeno Ozadje",
+            "json_files_filter": "JSON Datoteke (*.json);;Vse Datoteke (*)",
+            "image_files_filter": "Slike (*.png *.jpg *.jpeg *.bmp *.webp);;Vse Datoteke (*)"
+        }
+    },
+    "steps": {
+        "remove_edge_permanently": {
+            "text": "Trajno odstrani Microsoft Edge",
+            "tooltip": "Odstrani Microsoft Edge in zagotovi, da se ne vrne. Kadarkoli ga lahko sami znova namestite. Aplikacije, ki so odvisne od njega (msedgewebview2), bodo še vedno delovale."
+        },
+        "uninstall_outlook_onedrive": {
+            "text": "Odstrani Outlook & OneDrive",
+            "tooltip": "Odstrani aplikaciji Outlook in OneDrive, saj ju veliko ljudi ne uporablja. Kadarkoli ju lahko sami znova namestite."
+        },
+        "browser_installation": {
+            "text": "Namesti spletni brskalnik",
+            "text_with_browser": "Namesti spletni brskalnik: {browser_name}",
+            "tooltip": "Niste še izbrali spletnega brskalnika."
+        },
+        "debloat_windows_phase_one": {
+            "text": "Prva faza odstranitve nepotrebne programske opreme iz sistema Windows (WinUtil)",
+            "tooltip": "Talon uporablja priljubljeno in uveljavljeno orodje WinUtil avtorja ChrisTitusTech kot del procesa odstranjevanja nepotrebne programske opreme. Celoten postopek je avtomatiziran, zato vam ni potrebno ničesar storiti. Ne priporočamo, da bi ta korak preskočili."
+        },
+        "debloat_windows_phase_two": {
+            "text": "Druga faza odstranitve nepotrebne programske opreme iz sistema Windows (Win11Debloat)",
+            "tooltip": "Talon uporablja priljubljeno in uveljavljeno orodje Win11Debloat avtorja Raphire kot del procesa odstranjevanja nepotrebne programske opreme. Celoten postopek je avtomatiziran, zato vam ni potrebno ničesar storiti. Ne priporočamo, da bi ta korak preskočili."
+        },
+        "registry_tweaks": {
+            "text": "Naredi vizualne spremembe namizju",
+            "tooltip": "Spremeni register Windows za boljši izgled in delovanje namizja, vključno z (a ne omejeno na) poravnavo opravilne vrstice na levo, nastavljanjem temnega načina, odstranitvijo zamika v menijih in prikazovanjem končnic datotek."
+        },
+        "configure_updates": {
+            "text": "Nastavi politiko izključno varnostnih posodobitev",
+            "tooltip": "Da prepreči, da bi posodobitve Windows znova uvedle nepotrebno programje in razveljavile opravljene spremembe, Talon nastavi politiko posodobitev, ki omogoča prejemanje samo varnostnih posodobitev, brez ne-varnostnih \"zbirnih\" posodobitev. Na Windows Pro velja trajno, na Windows Home pa le 365 dni."
+        },
+        "apply_background": {
+            "text": "Nastavi ozadje namizja",
+            "tooltip": "Da zapečati videz sveže očiščenega sistema, Talon nastavi ozadje namizja na prilagojeno ozadje z blagovno znamko Raven. Točno ozadje namizja je nastavljivo v naprednih nastavitvah."
+        },
+        "developer_mode": {
+            "text": "Način za razvijalce (skrij namestitveno prekrivno plast)",
+            "tooltip": "Ko je omogočen, se Talon zažene brez prikaza celozaslonske namestitvene prekrivne plasti."
+        }
+    },
+    "browsers": {
+        "edge": {
+            "tooltip": "Edge ni priporočen, razen, če je nujen za vaše namene, saj zelo posega v vašo zasebnost in vsebuje oglase."
+        },
+        "waterfox": {
+            "tooltip": "Waterfox je bolj priporočen kot Firefox, vendar ne bolj kot Brave. Temelji na Firefoxu, vendar odstranjuje sledenje in telemetrijo."
+        },
+        "brave": {
+            "tooltip": "Brave je priporočen brskalnik, saj je najbližji Chromu in hkrati spoštuje vašo zasebnost."
+        },
+        "librewolf": {
+            "tooltip": "LibreWolf je priporočen samo za izkušene uporabnike. Zasnovan je za maksimalno zasebnost in varnost, vendar je lahko težji za uporabo."
+        },
+        "firefox": {
+            "tooltip": "Firefox ni priporočen, razen, če je nujen za vaše namene, saj privzeto vključuje telemetrijo in sponzorirano vsebino."
+        }
+    },
+    "errors": {
+        "dialog_title": "Napaka",
+        "stop_installation": "Ustavi Namestitev",
+        "continue_anyways": "Vseeno Nadaljuj",
+        "developer_console_failed": "Odpiranje okna konzole načina za razvijalce ni uspelo.\n{error}",
+        "screen_launch_failed": "Neuspešen zagon ekrana '{module_name}'.\n{error}",
+        "screen_unexpected": "Nepredvidena napaka na ekranu '{module_name}'.\n{error}",
+        "config_not_found": "Datoteka za nastavitve ne obstaja: {path}",
+        "empty_execution_plan": "Načrt za namestitev nima izvršljivih korakov. Odprite Talon UI in nastavite vsaj en korak.",
+        "installation_unexpected": "Nepredvidena napaka med namestitvijo.\nPreverite log za podrobnosti.",
+        "completion_marker_failed": "Beleženje oznake dokončanja Talona ni uspelo.\n{error}",
+        "restart_failed": "Ponovni zagon sistema ni bil uspešen.\nPreverite log za podrobnosti.",
+        "import_plan_failed": "Uvoz načrta namestitve ni uspel:\n{error}",
+        "import_winutil_failed": "Uvoz WinUtil nastavitev ni uspel:\n{error}",
+        "winutil_config_invalid": "WinUtil nastavitev mora biti JSON objekt ali array.",
+        "export_plan_failed": "Izvoz načrta namestitve ni uspel:\n{error}",
+        "background_file_missing": "Izbrana datoteka slike ne obstaja.",
+        "set_background_failed": "Namestitev izbranega ozadja namizja ni uspela:\n{error}",
+        "save_win11_args_failed": "Shranjevanje Win11Debloat argumentov ni uspelo:\n{error}",
+        "registry_changes_invalid": "Spremembe registrov morajo biti JSON objekt ali array.",
+        "save_registry_changes_failed": "Shranjevanje sprememb registrov ni uspelo:\n{error}",
+        "unsupported_os": "Zaznan nepodprt operacijski sistem.\nTo orodje zahteva Windows 11.",
+        "windows_version_failed": "Določanje različice Windows ni uspelo.\nTo orodje zahteva Windows 11.",
+        "incompatible_windows_version": "Zaznana nekompatibilna različica Windows:\n    {product_name} (build {build_num})\nTo orodje zahteva Windows 11.",
+        "temp_unwritable": "Talon ni uspel zapisati datotek v {talon_dir}.\nProsimo, sprostite prostor na disku ali preverite dovoljenja.",
+        "admin_elevation_failed": "Nimate skrbniških pravic:\n{error}",
+        "no_internet_continue": "Povezava z internetom ni zaznana.\n\nTalon lahko nadaljuje brez povezave z internetom. Če nadaljujete, bo korak za namestitev spletnega brskalnika spuščen.\n\nMožnosti:\n- Povežite se na internet in znova zaženite Talon za samodejno namestitev spletnega brskalnika.\n- Ali pritisnite Nadaljuj, da nadaljujete brez namestitve spletnega brskalnika (brskalnik lahko namestite kasneje).",
+        "no_internet_required": "Povezava z internetom ni zaznana.\nAktivna povezava z internetom je potrebna, da Talon deluje v ne-headless načinu.\n",
+        "powershell_script_launch_failed": "Napaka pri zagonu PowerShell skripte:\n{error}",
+        "powershell_script_failed": "PowerShell skripta '{script_name}' ni uspela (exit code {exit_code})",
+        "powershell_launch_failed": "Napaka pri zagonu PowerShell:\n{error}",
+        "powershell_command_failed": "Neuspešen PowerShell ukaz (exit code {exit_code})",
+        "registry_set_failed": "Neuspešna nastavitev registra:\n{target}\n\n{error}",
+        "registry_read_failed": "Neuspešno branje registra:\n{target}\n\n{error}",
+        "registry_delete_value_failed": "Neuspešno brisanje vrednosti registra:\n{target}\n\n{error}",
+        "registry_create_key_failed": "Neuspešno ustvarjen ključ registra:\n{target}\n\n{error}",
+        "registry_delete_key_failed": "Neuspešno brisanje ključa registra:\n{target}\n\n{error}",
+        "wallpaper_not_found": "Datoteka za ozadje namizja ne obstaja: {path}",
+        "desktop_background_failed": "Neuspešna namestitev slike ozadja namizja:\n{error}",
+        "chocolatey_install_failed": "Neuspešna namestitev ali verifikacija Chocolatey:\n{error}",
+        "chocolatey_browser_failed": "Napaka s Chocolatey pri namestitvi. '{display_name}' ni uspelo namestiti.\nChocolatey exit code: {exit_code}",
+        "chocolatey_browser_error": "Napaka s Chocolatey pri namestitvi. '{display_name}' ni uspelo namestiti.\nError: {error}",
+        "browser_metadata_missing": "Paket brskalnika ni bil zagotovljen v metapodatkih zaganjača.",
+        "browser_metadata_error": "Interna napaka pri branju metapodatkov izbire brskalnika:\n{error}",
+        "script_failed": "Skripta '{script_path}' ni uspela z exit kodo {exit_code}",
+        "font_not_found": "Datoteka za font ne obstaja:\n{font_path}",
+        "font_load_failed": "Nalaganje datoteke za font ni uspelo:\n{font_path}",
+        "font_family_missing": "Družine fontov ne obstajajo v datoteki fontov:\n{font_path}",
+        "windows_edition_failed": "Določanje izdaje sistema Windows ni uspelo:\n{error}",
+        "powershell_named_script_failed": "Neuspešna izvršitev PowerShell skripte:\n{script_name}\n\n{error}",
+        "registry_changes_payload_invalid": "Neveljaven paket sprememb registrov.\n\n{error}",
+        "registry_tweak_failed": "Sprememba registra ni uspela:\n{target}\n\n{error}",
+        "downloaded_config_invalid": "Prenesena nastavitev ni veljaven JSON: {error}",
+        "config_load_failed": "Nalaganje nastavitve {label} ni uspelo.\n{error}",
+        "config_download_failed": "Neuspešen prenos nastavitev iz URL-ja.\n{error}",
+        "config_missing": "Nastavitev ne obstaja:\n{path}",
+        "bundled_winutil_missing": "Priložena WinUtil skripta ne obstaja:\n{path}",
+        "winutil_failed": "Zagon ChrisTitusTech WinUtil ni uspel:\n{error}",
+        "bundled_win11debloat_missing": "Priložena Win11Debloat skripta ne obstaja:\n{path}",
+        "win11debloat_failed": "Zagon Raphi Win11Debloat ni uspel:\n{error}"
+    }
+}
